@@ -1,0 +1,3 @@
+@php 
+createNewBlockchainWallet(); 
+@endphp
