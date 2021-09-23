@@ -23,9 +23,13 @@ if(!function_exists("validateReferralCode")){
         {
             
             $referral_code=$referral_code; 
+            if(Cookie::get('referral') !==null)
+                {
+                    $referred_by = Cookie::get('referralcode');
+                }           
 
-            $referred_by = Cookie::get('referral');
-
+                else ($referred_by=null); 
+              //  dd($referred_by); 
             if($referral_code==$referred_by) {
 
                 try {
@@ -37,7 +41,7 @@ if(!function_exists("validateReferralCode")){
                     }
 
                 catch(Exception $e) {
-                                    return "Invalid Refferal Code"; }
+                                    return "GiftClub"; }
 
             }
             
@@ -55,7 +59,7 @@ if(!function_exists("validateReferralCode")){
                 }
 
             catch(Exception $e) {
-                                return "Invalid Refferal Code"; }
+                                return "GiftClub"; }
 
                
             }

@@ -6,15 +6,16 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "deployer/deployer": "^6.8",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
+        "giftclub/laravel-referral": "dev-master",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.40",
         "laravel/jetstream": "^2.3",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.5",
-        "livewire/livewire": "^2.0",
-        "questocat/laravel-referral": "^1.0"
+        "livewire/livewire": "^2.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
