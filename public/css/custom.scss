@@ -1,0 +1,15 @@
+.gift-h {
+    margin-bottom: 30px;
+}
+
+.gift-h:not(:first-child) {
+    margin-top: 50px;
+}
+
+.gift-p {
+    color: #666;
+}
+
+.gift-p strong {
+    color: #333;
+}

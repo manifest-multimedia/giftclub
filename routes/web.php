@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\User; 
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,8 +18,9 @@ use App\Models\User;
 // });
 
 Route::view('/', 'frontend.home');
+Route::view('/terms', 'frontend.policy.terms');
 
-Route::view('/new', 'frontend.new'); 
+Route::view('/new', 'frontend.new');
 
 Route::middleware(['auth:sanctum', 'verified' , 'referral'])->group(function(){
 
@@ -48,4 +49,4 @@ Route::middleware(['auth:sanctum', 'verified' , 'referral'])->group(function(){
     })->name('profile');
 
 });
-    
+

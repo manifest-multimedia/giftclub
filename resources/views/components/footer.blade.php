@@ -16,7 +16,7 @@
                           <img src="{{asset('img/insta.svg')}}" class="iconss" width="32px" height="32px">
                           <img src="{{asset('img/facebook.svg')}}" class="iconss" width="32px" height="32px">
                           <img src="{{asset('img/twitter.svg')}}" class="iconss" width="32px" height="32px">
-                          
+
                         </div>
 
                     </div>
@@ -33,7 +33,7 @@
 
                             <li class="small-ft"><a href="">Payments</a></li>
 
-                            <li class="small-ft"><a href="">Terms Of Services</a></li>
+                            <li class="small-ft"><a href="/terms">Terms Of Services</a></li>
 
                             <li class="small-ft"><a href="">Your Account</a></li>
 

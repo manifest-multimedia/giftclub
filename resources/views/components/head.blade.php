@@ -15,6 +15,7 @@
     <!-- Bootstrap CSS -->
 
     <link rel="stylesheet" type="text/css" href="{{asset("css/style.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{asset("css/custom.scss")}}">
     <link rel="shortcut icon" type="image" href="{{asset("images/logo-icon.png")}}">
 
   </head>
