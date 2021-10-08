@@ -39,7 +39,7 @@
 
                 <div class="col-sm-12 col-md-6">
 
-                    <div class="image-frame" style="background-image: url('{{asset('img/pam.png')}}');"></div>
+                    <div class="image-frame" style="background-image: url('{{asset('images/placeholder.jpg')}}'); background-position-y: 50%;"></div>
 
                     <div class="floating-home-details">
 
@@ -83,7 +83,7 @@
 
                     <p style="margin-bottom:0px;">Samantha Banks</p>
 
-                    <p style="margin:0px;">Enterpreneur</p>                     
+                    <p style="margin:0px;">Enterpreneur</p>
 
                 </div>
 
@@ -109,9 +109,9 @@
 
                     <div class="embed-container">
 
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/ct2Ysl9IvfY" frameborder="0" allowfullscreen=""></iframe>                          
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/ct2Ysl9IvfY" frameborder="0" allowfullscreen=""></iframe>
 
-                    </div>                    
+                    </div>
 
                 </div>
 
@@ -142,7 +142,7 @@
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                       <img src="{{asset('img/privacy.svg')}}" class="iconss"><p class="infotext">PRIVACY</p>
                       <img src="{{asset('img/reliable.svg')}}" class="iconss"><p class="infotext">RELIABLE</p>
-                      
+
                     </div>
 
                 </div>
@@ -187,7 +187,7 @@
                             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                               <img src="{{asset('img/simple.svg')}}" class="iconss"><p class="infotext">SIMPLE</p>
                               <img src="{{asset('img/clean.svg')}}" class="iconss"><p class="infotext">CLEAN</p>
-                              
+
                             </div>
 
                         </div>
