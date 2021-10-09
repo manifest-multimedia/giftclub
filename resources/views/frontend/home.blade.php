@@ -19,7 +19,7 @@
 
                     <h1 class="home-intro">Communal Money<br>Collection Made<br>Easy For Everyone.</h1><br>
 
-                    <p style="color: #C6C6C6;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
+                    <p style="color: #C6C6C6;">The	Gift	 Club offers a	 risk-free	way	 to	 introduce	 our	members	 to	 the	 crypto	 space.	With	investors	 optimistic	about	an	 upcoming bullish	run	of	BTC	and	altcoins,	this	is	the	best	time	to	enter	the	industry.</p>
 
                     <div class="wrapper" style="margin-top:42px;">
 
@@ -133,11 +133,15 @@
 
                 <div class="col-sm-12 col-md-6">
 
-                    <p>Why Us?</p>
+                    <p>WHY US?</p>
 
                     <h1>Make Your Money The Safe And Secure Way</h1><br>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                    <p>There	is	a	lot	of	misinformation	in	the	crypto-sphere,	from	people	thinking	it	is	a	scam	to	those	who	believe	it	is	a	means	for	the	elite
+                        to	 control	 the	masses	and	 those	who	 have	 concerns	about	 funding	 terrorism	and	illicit	activities.	It	 is	 up	 to	 startups	 like	Milliard
+                        Capital,	through The	Gift	Club, to	bring	champion	this	new	technology	and	inspire	the	interest	of	people	in	it.</p>
+                        <p>The	Gift	 Club offers a	 risk-free	way	 to	 introduce	 our	members	 to	 the	 crypto	 space.	With	investors	 optimistic	about	an	 upcoming
+                            bullish	run	of	BTC	and	altcoins,	this	is	the	best	time	to	enter	the	industry.</p>
 
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                       <img src="{{asset('img/privacy.svg')}}" class="iconss"><p class="infotext">PRIVACY</p>
@@ -180,9 +184,9 @@
 
                             <h1>Made To Be Simple And Intutive.</h1><br>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                            <p>Once	a	member	signs	up	and	makes	payment,	the	system	creates	a	unique	ID	(referral	link)	that	members	can	send	to	new	members
+                                to	start	forming	a	Gift	Network.	The	Gift	Network	grows	by	new	members	directly	using	the	unique	ID	of	old	members	to	sign	up
+                                and	when	newly	introduced	members	also	go	on	to	sign	up	people	on	their	own.</p>
 
                             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                               <img src="{{asset('img/simple.svg')}}" class="iconss"><p class="infotext">SIMPLE</p>
@@ -200,7 +204,7 @@
 
         </div>
 
-        <div class="carousel-item">
+        {{-- <div class="carousel-item">
 
             <div class="container">
 
@@ -229,7 +233,7 @@
             </div>
 
         </div>
-
+ --}}
         <div class="carousel-item">
 
             <div class="container">
@@ -290,7 +294,17 @@
 
             <div class="row">
 
-                <div class="col-sm-12 col-md-10"><p>The site will automatically place people in positions as they register depending on which package they choose. As can be seen in the diagrams and explanations below.</p><br></div>
+                <div class="col-12">
+
+
+                            <h1>Process</h1><br>
+                </div>
+
+                <div class="col-sm-12 col-md-10">
+                    <P>We	use	three	colours:	red,	blue	and	green	to	indicate	member’s	position.</P>
+                    <p>When	you	sign	up,	you	need	to	bring	in	one	other	person	to	start	progressing.	You	are	blocked	from	progressing	until	at	least one
+                        person	uses	your	referral	link, which	then	allows	you	to	start	progressing.</p><br>
+                </div>
 
                 <div class="col-sm-12 col-md-6"><img src="{{asset('img/nest.svg')}}" class="full-img"></div>
 
@@ -302,7 +316,7 @@
 
                         <div class="col-sm-12 col-md-10">
 
-                            <p class="text-def">The first person is the one in <span class="dark-blue-color">DARK BLUE</span></p>
+                            <p class="text-def">A person is positioned at <span class="red-color">RED</span> immediately after signing up.</p>
 
                         </div>
 
@@ -314,11 +328,14 @@
 
                         <div class="col-sm-12 col-md-10">
 
-                            <p class="text-def">The next two people in <span class="dark-gold-color">DARK GOLD</span> will be placed behind the BLUE.</p>
+                            <p class="text-def">The person will be moved to <span class="light-blue-color">BLUE</span> when 4 people used his/her referral link to join  and	 receive	 first	 half	 of	 the	 crypto
+                                investment).</p>
 
                         </div>
 
                     </div>
+
+
 
                     <div class="row" style="margin-bottom:32px;">
 
@@ -326,7 +343,7 @@
 
                         <div class="col-sm-12 col-md-10">
 
-                            <p class="text-def">The next 4 people <span class="light-blue-color">LIGHT BLUE</span> will be placed behind the <span class="dark-gold-color">DARK GOLD</span>.</p>
+                            <p class="text-def">When	another	4	people	join,	you	move	to <span class="green-color">GREEN</span> and	receive	the	other	half	of	your	crypto	investment	plus	the	Payout</p>
 
                         </div>
 
@@ -338,7 +355,8 @@
 
                         <div class="col-sm-12 col-md-10">
 
-                            <p class="text-def">Then the next eight people <span class="red-color">RED</span> will automatically be placed behind the <span class="light-blue-color">LIGHT BLUE</span>.</p>
+                            <p class="text-def">You	are	then	automatically	enrolled	into	the	system	for	another	go.	Once	you	move	to	green,	your	status	starts	blinking	and	showing
+                                “Congratulations”.	You	receive	an	email	indicating	that	you	are	due	for	a	payment	with	the	next	hours</p>
 
                         </div>
 
@@ -350,7 +368,10 @@
 
                         <div class="col-sm-12 col-md-10">
 
-                            <p class="text-def">Once the above happens, the person in the middle <span class="dark-blue-color">(DARK BLUE)</span> gets paid.</p>
+                            <p class="text-def">Every	 time	 you	 refer a	 friend	 with	 your	 referral	 code	 and	 they	 sign	 up,	 you	 get	 1 reward	 point.	 Reward	 points	 above	 10	 can	 be
+                                redeemed	for	cash. Reward	points	should	be	indicated	on	member’s	dashboard	together	with	a	button	to	withdraw	the	reward	(as
+                                redeeming	reward	point	is NOT	automated)</span></p>
+                                <p>1	reward	points	=	$1</p>
 
                         </div>
 
