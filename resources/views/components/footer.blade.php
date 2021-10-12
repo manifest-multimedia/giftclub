@@ -84,9 +84,9 @@
 
                         <ul class="footer-list">
 
-                            <li class="small-ft"><a href="">info@bigideas.com</a></li>
+                            <li class="small-ft"><a href="">info@thegiftclub.com</a></li>
 
-                            <li class="small-ft">+1938249472</li>
+                            <li class="small-ft">+233244558822</li>
 
                             <li><bold>Payment Methods</bold></li>
 
