@@ -17,17 +17,12 @@
 
                             <h3 class="price center-text">$100</h3>
 
-                            <p class="package-details">Lorem Ipsum</p>
+                            <p class="package-details">Crypto Investment</p>
+                            <p class="package-details"></p>
 
                             <ul class="packages-list">
 
-                                <li>Lorem Ipsum</li>
-
-                                <li>Lorem Ipsum</li>
-
-                                <li>Lorem Ipsum</li>
-
-                                <li>Lorem Ipsum</li>
+                                <li class="gift-align"><strong>$500</strong> payout package once the circle	of 8 people is closed</li>
 
                             </ul><br>
 
@@ -41,19 +36,13 @@
 
                         <div class="wrapper packages-frame">
 
-                            <h3 class="price center-text">$300</h3>
+                            <h3 class="price center-text">$200</h3>
 
-                            <p class="package-details">Lorem Ipsum</p>
+                            <p class="package-details">Crypto Investment</p>
 
                             <ul class="packages-list">
 
-                                <li>Lorem Ipsum</li>
-
-                                <li>Lorem Ipsum</li>
-
-                                <li>Lorem Ipsum</li>
-
-                                <li>Lorem Ipsum</li>
+                                <li class="gift-align"><strong>$1000</strong> payout package once the circle	of 8 people is closed</li>
 
                             </ul><br>
 
@@ -69,17 +58,11 @@
 
                             <h3 class="price center-text">$500</h3>
 
-                            <p class="package-details">Lorem Ipsum</p>
+                            <p class="package-details">Crypto Investment</p>
 
                             <ul class="packages-list">
 
-                                <li>Lorem Ipsum</li>
-
-                                <li>Lorem Ipsum</li>
-
-                                <li>Lorem Ipsum</li>
-
-                                <li>Lorem Ipsum</li>
+                                <li class="gift-align"><strong>$2000</strong> payout package once the circle	of 8 people is closed</li>
 
                             </ul><br>
 
@@ -93,19 +76,13 @@
 
                         <div class="wrapper packages-frame">
 
-                            <h3 class="price center-text">$700</h3>
+                            <h3 class="price center-text">$1000</h3>
 
-                            <p class="package-details">Lorem Ipsum</p>
+                            <p class="package-details">Crypto Investment</p>
 
                             <ul class="packages-list">
 
-                                <li>Lorem Ipsum</li>
-
-                                <li>Lorem Ipsum</li>
-
-                                <li>Lorem Ipsum</li>
-
-                                <li>Lorem Ipsum</li>
+                                <li class="gift-align"><strong>$5000</strong> payout package once the circle of 8 people is closed</li>
 
                             </ul><br>
 

@@ -18,3 +18,18 @@
     color: rgb(0, 192, 48);
     font-weight: bold;
 }
+
+li.gift-align {
+    text-align: left;
+    text-decoration: none;
+    list-style: none;
+    font-size: 0.9rem;
+}
+
+li.gift-align strong {
+    font-size: 1rem;
+}
+
+ul.packages-list {
+    padding-left: 15px;
+}
