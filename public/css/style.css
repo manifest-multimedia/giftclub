@@ -68,11 +68,9 @@ h4 {
 }
 
 ul.packages-list {
-    /*list-style-type: none;
-
-	padding: 0px;
-
-	margin: 0px;*/
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
     color: #fff;
 }
 
