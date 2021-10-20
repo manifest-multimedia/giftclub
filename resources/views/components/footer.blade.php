@@ -88,7 +88,7 @@
 
                             <li class="small-ft">+233244558822</li>
 
-                            <li><bold>Payment Methods</bold></li>
+                            <li><strong>Payment Methods</strong></li>
 
                            <img src="{{asset('img/pay.svg')}}" class="">
 
