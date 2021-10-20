@@ -18,6 +18,8 @@ use App\Models\User;
 // });
 
 Route::view('/', 'frontend.home');
+Route::view('/about', 'frontend.about');
+
 Route::view('/terms', 'frontend.policy.terms');
 
 Route::view('/new', 'frontend.new');
@@ -49,4 +51,3 @@ Route::middleware(['auth:sanctum', 'verified' , 'referral'])->group(function(){
     })->name('profile');
 
 });
-

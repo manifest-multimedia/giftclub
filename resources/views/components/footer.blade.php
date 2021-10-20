@@ -53,7 +53,7 @@
 
                     <ul class="footer-list">
 
-                        <li class="small-ft"><a href="">About Us</a></li>
+                        <li class="small-ft"><a href="/about">About Us</a></li>
 
                         <li class="small-ft"><a href="">Services</a></li>
 
