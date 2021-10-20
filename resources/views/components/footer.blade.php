@@ -1,101 +1,99 @@
+<div class="wrapper footer">
 
-    <div class="wrapper footer">
+    <div class="container">
 
-        <div class="container">
+        <div class="row">
 
-            <div class="row">
+            <div class="col-sm-12 col-md-3">
 
-                <div class="col-sm-12 col-md-3">
+                <div class="wrapper">
 
-                    <div class="wrapper">
+                    <a href="index.html"><img src="{{ asset('img/logo.svg') }}" alt="logo" width="150px" height="22px"
+                            style="margin-bottom: 30px;"></a>
 
-                        <a href="index.html" ><img src="{{asset('img/logo.svg')}}" alt="logo" width="150px" height="22px" style="margin-bottom: 30px;"></a>
-
-                        <p class="small-ft">(209) 634-8959<br>9318 W Main St<br>Turlock, California(CA),<br>95380</p>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                          <img src="{{asset('img/insta.svg')}}" class="iconss" width="32px" height="32px">
-                          <img src="{{asset('img/facebook.svg')}}" class="iconss" width="32px" height="32px">
-                          <img src="{{asset('img/twitter.svg')}}" class="iconss" width="32px" height="32px">
-
-                        </div>
+                    <p class="small-ft">(209) 634-8959<br>9318 W Main St<br>Turlock, California(CA),<br>95380</p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <img src="{{ asset('img/insta.svg') }}" class="iconss" width="32px" height="32px">
+                        <img src="{{ asset('img/facebook.svg') }}" class="iconss" width="32px" height="32px">
+                        <img src="{{ asset('img/twitter.svg') }}" class="iconss" width="32px" height="32px">
 
                     </div>
 
                 </div>
 
-                <div class="col-sm-12 col-md-3">
+            </div>
 
-                    <div class="wrapper">
+            <div class="col-sm-12 col-md-3">
 
-                        <h4 style="color:#fff;">Useful Links</h4>
+                <div class="wrapper">
 
-                        <ul class="footer-list">
+                    <h4 style="color:#fff;">Useful Links</h4>
 
-                            <li class="small-ft"><a href="">Payments</a></li>
+                    <ul class="footer-list">
 
-                            <li class="small-ft"><a href="/terms">Terms Of Services</a></li>
+                        <li class="small-ft"><a href="">Payments</a></li>
 
-                            <li class="small-ft"><a href="">Your Account</a></li>
+                        <li class="small-ft"><a href="/terms">Terms Of Services</a></li>
 
-                            <li class="small-ft"><a href="">Privacy Policy</a></li>
+                        <li class="small-ft"><a href="">Your Account</a></li>
 
-                        </ul>
+                        <li class="small-ft"><a href="">Privacy Policy</a></li>
 
-                    </div>
-
-                </div>
-
-                <div class="col-sm-12 col-md-3">
-
-                    <div class="wrapper">
-
-                        <h4 style="color:#fff;">Our Company</h4>
-
-                        <ul class="footer-list">
-
-                            <li class="small-ft"><a href="">About Us</a></li>
-
-                            <li class="small-ft"><a href="">Services</a></li>
-
-                            <li class="small-ft"><a href="">Packages</a></li>
-
-                            <li class="small-ft"><a href="">Testimonials</a></li>
-
-                        </ul>
-
-                    </div>
+                    </ul>
 
                 </div>
 
-                <div class="col-sm-12 col-md-3">
+            </div>
 
-                    <div class="wrapper">
+            <div class="col-sm-12 col-md-3">
 
-                        <h4 style="color:#fff;">Subscribe News</h4>
+                <div class="wrapper">
 
-                         <form class="form">
+                    <h4 style="color:#fff;">Our Company</h4>
 
-                            <input type="text" class="form-control subs-mail" name="" placeholder="Email">
-                            <!-- <input type="submit" class="btn btn-primary bnt-frm" value="SUB" name=""> -->
+                    <ul class="footer-list">
 
-                            <i class="fa fa-eject"></i>
+                        <li class="small-ft"><a href="">About Us</a></li>
 
-                        </form>
+                        <li class="small-ft"><a href="">Services</a></li>
 
-                        <ul class="footer-list">
+                        <li class="small-ft"><a href="">Packages</a></li>
 
-                            <li class="small-ft"><a href="">info@thegiftclub.com</a></li>
+                    </ul>
 
-                            <li class="small-ft">+233244558822</li>
+                </div>
 
-                            <li><bold>Payment Methods</bold></li>
+            </div>
 
-                           <img src="{{asset('img/pay.svg')}}" class="">
+            <div class="col-sm-12 col-md-3">
 
-                        </ul>
-                        <p>Credit Card (Visa, Mastercard, AMEX), Paypal</p>
+                <div class="wrapper">
 
-                    </div>
+                    <h4 style="color:#fff;">Subscribe News</h4>
+
+                    <form class="form">
+
+                        <input type="text" class="form-control subs-mail" name="" placeholder="Email">
+                        <!-- <input type="submit" class="btn btn-primary bnt-frm" value="SUB" name=""> -->
+
+                        <i class="fa fa-eject"></i>
+
+                    </form>
+
+                    <ul class="footer-list">
+
+                        <li class="small-ft"><a href="">info@thegiftclub.com</a></li>
+
+                        <li class="small-ft">+233244558822</li>
+
+                        <li>
+                            <bold>Payment Methods</bold>
+                        </li>
+
+                        <img src="{{ asset('img/pay.svg') }}" class="">
+
+                    </ul>
+                    <p>Credit Card (Visa, Mastercard, AMEX), Paypal</p>
 
                 </div>
 
@@ -105,32 +103,42 @@
 
     </div>
 
-
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
-
-
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+</div>
 
 
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
+<!-- Optional JavaScript; choose one of the two! -->
 
-    <!--
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+
+
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+
+<!--
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous">
+    </script>
 
     -->
 
-  </body>
+</body>
 
 </html>

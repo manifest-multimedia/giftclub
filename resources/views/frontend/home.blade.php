@@ -19,7 +19,9 @@
 
                     <h1 class="home-intro">Communal Cryptocurrency Exchange and Investment For Everyone.</h1><br>
 
-                    <p class="gift-p-top">The	Gift	 Club offers a	 risk-free	way	 to	 introduce	 our	members	 to	 the	 crypto	 space.	With	investors	 optimistic	about	an	 upcoming bullish	run	of	BTC	and	altcoins,	this	is	the	best	time	to	enter	the	industry.</p>
+                    <p class="gift-p-top">The Gift Club offers a risk-free way to introduce our members to the crypto
+                        space. With investors optimistic about an upcoming bullish run of BTC and altcoins, this is the
+                        best time to enter the industry.</p>
 
                     <div class="wrapper" style="margin-top:42px;">
 
@@ -39,15 +41,17 @@
 
                 <div class="col-sm-12 col-md-6">
 
-                    <div class="image-frame" style="background-image: url('{{asset('images/placeholder.jpg')}}'); background-position-y: 50%;"></div>
+                    <div class="image-frame"
+                        style="background-image: url('{{ asset('images/placeholder.jpg') }}'); background-position-y: 50%;">
+                    </div>
 
                     <div class="floating-home-details">
 
                         <p>Designed to be</p><br>
 
-                        <p><img src="{{asset('img/badge.svg')}}" class="iconss">SECURE</p>
+                        <p><img src="{{ asset('img/badge.svg') }}" class="iconss">SECURE</p>
 
-                        <p><img src="{{asset('img/fast.svg')}}" class="iconss">FAST</p>
+                        <p><img src="{{ asset('img/fast.svg') }}" class="iconss">FAST</p>
 
                         <!-- <p><img src="assets/img/badge.svg" class="iconss">Fast</p> -->
 
@@ -64,8 +68,7 @@
 </div>
 
 
-{{--
-<div class="wrapper" style="height:720px;background: rgba(95, 149, 255, 0.8);">
+{{-- <div class="wrapper" style="height:720px;background: rgba(95, 149, 255, 0.8);">
 
     <div class="container">
 
@@ -127,31 +130,37 @@
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
-      <div class="carousel-inner">
+        <div class="carousel-inner">
 
-        <div class="carousel-item active">
+            <div class="carousel-item active">
 
-            <div class="container">
+                <div class="container">
 
-                <div class="wrapper padding-edges">
+                    <div class="wrapper padding-edges">
 
-                    <div class="row">
+                        <div class="row">
 
-                        <div class="col-sm-12 col-md-6"><img src="{{asset('img/rtt.svg')}}" class="full-img"></div>
+                            <div class="col-sm-12 col-md-6"><img src="{{ asset('img/rtt.svg') }}"
+                                    class="full-img"></div>
 
-                        <div class="col-sm-12 col-md-6">
+                            <div class="col-sm-12 col-md-6">
 
-                            <p>HOW DOES IT WORK ?</p>
+                                <p>HOW DOES IT WORK ?</p>
 
-                            <h1>Made To Be Simple And Intutive.</h1><br>
+                                <h1>Made To Be Simple And Intutive.</h1><br>
 
-                            <p>Once	a	member	signs	up	and	makes	payment,	the	system	creates	a	unique	ID	(referral	link)	that	members	can	send	to	new	members
-                                to	start	forming	a	Gift	Network.	The	Gift	Network	grows	by	new	members	directly	using	the	unique	ID	of	old	members	to	sign	up
-                                and	when	newly	introduced	members	also	go	on	to	sign	up	people	on	their	own.</p>
+                                <p>Once a member signs up and makes payment, the system creates a unique ID (referral
+                                    link) that members can send to new members to start forming a Gift Network. The Gift
+                                    Network grows by new members directly using the unique ID of old members to sign up
+                                    and when newly introduced members also go on to sign up people on their own.</p>
 
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                              <img src="{{asset('img/simple.svg')}}" class="iconss"><p class="infotext">SIMPLE</p>
-                              <img src="{{asset('img/clean.svg')}}" class="iconss"><p class="infotext">CLEAN</p>
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                                    <img src="{{ asset('img/simple.svg') }}" class="iconss">
+                                    <p class="infotext">SIMPLE</p>
+                                    <img src="{{ asset('img/clean.svg') }}" class="iconss">
+                                    <p class="infotext">CLEAN</p>
+
+                                </div>
 
                             </div>
 
@@ -163,9 +172,7 @@
 
             </div>
 
-        </div>
-
-{{--         <div class="carousel-item">
+            {{-- <div class="carousel-item">
 
             <div class="container">
 
@@ -227,21 +234,21 @@
 
         </div>
 
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 
-        <span class="sr-only">Previous</span>
+            <span class="sr-only">Previous</span>
 
-      </a>
+        </a>
 
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
 
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
 
-        <span class="sr-only">Next</span>
+            <span class="sr-only">Next</span>
 
-      </a>
+        </a>
 
     </div>
 
@@ -261,21 +268,26 @@
 
                     <h1>Make Your Money The Safe And Secure Way</h1><br>
 
-                    <p>There	is	a	lot	of	misinformation	in	the	crypto-sphere,	from	people	thinking	it	is	a	scam	to	those	who	believe	it	is	a	means	for	the	elite
-                        to	 control	 the	masses	and	 those	who	 have	 concerns	about	 funding	 terrorism	and	illicit	activities.	It	 is	 up	 to	 startups	 like	Milliard
-                        Capital,	through The	Gift	Club, to	bring	champion	this	new	technology	and	inspire	the	interest	of	people	in	it.</p>
-                        <p>The	Gift	 Club offers a	 risk-free	way	 to	 introduce	 our	members	 to	 the	 crypto	 space.	With	investors	 optimistic	about	an	 upcoming
-                            bullish	run	of	BTC	and	altcoins,	this	is	the	best	time	to	enter	the	industry.</p>
+                    <p>There is a lot of misinformation in the crypto-sphere, from people thinking it is a scam to those
+                        who believe it is a means for the elite to control the masses and those who have concerns about
+                        funding terrorism and illicit activities. It is up to startups like Milliard Capital, through
+                        The Gift Club, to bring champion this new technology and inspire the interest of people in it.
+                    </p>
+                    <p>The Gift Club offers a risk-free way to introduce our members to the crypto space. With investors
+                        optimistic about an upcoming bullish run of BTC and altcoins, this is the best time to enter the
+                        industry.</p>
 
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                      <img src="{{asset('img/privacy.svg')}}" class="iconss"><p class="infotext">PRIVACY</p>
-                      <img src="{{asset('img/reliable.svg')}}" class="iconss"><p class="infotext">RELIABLE</p>
+                        <img src="{{ asset('img/privacy.svg') }}" class="iconss">
+                        <p class="infotext">PRIVACY</p>
+                        <img src="{{ asset('img/reliable.svg') }}" class="iconss">
+                        <p class="infotext">RELIABLE</p>
 
                     </div>
 
                 </div>
 
-                <div class="col-sm-12 col-md-6"><img src="{{asset('img/hahaha.svg')}}" class="full-img"></div>
+                <div class="col-sm-12 col-md-6"><img src="{{ asset('img/hahaha.svg') }}" class="full-img"></div>
 
             </div>
 
@@ -297,39 +309,47 @@
                 <div class="col-12 text-center">
 
 
-                            <h1>Process</h1><br>
+                    <h1>Process</h1><br>
                 </div>
 
                 <div class="col-sm-12 text-center mx-auto mb-4">
-                    <P class="w-75 text-center mx-auto">We	use	three	colours:	red,	blue	and	green	to	indicate	member’s	position.</P>
-                    <p class="w-75 text-center mx-auto">When	you	sign	up,	you	need	to	bring	in	one	other	person	to	start	progressing.	You	are	blocked	from	progressing	until	at	least one
-                        person	uses	your	referral	link, which	then	allows	you	to	start	progressing.</p><br>
+                    <P class="w-75 text-center mx-auto">We use three colours: red, blue and green to indicate member’s
+                        position.</P>
+                    <p class="w-75 text-center mx-auto">When you sign up, you need to bring in one other person to start
+                        progressing. You are blocked from progressing until at least one person uses your referral link,
+                        which then allows you to start progressing.</p><br>
                 </div>
 
-                <div class="col-sm-12 col-md-6"><img src="{{asset('img/nest.svg')}}" class="full-img"></div>
+                <div class="col-sm-12 col-md-6"><img src="{{ asset('img/nest.svg') }}" class="full-img"></div>
 
                 <div class="col-sm-12 col-md-6">
 
-                    <div class="row" >
+                    <div class="row">
 
-                        <div class="col-sm-12 col-md-2"><div class="numbered">1</div></div>
+                        <div class="col-sm-12 col-md-2">
+                            <div class="numbered">1</div>
+                        </div>
 
                         <div class="col-sm-12 col-md-10">
 
-                            <p class="">A person is positioned at <span class="red-color">RED</span> immediately after signing up.</p>
+                            <p class="">A person is positioned at <span class="red-color">RED</span>
+                                immediately after signing up.</p>
 
                         </div>
 
                     </div>
 
-                    <div class="row" >
+                    <div class="row">
 
-                        <div class="col-sm-12 col-md-2"><div class="numbered">2</div></div>
+                        <div class="col-sm-12 col-md-2">
+                            <div class="numbered">2</div>
+                        </div>
 
                         <div class="col-sm-12 col-md-10">
 
-                            <p class="">The person will be moved to <span class="light-blue-color">BLUE</span> when 4 people used his/her referral link to join  and	 receive	 first	 half	 of	 the	 crypto
-                                investment).</p>
+                            <p class="">The person will be moved to <span
+                                    class="light-blue-color">BLUE</span> when 4 people used his/her referral link to
+                                join and receive first half of the crypto investment).</p>
 
                         </div>
 
@@ -337,41 +357,51 @@
 
 
 
-                    <div class="row" >
+                    <div class="row">
 
-                        <div class="col-sm-12 col-md-2"><div class="numbered">3</div></div>
+                        <div class="col-sm-12 col-md-2">
+                            <div class="numbered">3</div>
+                        </div>
 
                         <div class="col-sm-12 col-md-10">
 
-                            <p class="">When	another	4	people	join,	you	move	to <span class="green-color">GREEN</span> and	receive	the	other	half	of	your	crypto	investment	plus	the	Payout</p>
+                            <p class="">When another 4 people join, you move to <span
+                                    class="green-color">GREEN</span> and receive the other half of your crypto
+                                investment plus the Payout</p>
 
                         </div>
 
                     </div>
 
-                    <div class="row" >
+                    <div class="row">
 
-                        <div class="col-sm-12 col-md-2"><div class="numbered">4</div></div>
+                        <div class="col-sm-12 col-md-2">
+                            <div class="numbered">4</div>
+                        </div>
 
                         <div class="col-sm-12 col-md-10">
 
-                            <p class="">You	are	then	automatically	enrolled	into	the	system	for	another	go.	Once	you	move	to	green,	your	status	starts	blinking	and	showing
-                                “Congratulations”.	You	receive	an	email	indicating	that	you	are	due	for	a	payment	with	the	next	hours</p>
+                            <p class="">You are then automatically enrolled into the system for another
+                                go. Once you move to green, your status starts blinking and showing “Congratulations”.
+                                You receive an email indicating that you are due for a payment with the next hours</p>
 
                         </div>
 
                     </div>
 
-                    <div class="row" >
+                    <div class="row">
 
-                        <div class="col-sm-12 col-md-2"><div class="numbered">5</div></div>
+                        <div class="col-sm-12 col-md-2">
+                            <div class="numbered">5</div>
+                        </div>
 
                         <div class="col-sm-12 col-md-10">
 
-                            <p class="">Every	 time	 you	 refer a	 friend	 with	 your	 referral	 code	 and	 they	 sign	 up,	 you	 get	 1 reward	 point.	 Reward	 points	 above	 10	 can	 be
-                                redeemed	for	cash. Reward	points	should	be	indicated	on	member’s	dashboard	together	with	a	button	to	withdraw	the	reward	(as
-                                redeeming	reward	point	is NOT	automated)</span></p>
-                                <p>1	reward	points	=	$1</p>
+                            <p class="">Every time you refer a friend with your referral code and they
+                                sign up, you get 1 reward point. Reward points above 10 can be redeemed for cash. Reward
+                                points should be indicated on member’s dashboard together with a button to withdraw the
+                                reward (as redeeming reward point is NOT automated)</span></p>
+                            <p>1 reward points = $1</p>
 
                         </div>
 

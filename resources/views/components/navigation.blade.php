@@ -10,7 +10,6 @@
                     <x-nav-link url=""> Services </x-nav-link>
                     <x-nav-link url=""> Packages </x-nav-link>
                     <x-nav-link url=""> About Us </x-nav-link>
-                    <x-nav-link url=""> Testimonials </x-nav-link>              
                     <x-nav-button url="login"> Get Started </x-nav-button>
                 </ul>
             </div>
