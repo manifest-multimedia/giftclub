@@ -6,6 +6,8 @@
     float: left;
     width: 100%;
     font-family: "Poppins", sans-serif;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 
 .navigation {
@@ -30,7 +32,9 @@ h1,
 h2,
 h3,
 h4 {
-    font-weight: 400;
+    font-size: 25px;
+    font-weight: bold;
+    color: #022d4d;
 }
 
 .small-ft {
@@ -210,6 +214,15 @@ ul.packages-list {
     font-size: 52px;
 }
 
+.about-intro {
+    font-size: 45px;
+}
+
+.about-bg {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
 .form-control {
     height: 46px;
     border-radius: 120px !important;
@@ -318,4 +331,87 @@ ul.footer-list li a {
 
 .dashnav {
     background-color: #e4fff5;
+}
+
+
+/* Team section */
+
+.ourTeam-hedding p {
+    color: #979797;
+}
+
+.ourTeam-hedding strong {
+    color: black;
+}
+
+.ourTeam-hedding {
+    margin-bottom: 50px;
+}
+
+.ourTeam-hedding h1 {
+    font-size: 25px;
+    font-weight: bold;
+    color: #145889;
+}
+
+.ourTeam-box {
+    border-radius: 2px;
+    border-top: 6px solid #5dddd3;
+    margin: 0px;
+    background-color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.section1 {
+    padding: 30px 0px 30px 0px;
+}
+
+.section1 img {
+    border-radius: 50%;
+    height: 130px;
+    width: 130px;
+}
+
+.section2 p {
+    font-weight: bold;
+    color: #5dddd3;
+    letter-spacing: 1px;
+}
+
+.section2 span {
+    color: #979597;
+}
+
+.section3 {
+    background-color: #5dddd3;
+}
+
+.section3 i {
+    color: #ffffff !important;
+    padding: 15px;
+    font-size: 15px;
+}
+
+.section-info {
+    border-top: 6px solid #90dfaa;
+}
+
+.section-info p {
+    color: #022d4d;
+}
+
+.section-info .section3 {
+    background-color: #90dfaa;
+}
+
+.section-danger {
+    border-top: 6px solid #fd8469;
+}
+
+.section-danger p {
+    color: #fd8469;
+}
+
+.section-danger .section3 {
+    background-color: #fd8469;
 }
