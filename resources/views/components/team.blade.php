@@ -15,7 +15,7 @@
             <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="row section-info ourTeam-box text-center">
                     <div class="col-md-12 section1">
-                        <img src="images/placeholder.jpg">
+                        <img src="images/placeholder.jpg" class="mx-auto">
                     </div>
                     <div class="col-md-12 section2 pb-3">
                         <p>Full name</p>
@@ -32,7 +32,7 @@
             <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="row section-info ourTeam-box text-center">
                     <div class="col-md-12 section1">
-                        <img src="images/placeholder.jpg">
+                        <img src="images/placeholder.jpg" class="mx-auto">
                     </div>
                     <div class="col-md-12 section2 pb-3">
                         <p class="team-member">Full name</p>
@@ -49,7 +49,7 @@
             <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="row section-info ourTeam-box text-center">
                     <div class="col-md-12 section1">
-                        <img src="images/placeholder.jpg">
+                        <img src="images/placeholder.jpg" class="mx-auto">
                     </div>
                     <div class="col-md-12 section2 pb-3">
                         <p>Full name</p>
