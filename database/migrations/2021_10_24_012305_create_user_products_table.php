@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEarningsTable extends Migration
+class CreateUserProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,18 @@ class CreateEarningsTable extends Migration
      */
     public function up()
     {
-        Schema::create('earnings', function (Blueprint $table) {
-            $table->id();
-            $table->string('package_id')->nullable(); 
-            $table->unsignedInteger('user_id'); 
-            $table->float('amount')->nullable(); 
-            $table->string('currency')->nullable(); 
-            $table->string('description')->nullable(); 
-            $table->timestamps();
+        Schema::create('user_products', function (Blueprint $table) {
+            $table->integer('user_id')->unsigned();
+            $table->integer('product_id')->unsigned();
             $table->foreign('user_id')
                     ->references('id')
                     ->on('users')
                     ->onDelete('cascade');
+            $table->foreign('product_id')
+                    ->references('id')
+                    ->on('products')
+                    ->onDelete('cascade'); 
+            
         });
     }
 
@@ -35,6 +35,6 @@ class CreateEarningsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('earnings');
+        Schema::dropIfExists('user_products');
     }
 }

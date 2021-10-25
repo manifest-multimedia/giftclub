@@ -63,4 +63,18 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+
+    public function earning() {
+
+        return $this->hasMany(earning::class);
+
+    }
+
+    public function userProducts(){
+
+        return $this->belongsToMany(Product::class, 'user_products'); 
+
+    }
+
 }
