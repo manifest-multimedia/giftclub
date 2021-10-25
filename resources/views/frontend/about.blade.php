@@ -1,6 +1,6 @@
-<x-head>
+<x-t-head>
     <x-slot name="title"> Gift Club - Home</x-slot>
-</x-head>
+</x-t-head>
 
 <x-navigation />
 
@@ -26,17 +26,20 @@
                     <h1 class="about-intro">About <span style="color:#1fc27d">TheGiftClub</span></h1><br>
 
                     <p class="gift-p-top">
-                        There is a lot of misinformation in the crypto-sphere, from people thinking it is a scam to
-                        those who believe it is a means for the elite
-                        to control the masses and those who have concerns about funding terrorism and illicit
-                        activities. It is up to startups like Milliard
-                        Capital, through The Gift Club, to bring champion this new technology and inspire the interest
-                        of people in it.
+                        The Gift Club is an idea developed by Milliard Capital LLC, a fintech startup based in London,
+                        UK and Accra, Ghana. Milliard Capital
+                        seeks to speed up the penetration, adoption and development of cryptocurrency and blockchain
+                        technologies across the world and
+                        The Gift Club is seen as a fun but profitable tool to aid in this.
                     </p>
 
-                    <p>The Gift Club offers a risk-free way to introduce our members to the crypto space. With investors
-                        optimistic about an upcoming
-                        bullish run of BTC and altcoins, this is the best time to enter the industry</p>
+                    <p>
+                        Milliard Capital LLC is a startup which aims to introduce the benefits of decentralized finance
+                        (DeFi) and other innovative
+                        technologies to emerging markets and finance hubs in Africa, Asia, Europe and South America.
+                        Specifically, this is done by encouraging the use of cryptocurrencies in trade, commerce and
+                        everyday spending.
+                    </p>
 
                 </div>
 
@@ -57,11 +60,11 @@
 
         <div class="wrapper padding-edges">
 
-            <div class="row">
+            <div class="row space-y-10">
 
-                <div class="col-sm-12 col-md-6">
+                <div class="grid md:grid-cols-8 sm:grid-cols-1 gap-8">
 
-                    <div class="card" style="width: 30rem;">
+                    <div class="card py-4 md:col-start-2 col-span-3">
                         <div class="card-body">
                             <h2 class="card-title">Mission</h2>
 
@@ -72,10 +75,8 @@
 
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-12 col-md-6">
 
-                    <div class="card" style="width: 30rem;">
+                    <div class="card py-4 col-span-3">
                         <div class="card-body">
                             <h2 class="card-title">Vision</h2>
 
@@ -85,6 +86,43 @@
                                 continent and in the diaspora, to the blockchain and cryptocurrency
                                 industry.
                             </p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-8 sm:grid-cols-1 gap-8">
+                    <div class="card py-4 md:col-start-2 col-span-6">
+                        <div class="card-body">
+                            <h2 class="card-title sm:text-left md:text-center">
+                                Our Aim
+                            </h2>
+
+                            <ul class="space-y-6">
+                                <li class="flex items-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 mr-2" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                    </svg>
+                                    <span> Online cryptocurrency exchanges to aid consumers in developing regions across
+                                        the globe gain access to and use of these digital assets;</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 mr-2" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                    </svg>
+                                    <span>Crypto currency support products such as Bitcoin Debit and Prepaid cards and
+                                        crypto-to-fiat ATM machines for consumers;</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 mr-2" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                    </svg>
+                                    <span>Investments in Blockchain Mutual Funds and ETFs in the US and Europe.</span>
+                                </li>
+                            </ul>
 
                         </div>
                     </div>
