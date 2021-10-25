@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use App\Http\Controllers\settingsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,9 +43,7 @@ Route::middleware(['auth:sanctum', 'verified' , 'referral'])->group(function(){
         return view('backend.referrals');
     })->name('referrals');
 
-    Route::get('/settings', function () {
-        return view('backend.settings');
-    })->name('settings');
+    Route::get('/settings', [settingsController::class, 'index'])->name('settings');
 
     Route::get('/profile', function () {
         return view('backend.profile');

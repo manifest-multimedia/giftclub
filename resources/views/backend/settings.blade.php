@@ -15,25 +15,25 @@
                 
                 <div class="form-group col-md-6">
                     
-                    <input type="text" class="form-control" placeholder="Address Line 1">
+                    <input type="text" class="form-control" placeholder="Address Line 1", value="{{$address->Address_Line_One}}">
                 </div>
                 <div class="form-group col-md-6">
                    
-                    <input type="text" class="form-control" placeholder="Address Line 2">
+                    <input type="text" class="form-control" placeholder="Address Line 2" value="{{$address->Address_Line_Two}}">
                 </div>
                 <div class="form-group col-md-6">
                     
-                    <input type="text" class="form-control" placeholder="City">
+                    <input type="text" class="form-control" placeholder="City" value="{{$address->city}}">
                 </div>
                 <div class="form-group col-md-6">
-                    <input type="text" class="form-control" placeholder="Country">
+                    <input type="text" class="form-control" placeholder="Country" value="{{$address->country}}">
                 </div>
             </div>
             <div class="form-row">
                 
                 <div class="form-group col-md-4">
                     
-                    <input type="text" class="form-control" placeholder="ZIP/Postal">
+                    <input type="text" class="form-control" placeholder="ZIP/Postal" value="">
                 </div>
             </div>
             
