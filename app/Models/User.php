@@ -66,15 +66,11 @@ class User extends Authenticatable
 
 
     public function earning() {
-
         return $this->hasMany(earning::class);
-
     }
 
     public function userProducts(){
-
         return $this->belongsToMany(Product::class, 'user_products'); 
-
     }
 
     public function address(){

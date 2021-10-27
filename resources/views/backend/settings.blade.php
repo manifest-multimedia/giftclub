@@ -43,9 +43,6 @@
     </div></div></div>
     <div class="col-xl-4"><div class="card"><div class="card-body"><h1>Finance</h1><hr />
     
-        
-
-
     </div></div></div>
     <div class="col-xl-4"><div class="card"><div class="card-body"><h1>Preferences</h1><hr />
     
