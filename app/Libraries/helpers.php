@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\DB;
 use App\Models\User; 
+use App\Models\Product;
+use App\Models\Placement;
+use App\Models\Address;
 use Livewire\WithPagination;
 
 
