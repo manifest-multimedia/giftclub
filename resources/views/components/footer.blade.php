@@ -84,10 +84,11 @@
 
                         <li class="small-ft"><a href="">info@thegiftclub.com</a></li>
 
+                            <li><strong>Payment Methods</strong></li>
                         <li class="small-ft">+233244558822</li>
 
                         <li>
-                            <bold>Payment Methods</bold>
+                            <strong>Payment Methods</strong>
                         </li>
 
                         <img src="{{ asset('img/pay.svg') }}" class="">

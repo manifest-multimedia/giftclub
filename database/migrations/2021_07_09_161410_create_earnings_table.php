@@ -15,7 +15,16 @@ class CreateEarningsTable extends Migration
     {
         Schema::create('earnings', function (Blueprint $table) {
             $table->id();
+            $table->string('package_id')->nullable(); 
+            $table->unsignedInteger('user_id'); 
+            $table->float('amount')->nullable(); 
+            $table->string('currency')->nullable(); 
+            $table->string('description')->nullable(); 
             $table->timestamps();
+            $table->foreign('user_id')
+                    ->references('id')
+                    ->on('users')
+                    ->onDelete('cascade');
         });
     }
 

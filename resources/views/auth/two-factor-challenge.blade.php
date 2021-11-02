@@ -1,8 +1,33 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
+
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Gift Club</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/logo.png')}}">
+    <link href="{{asset('css/bstyle.css')}}" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body class="h-100">
+    <div class="authincation h-100">
+        <div class="container h-100">
+            <div class="row justify-content-center h-100 align-items-center">
+                <div class="col-md-6">
+					
+					<div class="authincation-content">
+                        <div class="row no-gutters">
+                            <div class="col-xl-12">
+                                <div class="auth-form">
+								
+            <div class="text-center mb-3">
+                <a href="/login"><img src="{{asset('images/logo-icon.png')}}" width="100px" height="100px" alt=""></a>
+            </div>
 
         <div x-data="{ recovery: false }">
             <div class="mb-4 text-sm text-gray-600" x-show="! recovery">
@@ -29,7 +54,7 @@
                 </div>
 
                 <div class="flex items-center justify-end mt-4">
-                    <button type="button" class="text-sm text-gray-600 hover:text-gray-900 underline cursor-pointer"
+                    <button type="button" class="btn btn-primary"
                                     x-show="! recovery"
                                     x-on:click="
                                         recovery = true;
@@ -38,7 +63,7 @@
                         {{ __('Use a recovery code') }}
                     </button>
 
-                    <button type="button" class="text-sm text-gray-600 hover:text-gray-900 underline cursor-pointer"
+                    <button type="button" class="btn btn-primary"
                                     x-show="recovery"
                                     x-on:click="
                                         recovery = false;
@@ -47,11 +72,10 @@
                         {{ __('Use an authentication code') }}
                     </button>
 
-                    <x-jet-button class="ml-4">
+                    <button class="ml-4 btn btn-primary">
                         {{ __('Log in') }}
-                    </x-jet-button>
+                    </button>
                 </div>
             </form>
         </div>
-    </x-jet-authentication-card>
-</x-guest-layout>
+

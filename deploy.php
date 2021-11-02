@@ -23,16 +23,15 @@ add('shared_files', []);
 add('shared_dirs', []);
 
 // Writable dirs by web server 
-add('writable_dirs', []);
+set('writable_dirs', []);
 //set('allow_anonymous_stats', false);
 
 // Hosts
 
-host('3.25.91.240')
-    ->user('ubuntu')
-    ->become('root')
+host('3.25.130.254')
+    ->user('giftclub')
     ->port(22)
-    ->identityFile('~/.ssh/giftclub.pem')
+    ->identityFile('c://ssh/giftclubglobal')
     ->forwardAgent(true)
         ->set('deploy_path', '/var/www/giftclubglobal.com');    
     
@@ -48,4 +47,3 @@ after('deploy:failed', 'deploy:unlock');
 // Migrate database before symlink new release.
 
 before('deploy:symlink', 'artisan:migrate');
-
