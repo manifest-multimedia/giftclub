@@ -14,7 +14,7 @@
 
                 <div class="grid gap-8 md:grid-cols-2 sm:grid-cols-1">
 
-                    <div class="col-span-1 py-4 card md:col-start-1 shawdow-sm">
+                    <div class="col-span-1 py-4 shadow-sm card md:col-start-1">
                         <div class="card-body">
                             <x-text.h>Crypto	Investments	and	Reward	Programme</x-text.h>
 
@@ -32,7 +32,7 @@
                         </div>
                     </div>
 
-                    <div class="col-span-1 py-4 card shawdow-sm">
+                    <div class="col-span-1 py-4 shadow-sm card">
                         <div class="card-body">
                             <x-text.h>Cryptocurrency Exchange</x-text.h>
 
@@ -46,7 +46,7 @@
                         </div>
                     </div>
 
-                    <div class="col-span-1 py-4 card shawdow-sm">
+                    <div class="col-span-1 py-4 shadow-sm card">
                         <div class="card-body">
                             <x-text.h>Cryptocurrency Investment	Training</x-text.h>
 
@@ -60,7 +60,7 @@
                         </div>
                     </div>
 
-                    <div class="col-span-1 py-4 card shawdow-sm">
+                    <div class="col-span-1 py-4 shadow-sm card">
                         <div class="card-body">
                             <x-text.h>Consulting	and	Advisory	Services</x-text.h>
 
