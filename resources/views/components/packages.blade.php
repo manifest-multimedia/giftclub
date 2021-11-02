@@ -39,7 +39,7 @@
                     <button class="w-full py-4 mt-4 text-blue-600 transition duration-150 ease-in-out border border-blue-600 rounded hover:bg-blue-600 hover:text-white hover:shadow-xl">SUBSCRIBE</button>
                 </div>
                 <div class="w-full p-6 mb-10 transition duration-100 ease-in-out bg-white rounded-lg shadow md:w-1/4 hover:shadow-xl md:mb-0">
-                    <h3 class="text-lg text-gray-600">Enterprise</h3>
+                    <h3 class="text-lg text-gray-600">Express</h3>
                     <p class="mt-1 text-gray-600"><span class="text-4xl font-bold text-gray-700">$1000</span> /Investment</p>
                     <hr>
                     <p class="mt-4 mb-1 text-gray-600 ext-sm m">Benefit </p>
