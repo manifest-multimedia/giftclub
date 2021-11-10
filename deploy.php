@@ -41,9 +41,31 @@ task('build', function () {
     run('cd {{release_path}} && build');
 });
 
+
+task('notify', function(){
+    
+    // SEND SMS
+    $destination="233549539417"; 
+    $message="Application Successfully Deployed for GiftClub Digital"; 
+    $response= SMSnotify($destination, $message); 
+
+    $destination="233204179139"; 
+    $message="Hello Johnson, a System Update has been successfully deployed to giftclubglobal.com."; 
+    $response= SMSnotify($destination, $message); 
+
+    write('Sending SMS Notification');
+    
+    
+    // print_r($response);
+    
+    }); 
+
+
 // [Optional] if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
 
 // Migrate database before symlink new release.
 
 before('deploy:symlink', 'artisan:migrate');
+
+after('success', 'notify');
