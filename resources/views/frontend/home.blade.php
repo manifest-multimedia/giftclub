@@ -42,7 +42,7 @@
                 <div class="col-sm-12 col-md-6">
 
                     <div class="image-frame"
-                        style="background-image: url('{{ asset('img/giftclub.png') }}'); background-position-y: 50%;">
+                        style="background-image: url('{{ asset('img/giftclubplan.png') }}'); background-position-y: 50%;">
                     </div>
 
                     <div class="floating-home-details">
@@ -320,7 +320,7 @@
                         which then allows you to start progressing.</p><br>
                 </div>
 
-                <div class="col-sm-12 col-md-6"><img src="{{ asset('img/giftclub.png') }}" class="full-img"></div>
+                <div class="col-sm-12 col-md-6"><img src="{{ asset('img/giftclubplan.png') }}" class="full-img"></div>
 
                 <div class="col-sm-12 col-md-6">
 
