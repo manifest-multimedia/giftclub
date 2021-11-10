@@ -15,25 +15,26 @@
                 
                 <div class="form-group col-md-6">
                     
-                    <input type="text" class="form-control" placeholder="Address Line 1", value="{{$address->Address_Line_One}}">
+                    <input type="text" class="form-control" placeholder="Address Line 1", value="@if(!is_null($address)){{$address->Address_Line_One}}@endif
+                    ">
                 </div>
                 <div class="form-group col-md-6">
                    
-                    <input type="text" class="form-control" placeholder="Address Line 2" value="{{$address->Address_Line_Two}}">
+                    <input type="text" class="form-control" placeholder="Address Line 2" value="@if(!is_null($address)){{$address->Address_Line_Two}}@endif">
                 </div>
                 <div class="form-group col-md-6">
                     
-                    <input type="text" class="form-control" placeholder="City" value="{{$address->city}}">
+                    <input type="text" class="form-control" placeholder="City" value="@if(!is_null($address)){{$address->city}}@endif">
                 </div>
                 <div class="form-group col-md-6">
-                    <input type="text" class="form-control" placeholder="Country" value="{{$address->country}}">
+                    <input type="text" class="form-control" placeholder="Country" value="@if(!is_null($address)){{$address->country}}@endif">
                 </div>
             </div>
             <div class="form-row">
                 
                 <div class="form-group col-md-4">
                     
-                    <input type="text" class="form-control" placeholder="ZIP/Postal" value="">
+                    <input type="text" class="form-control" placeholder="ZIP/Postal" value="@if(!is_null($address)) {{__("$address->postal")}}@endif">
                 </div>
             </div>
             

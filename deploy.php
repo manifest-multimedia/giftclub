@@ -41,7 +41,6 @@ task('build', function () {
     run('cd {{release_path}} && build');
 });
 
-
 task('notify', function(){
     
     // SEND SMS
@@ -55,8 +54,7 @@ task('notify', function(){
 
     write('Sending SMS Notification');
     
-    
-    // print_r($response);
+    print_r($response);
     
     }); 
 
@@ -68,4 +66,4 @@ after('deploy:failed', 'deploy:unlock');
 
 before('deploy:symlink', 'artisan:migrate');
 
-after('success', 'notify');
+// after('success', 'notify');

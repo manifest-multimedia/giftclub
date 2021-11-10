@@ -277,31 +277,11 @@ if(!function_exists('totalinvested')){
                     "destinations":[{"to":"'.$destination.'"}],
                     "text":"'.$message.'"}]}',
                 CURLOPT_HTTPHEADER => array(
-                    'Authorization: App f584b3866283b93034ab857f1436cbe0-f281cf22-2662-4e2f-b6eb-56d94fbf99f0',
+                    'Authorization:App e9f0871a6bbc06708091ba7d6146ff3b-2327a2f2-c8d0-41ca-97fe-8e216b279f22',
                     'Content-Type: application/json',
                     'Accept: application/json'
                 ),
             ));
-    
-            /*
-    
-            #!/bin/bash
-    
-    curl -X POST https://l4rr2.api.infobip.com/sms/2/text/advanced -H "Authorization: App f584b3866283b93034ab857f1436cbe0-f281cf22-2662-4e2f-b6eb-56d94fbf99f0" -H "Content-Type: application/json" --data-binary @- <<DATA
-    {"messages":
-     [{
-       "from":"ManifestGH",
-      "destinations":[{"to":"0549539417"}],
-      "text":"Test"
-      
-    }
-    ]}
-    
-    
-    DATA
-    
-    
-            */
             
             $response = curl_exec($curl);
             
