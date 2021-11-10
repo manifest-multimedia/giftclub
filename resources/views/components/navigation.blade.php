@@ -8,8 +8,9 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <x-nav-link url=""> Services </x-nav-link>
+                <ul class="ml-auto navbar-nav">
+                    <x-nav-link url="/"> Home </x-nav-link>
+                    <x-nav-link url="/services"> Services </x-nav-link>
                     <x-nav-link url=""> Packages </x-nav-link>
                     <x-nav-link url="/about"> About Us </x-nav-link>
                     <x-nav-button url="login"> Get Started </x-nav-button>

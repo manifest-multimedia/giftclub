@@ -20,6 +20,7 @@ use App\Http\Controllers\settingsController;
 
 Route::view('/', 'frontend.home');
 Route::view('/about', 'frontend.about');
+Route::view('/services', 'frontend.services');
 
 Route::view('/terms', 'frontend.policy.terms');
 

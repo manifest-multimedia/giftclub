@@ -1,15 +1,13 @@
 <x-t-head>
-    <x-slot name="title"> Gift Club - Home</x-slot>
+    <x-slot name="title"> Gift Club - About</x-slot>
 </x-t-head>
 
 <x-navigation />
-
+<x-breadcrumb title="About Us"/>
 
 <div class="wrapper about-bg">
 
     <div class="container">
-
-        <div class="wrapper">
 
             <div class="row">
 
@@ -33,7 +31,7 @@
                         The Gift Club is seen as a fun but profitable tool to aid in this.
                     </p>
 
-                    <p>
+                    <p class="gift-p-top">
                         Milliard Capital LLC is a startup which aims to introduce the benefits of decentralized finance
                         (DeFi) and other innovative
                         technologies to emerging markets and finance hubs in Africa, Asia, Europe and South America.
@@ -45,7 +43,7 @@
 
             </div>
 
-        </div>
+
 
     </div>
 
@@ -60,11 +58,11 @@
 
         <div class="wrapper padding-edges">
 
-            <div class="row space-y-10">
+            <div class="space-y-10 row">
 
-                <div class="grid md:grid-cols-8 sm:grid-cols-1 gap-8">
+                <div class="grid gap-8 md:grid-cols-8 sm:grid-cols-1">
 
-                    <div class="card py-4 md:col-start-2 col-span-3">
+                    <div class="col-span-3 py-4 card md:col-start-2">
                         <div class="card-body">
                             <h2 class="card-title">Mission</h2>
 
@@ -76,7 +74,7 @@
                         </div>
                     </div>
 
-                    <div class="card py-4 col-span-3">
+                    <div class="col-span-3 py-4 card">
                         <div class="card-body">
                             <h2 class="card-title">Vision</h2>
 
@@ -91,8 +89,8 @@
                     </div>
                 </div>
 
-                <div class="grid md:grid-cols-8 sm:grid-cols-1 gap-8">
-                    <div class="card py-4 md:col-start-2 col-span-6">
+                <div class="grid gap-8 md:grid-cols-8 sm:grid-cols-1">
+                    <div class="col-span-6 py-4 card md:col-start-2">
                         <div class="card-body">
                             <h2 class="card-title sm:text-left md:text-center">
                                 Our Aim

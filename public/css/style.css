@@ -286,7 +286,7 @@ ul.packages-list {
 }
 
 .footer {
-    margin-top: 56px;
+    /*   margin-top: 56px; */
     background: #022d4d;
     padding-top: 62px;
     padding-bottom: 62px;

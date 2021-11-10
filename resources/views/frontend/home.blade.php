@@ -154,7 +154,7 @@
                                     Network grows by new members directly using the unique ID of old members to sign up
                                     and when newly introduced members also go on to sign up people on their own.</p>
 
-                                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                                <div class="gap-2 d-grid d-md-flex justify-content-md-start">
                                     <img src="{{ asset('img/simple.svg') }}" class="iconss">
                                     <p class="infotext">SIMPLE</p>
                                     <img src="{{ asset('img/clean.svg') }}" class="iconss">
@@ -254,7 +254,7 @@
 
 </div>
 
-<div class="wrapper text-white" style="height:720px;background: rgba(95, 149, 255, 0.8);">
+<div class="text-white wrapper" style="height:720px;background: rgba(95, 149, 255, 0.8);">
 
     <div class="container">
 
@@ -277,7 +277,7 @@
                         optimistic about an upcoming bullish run of BTC and altcoins, this is the best time to enter the
                         industry.</p>
 
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <div class="gap-2 d-grid d-md-flex justify-content-md-start">
                         <img src="{{ asset('img/privacy.svg') }}" class="iconss">
                         <p class="infotext">PRIVACY</p>
                         <img src="{{ asset('img/reliable.svg') }}" class="iconss">
@@ -306,16 +306,16 @@
 
             <div class="row">
 
-                <div class="col-12 text-center">
+                <div class="text-center col-12">
 
 
                     <h1>Process</h1><br>
                 </div>
 
-                <div class="col-sm-12 text-center mx-auto mb-4">
-                    <P class="w-75 text-center mx-auto">We use three colours: red, blue and green to indicate member’s
+                <div class="mx-auto mb-4 text-center col-sm-12">
+                    <P class="mx-auto text-center w-75">We use three colours: red, blue and green to indicate member’s
                         position.</P>
-                    <p class="w-75 text-center mx-auto">When you sign up, you need to bring in one other person to start
+                    <p class="mx-auto text-center w-75">When you sign up, you need to bring in one other person to start
                         progressing. You are blocked from progressing until at least one person uses your referral link,
                         which then allows you to start progressing.</p><br>
                 </div>
@@ -423,4 +423,5 @@
 
 <x-packages />
 
+<div class="space-y-4"></div>
 <x-footer />
