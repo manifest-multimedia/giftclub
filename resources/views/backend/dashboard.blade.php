@@ -1,15 +1,4 @@
-<x-b-head />
-<x-b-preloader />
-
-<x-b-header> 
-    @section('pagetitle', 'Dashboard') 
-    @section('titlelink', '/dashboard')
-</x-b-header>
-
-<x-b-sidebar />
-<x-b-maincontent />
-
-
-
-
-<x-b-footer /> 
+<x-backend-layout>
+    <x-slot name='title'> Dashboard </x-slot>
+    <x-b-maincontent />
+</x-backend-layout>

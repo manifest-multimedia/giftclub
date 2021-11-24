@@ -50,4 +50,12 @@ Route::middleware(['auth:sanctum', 'verified' , 'referral'])->group(function(){
         return view('backend.profile');
     })->name('profile');
 
+    Route::get('/checkout/{product_id}', function($product_id){
+        return $product_id; 
+    }); 
+
+    Route::get('/exchange', function(){
+        return view('backend.exchange'); 
+    });
+
 });

@@ -31,7 +31,8 @@
                     <div class="collapse navbar-collapse justify-content-between">
                         <div class="header-left">
                             <div class="dashboard_bar">
-                              <a href="@yield('titlelink', '#')" style="color:022D4D;" class="text-gray-700 hover:text-gray-700">  @yield('pagetitle') </a> <span> Welcome back {{ auth()->user()->name}} </span> 
+                              <a href="{{Route::current()->uri() }}"
+                             style="color:022D4D;" class="text-gray-700 hover:text-gray-700">  {{$pagetitle}} </a> <span> Welcome back {{ auth()->user()->name}} </span> 
                                </div>
                             
                         

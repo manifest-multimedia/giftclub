@@ -41,6 +41,8 @@ task('build', function () {
     run('cd {{release_path}} && build');
 });
 
+set('authorization', '');
+
 task('notify', function(){
     
     // SEND SMS

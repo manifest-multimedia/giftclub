@@ -1,10 +1,6 @@
-<x-b-head />
-<x-b-preloader />
-<x-b-header> 
-    @section('pagetitle', 'Settings') 
-    @section('titlelink', '/settings')
-</x-b-header>
-<div class="content-body">
+<x-backend-layout>
+    <x-slot name='title'> Settings </x-slot>
+
     <div class="container-fluid">
 <div class="row">
     <div class="col-xl-4"><div class="card"><div class="card-body"><h1>Bio</h1> <hr /> 
@@ -52,10 +48,6 @@
 
 </div>
     
-
-
     </div>
-</div>
 
-<x-b-sidebar />
-<x-b-footer /> 
+</x-backend-layout>

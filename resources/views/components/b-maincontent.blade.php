@@ -1,7 +1,7 @@
 <!--**********************************
             Content body start
         ***********************************-->
-        <div class="content-body">
+        
 			<div class="container-fluid">
 				<x-b-new-contract-modal />
 						
@@ -279,9 +279,6 @@
 						</div>
 
 						
-					
-			</div>
-    
 	
 	
         <!--**********************************
