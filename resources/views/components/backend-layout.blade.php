@@ -6,6 +6,7 @@
     </x-slot> 
 </x-b-header>
 <x-b-sidebar />
+<x-b-new-contract-modal />
 <!-- If you do not have a consistent goal in life, you can not live it in a consistent way. - Marcus Aurelius -->
 
 <div class="content-body">

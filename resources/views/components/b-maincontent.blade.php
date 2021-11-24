@@ -3,7 +3,7 @@
         ***********************************-->
         
 			<div class="container-fluid">
-				<x-b-new-contract-modal />
+				
 						
 								<div class="col-12">
 									<div class="row">	

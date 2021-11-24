@@ -3,7 +3,7 @@
 
     <div class="container-fluid">
 <div class="row">
-    <div class="col-xl-4"><div class="card"><div class="card-body"><h1>Bio</h1> <hr /> 
+    <div class="col-xl-6"><div class="card"><div class="card-body"><h1>Bio</h1> <hr /> 
     
         <form>
             <span>Address</span>
@@ -37,12 +37,24 @@
         </form>
 
     </div></div></div>
-    <div class="col-xl-4"><div class="card"><div class="card-body"><h1>Finance</h1><hr />
+    <div class="col-xl-6"><div class="card">
+        <div class="card-body"><h1>Finance</h1><hr />
+            @livewire('linkedwallets')
+        </div>  
+</div></div>
+    <div class="col-xl-6"><div class="card"><div class="card-body"><h1>Preferences</h1><hr />
     
-    </div></div></div>
-    <div class="col-xl-4"><div class="card"><div class="card-body"><h1>Preferences</h1><hr />
+    <h5> Color Preference </h5> 
     
-    
+    <div class="radio">
+        <label><input type="radio" name="optradio"> Light</label>
+    </div>
+    <div class="radio">
+        <label><input type="radio" name="optradio"> Dark </label>
+    </div>
+    <div class="radio">
+        <label><input type="radio" name="optradio"> System/Auto </label>
+    </div>
     
     </div></div></div>
 
