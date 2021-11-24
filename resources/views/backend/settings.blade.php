@@ -15,8 +15,7 @@
                 
                 <div class="form-group col-md-6">
                     
-                    <input type="text" class="form-control" placeholder="Address Line 1", value="@if(!is_null($address)){{$address->Address_Line_One}}@endif
-                    ">
+                    <input type="text" class="form-control" placeholder="Address Line 1", value="@if(!is_null($address)){{$address->Address_Line_One}}@endif">
                 </div>
                 <div class="form-group col-md-6">
                    
