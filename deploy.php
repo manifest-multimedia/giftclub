@@ -23,7 +23,7 @@ add('shared_files', []);
 add('shared_dirs', []);
 
 // Writable dirs by web server 
-set('writable_dirs', []);
+set('writable_dirs', ['bootstrap/cache']);
 //set('allow_anonymous_stats', false);
 
 // Hosts

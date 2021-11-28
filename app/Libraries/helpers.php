@@ -183,10 +183,6 @@ if(!function_exists('earnings')){
 
 function earnings($id){
 
-    // $earning=User::find($id)->earning()
-    // ->where('user_id', $id)
-    // ->first(); 
-
     $earning=User::find($id)->earning;
     
     try {
@@ -210,6 +206,7 @@ function earnings($id){
     }
 
 }
+
 }
 
 if(!function_exists('totalinvested')){
@@ -218,6 +215,7 @@ if(!function_exists('totalinvested')){
 
         
         try {
+
             $totalinvested=User::find($id)->userProducts;
 
             if(!is_null($totalinvested) && $totalinvested->count()>0){
@@ -228,7 +226,9 @@ if(!function_exists('totalinvested')){
             } 
     
             return $totalinvested; 
+
         }
+
         catch(Exception $e) {
             $error=$e->getMessage(); 
         }
@@ -240,11 +240,7 @@ if(!function_exists('totalinvested')){
     
     }
 
-
-    
-
     }
-
 
 
 
@@ -255,7 +251,6 @@ if(!function_exists('totalinvested')){
             $points=referrals('count'); 
 
             return $points; 
-
 
         }
     }
@@ -289,4 +284,171 @@ if(!function_exists('totalinvested')){
         
             return $response;
         }   
+    }
+
+    if(!function_exists('nowpay')) {
+        function nowpay($request){
+
+            switch ($request) {
+                case 'status':
+                    
+                    $curl = curl_init();
+
+                    curl_setopt_array($curl, array(
+                    CURLOPT_URL => 'https://api.nowpayments.io/v1/status',
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => '',
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 0,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => 'GET',
+                    ));
+
+                    $response = curl_exec($curl);
+
+                    curl_close($curl);
+                    echo $response;
+
+
+                    break;
+                case 'available-currencies': 
+                    $api_key=config('nowpay.apikey');
+                    $curl = curl_init();
+
+                    curl_setopt_array($curl, array(
+                    CURLOPT_URL => 'https://api.nowpayments.io/v1/currencies',
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => '',
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 0,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => 'GET',
+                    CURLOPT_HTTPHEADER => array(
+                        "x-api-key: $api_key"
+                    ),
+                    ));
+
+                    $response = curl_exec($curl);
+
+                    curl_close($curl);
+                    echo $response;
+                break;
+
+                case 'rates':
+
+                    $api_key=config('nowpay.apikey');
+                    $amount=10; 
+                    $from='eur';
+                    $to='btc'; 
+
+                $curl = curl_init();
+
+                curl_setopt_array($curl, array(
+                CURLOPT_URL => "https://api.nowpayments.io/v1/estimate?amount=$amount&currency_from=$from&currency_to=$to",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => '',
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => 'GET',
+                CURLOPT_HTTPHEADER => array(
+                    "x-api-key:$api_key",
+                ),
+                ));
+
+                $response = curl_exec($curl);
+
+                curl_close($curl);
+                echo $response;
+
+                break; 
+
+
+                default:
+                    # code...
+                    break;
+            }
+
+            
+
+        }
+
+
+        if(!function_exists('checkmethod')){
+            function checkmethod($paymentMethod){
+                switch ($paymentMethod) {
+                    case 'card':
+                        return "{method:1}"; 
+                        break;
+
+                    case 'crypto':
+                        return "{method:2}";
+                        break;
+                    
+                    case 'other':
+                        return "{method:3}"; 
+                        break; 
+                           
+                    default:
+                        return "{method:1}"; 
+                        break;
+                }
+            }
+        }
+
+
+
+        if(!function_exists('payNow')) {
+
+            function payNow($amount, $fiat, $crypto, $product, $description) {
+                $api_key=config('nowpay.apikey');
+
+                $curl = curl_init();
+
+                $data=[
+                    'price_amount'=>"$amount", 
+                    'price_currency' =>"$fiat", 
+                    'pay_currency' => "$crypto", 
+                    "ipn_callback_url" => "https://nowpayments.io",
+                    'order_id'=> "$product", 
+                    'order_description' =>"$description"
+                ]; 
+
+                curl_setopt_array($curl, array(
+                CURLOPT_URL => 'https://api.nowpayments.io/v1/payment',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => '',
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => 'POST',
+                CURLOPT_POSTFIELDS =>'{
+                "price_amount": '.$amount.',
+                "price_currency": "'.$fiat.'",
+                "pay_currency": "'.$crypto.'",
+                "ipn_callback_url": "https://nowpayments.io",
+                "order_id": "'.$product.'",
+                "order_description": "'.$description.'"
+                }',
+                
+                CURLOPT_HTTPHEADER => array(
+                    "x-api-key: $api_key",
+                    "Content-Type: application/json"
+                ),
+                ));
+
+                $response = curl_exec($curl);
+
+                curl_close($curl);
+                return $response;
+
+            }
+
+        }
+
+
     }

@@ -1,15 +1,5 @@
-<x-b-head />
-<x-b-preloader />
-<x-b-header> 
-    @section('pagetitle', 'Profile') 
-    @section('titlelink', '/profile')
-        
-   
-</x-b-header>
-
-
-
-<div class="content-body"> 
+<x-backend-layout>
+    <x-slot name='title'> Profile </x-slot>
     <div class="container-fluid"> 
          
         <!-- Row --> 
@@ -53,8 +43,7 @@
             </div>
 
 
-            <div class="col-xl-8">
-                
+            <div class="col-xl-8">            
                            
                                 @if (Laravel\Fortify\Features::canUpdateProfileInformation())
                                 <div class="col-md-12"> 
@@ -89,9 +78,7 @@
                                     <div class="col-md-12">
                                         @livewire('profile.delete-user-form')
                                     </div>
-                                @endif
-      
-                      
+                                @endif                      
                     
                 </div>
             </div>
@@ -101,11 +88,6 @@
         </div>
             
 </div>
-</div>
-
-
-
-<x-b-sidebar />
 
 <script>
     function copyToClipboard(id) {
@@ -113,10 +95,6 @@
         document.execCommand('copy');
     }
 
-    // function copyToClipboard(id) {
-    //     document.getElementById(id).execCommand('copy');
-    // }
-
 </script>
 
-<x-b-footer /> 
+</x-backend-layout>

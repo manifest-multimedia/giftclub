@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\settingsController;
+use App\Http\Livewire\Checkout; 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,9 +51,11 @@ Route::middleware(['auth:sanctum', 'verified' , 'referral'])->group(function(){
         return view('backend.profile');
     })->name('profile');
 
-    Route::get('/checkout/{product_id}', function($product_id){
-        return $product_id; 
-    }); 
+    // Route::get('/checkout/{product_id}', function($product_id){
+    //     return  view('backend.checkout');
+    // })->name('pay'); 
+
+    Route::get('/checkout/{product_id}', Checkout::class)->name('pay');
 
     Route::get('/exchange', function(){
         return view('backend.exchange'); 

@@ -27,7 +27,7 @@
                         <input type="password" class="form-control">
                     </div>
                     <div class="form-group">
-                        <button type="button" class="btn btn-primary">Add Contract</button>
+                        <a href="{{route('pay', 1)}}" type="button" class="btn btn-primary">Add Contract</a>
                     </div>
                 </form>
             </div>

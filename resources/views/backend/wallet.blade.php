@@ -8,7 +8,6 @@
                 <div class="card">
                     
                     @livewire('linkedwallets')
-                 
                    
                 </div>
             </div>
