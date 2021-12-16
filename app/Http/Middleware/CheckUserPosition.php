@@ -19,7 +19,15 @@ class CheckUserPosition
         
         $user=Auth::user()->id; 
 
+        $products=User::find($user)->userProducts;
+
+        
+
         //Check if user has an active package
+        //Church Number of active referrals 
+        //Set Number of Active Referrrals to Position
+        // If Number of active referrrals equals 8, process payout. Mark As Complete. 
+
         //Check if user has at least one referral with an active package
         /* 
         

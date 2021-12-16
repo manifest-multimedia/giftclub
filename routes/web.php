@@ -19,13 +19,13 @@ use App\Http\Livewire\Checkout;
 //     return view('frontend.home');
 // });
 
-Route::view('/', 'frontend.home');
-Route::view('/about', 'frontend.about');
-Route::view('/services', 'frontend.services');
+Route::view('/', 'backend.login');
+// Route::view('/about', 'frontend.about');
+// Route::view('/services', 'frontend.services');
 
-Route::view('/terms', 'frontend.policy.terms');
+// Route::view('/terms', 'frontend.policy.terms');
 
-Route::view('/new', 'frontend.new');
+// Route::view('/new', 'frontend.new');
 
 Route::middleware(['auth:sanctum', 'verified' , 'referral'])->group(function(){
 

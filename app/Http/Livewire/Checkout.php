@@ -13,14 +13,11 @@ class Checkout extends Component
     public $paymentMethod; 
     public $paymentMethodUpdated; 
     public $card; 
-
-
     public $amount; 
     public $fiat; 
     public $crypto; 
     public $product; 
     public $description; 
-
     public $paymentResponse;
     public $paymentID; 
     
@@ -28,15 +25,14 @@ class Checkout extends Component
 
         /* 
         --------------------------------------------------------
-        | Available Payment Methods
+        | Available Payment Methods                            |
         --------------------------------------------------------
-        | 1. Card
-        | 2. Crypto 
+        | 1. Card                                              |
+        | 2. Crypto                                            | 
         --------------------------------------------------------
         Default Method = Card
         */
         
-
         $this->paymentMethod='card'; 
         $this->selectedProduct=Product::find($product_id); 
         $this->fiat='usd'; 
@@ -51,18 +47,12 @@ class Checkout extends Component
         $this->product, 
         $this->description); 
 
-       
     }
 
     public function render()
     {
-        
-
-       
         // $this->paymentResponse=json_encode($this->paymentResponse);
- 
         // $this->paymentID=$this->paymentResponse['payment_id']; 
-
         return view('livewire.checkout');
     }
 

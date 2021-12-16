@@ -16,24 +16,24 @@ set('repository', 'https://github.com/manifest-multimedia/giftclub');
 // [Optional] Allocate tty for git clone. Default value is false.
 //set('git_tty', true); 
 
-set('writable_mode', 'chown');
+// set('writable_mode', 'chown');
 
 // Shared files/dirs between deploys 
 add('shared_files', []);
 add('shared_dirs', []);
 
 // Writable dirs by web server 
-set('writable_dirs', ['bootstrap/cache']);
-//set('allow_anonymous_stats', false);
+set('writable_dirs', ['/var/www/giftclubglobal.com/current/bootstrap/cache']);
+set('allow_anonymous_stats', false);
 
 // Hosts
 
 host('3.25.130.254')
     ->user('giftclub')
-    ->port(22)
     ->identityFile('c://ssh/giftclubglobal')
-    ->forwardAgent(true)
-        ->set('deploy_path', '/var/www/giftclubglobal.com');    
+    ->set('deploy_path', '/var/www/giftclubglobal.com/app');    
+    // ->forwardAgent(true)
+        // ->set('deploy_path', '/var/www/giftclubglobal.com');    
     
 // Tasks
 
@@ -41,7 +41,11 @@ task('build', function () {
     run('cd {{release_path}} && build');
 });
 
+/* Create 
+|
 set('authorization', '');
+
+ */ 
 
 task('notify', function(){
     

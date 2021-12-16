@@ -1,16 +1,12 @@
 <x-backend-layout>
     <x-slot name='title'> Dashboard </x-slot>
 
-    
-
     <!--**********************************
             Content body start
         ***********************************-->
         
 			<div class="container-fluid">
-				
-				{{nowpay('rates')}}
-    <hr />		
+                
                 <div class="col-12">
                     <div class="row">	
 
@@ -32,7 +28,6 @@
                                 </div>
                             </div>										
                         </div>
-
 
                         <div class="col-xl-4 col-xxl-6 col-lg-4 col-sm-6">
                             <div class="card">
@@ -150,11 +145,7 @@
                                 </div>
                             </div>
                         </div> --}}
-
-
-
-                    
-                        
+                                        
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-header border-0 pb-sm-0 pb-5">
@@ -178,21 +169,9 @@
                                 </div>
                                 <div class="card-body">
 
-
-
-
-
                                     {{-- BTC Rate: {{btcRates()}} <br />
                                     {{ bitpay() }}
                                      --}}
-
-
-
-
-
-
-
-
 
                                     <div class="event-bx owl-carousel">
                                         <div class="items">
