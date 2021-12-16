@@ -11,8 +11,14 @@
                     <a href="index.html"><img src="{{ asset('img/logo.svg') }}" alt="logo" width="150px" height="22px"
                             style="margin-bottom: 30px;"></a>
 
-                    <p class="small-ft">(209) 634-8959<br>9318 W Main St<br>Turlock, California(CA),<br>95380</p>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <p class="small-ft">
+                        Milliard Capital LLP<br>
+                        Kemp House<br>
+                        152 - 160 City Road<br>
+                        London <br>
+                        EC1V 2NX
+                    </p>
+                    <div class="gap-2 d-grid d-md-flex justify-content-md-start">
                         <img src="{{ asset('img/insta.svg') }}" class="iconss" width="32px" height="32px">
                         <img src="{{ asset('img/facebook.svg') }}" class="iconss" width="32px" height="32px">
                         <img src="{{ asset('img/twitter.svg') }}" class="iconss" width="32px" height="32px">
@@ -84,8 +90,8 @@
 
                         <li class="small-ft"><a href="">info@thegiftclub.com</a></li>
 
-                            <li><strong>Payment Methods</strong></li>
-                        <li class="small-ft">+233244558822</li>
+                          {{--   <li><strong>Payment Methods</strong></li>
+                        <li class="small-ft">+233244558822</li> --}}
 
                         <li>
                             <strong>Payment Methods</strong>
