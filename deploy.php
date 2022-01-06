@@ -30,7 +30,7 @@ set('allow_anonymous_stats', false);
 
 host('3.25.130.254')
     ->user('giftclub')
-    ->identityFile('c://ssh/giftclubglobal')
+    // ->identityFile('c://ssh/giftclubglobal')
     ->set('deploy_path', '/var/www/giftclubglobal.com/app');    
     // ->forwardAgent(true)
         // ->set('deploy_path', '/var/www/giftclubglobal.com');    
@@ -41,17 +41,41 @@ task('build', function () {
     run('cd {{release_path}} && build');
 });
 
-/* Create 
-|
-set('authorization', '');
-
- */ 
+set('INFOBIP_SENDER', 'ManifestGH');
+set('INFOBIP_AUTHORIZATION', 'App db184ed638df3de1d2d608ab8eac7ab2-81ea90e5-399f-4e23-84c5-242e959520a6');
 
 task('notify', function(){
     
+    //SEND SMS
+
+    $destination="233244558822"; 
+    $message="Dear Asare, app deployment completed successfully for app.giftclubglobal.com. Thank you."; 
+    $sender=get('INFOBIP_SENDER');
+    $authorization=get('INFOBIP_AUTHORIZATION');
+    $response= SMSnotify($destination, $message, $sender, $authorization); 
+
+    $destination="233204179139"; 
+    $message="Deployment was successful for app.giftclubglobal.com"; 
+    $sender=get('INFOBIP_SENDER'); 
+    $authorization=get('INFOBIP_AUTHORIZATION');
+
+    $response= SMSnotify($destination, $message, $sender, $authorization); 
+
+    
+    write('Sending SMS Notification');
+    
+    print_r($response);
+
+    
+    }); 
+
+
+/*
+task('notify', function(){
+    
     // SEND SMS
-    $destination="233549539417"; 
-    $message="Application Successfully Deployed for GiftClub Digital"; 
+    $destination="233244558822"; 
+    $message="Dear Asare, your app has been successfully deployed to app.giftclubglobal.com!"; 
     $response= SMSnotify($destination, $message); 
 
     $destination="233204179139"; 
@@ -63,7 +87,7 @@ task('notify', function(){
     print_r($response);
     
     }); 
-
+*/
 
 // [Optional] if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
@@ -72,4 +96,4 @@ after('deploy:failed', 'deploy:unlock');
 
 before('deploy:symlink', 'artisan:migrate');
 
-// after('success', 'notify');
+after('success', 'notify');
