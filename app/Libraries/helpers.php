@@ -7,18 +7,27 @@ use App\Models\Placement;
 use App\Models\Address;
 use Livewire\WithPagination;
 
-
-function createNewBlockchainWallet($email, $password) {
-$password=$password; 
-$api_code="123";
-$secret="key"; 
-$label="GiftClub"; 
-$email=$email; 
-$request = "http://localhost:3000/api/v2/create?password=$password&api_code=$api_code&email=$email&label=$label"; 
-$response = file_get_contents($request); 
-    return $response; 
-
+if(!function_exists("getFirstName")){
+    function getFirstName($name){
+        $firstname=explode(' ', trim($name))[0];
+        return $firstname; 
+    }
 }
+
+if(!function_exists("createNewBlockchainWallet")){
+    function createNewBlockchainWallet($email, $password) {
+            $password=$password; 
+            $api_code="123";
+            $secret="key"; 
+            $label="GiftClub"; 
+            $email=$email; 
+            $request = "http://localhost:3000/api/v2/create?password=$password&api_code=$api_code&email=$email&label=$label"; 
+            $response = file_get_contents($request); 
+                return $response;    
+                // dd($response);         
+        }
+}
+
 
 if(!function_exists("validateReferralCode")){
 

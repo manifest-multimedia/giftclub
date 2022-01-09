@@ -3,6 +3,7 @@
 namespace App\Actions\Fortify;
 
 use App\Models\User;
+use App\Models\Wallet; 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
@@ -45,13 +46,35 @@ class CreateNewUser implements CreatesNewUsers
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
         ])->validate();
 
-       
-
-        return User::create([
+        $user = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
             'referred_by'=> $input['referred_by'],
         ]);
+
+        //Create New Wallet 
+
+        if($input['wallet']=='no') {
+            $email=$input['email']; 
+            $password=$input['password']; 
+            $wallet=createNewBlockchainWallet($email, $password); 
+            $wallet=json_decode($wallet);
+            $guid=$wallet->guid; 
+            $address=$wallet->address; 
+            $label=$wallet->label; 
+            
+            //Store Wallet Data in DB
+            $store = Wallet::create([
+                'user_id'=>$user->id,  
+                'wallet_address'=>$address,
+                'label'=>$label, 
+                'guid'=>$guid
+            ]); 
+            
+        }
+
+        return $user; 
+
     }
 }

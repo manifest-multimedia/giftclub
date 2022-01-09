@@ -41,6 +41,7 @@ class WelcomeEmailNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+                    ->greeting('Hello '.getFirstName($notifiable->name).'!')
                     ->line('Welcome to the Gift Club Family! You just unlocked the door to financial freedom with absolute peace of mind!')
                     ->action('Access Your Account', url('https://app.giftclubglobal.com'))
                     ->line('Feel free to explore all the investment options in our proftflio.');

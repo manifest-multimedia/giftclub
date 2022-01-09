@@ -1,4 +1,26 @@
-<x-guest-layout>
+<x-auth-layout>
+<x-slot name='pagetitle'> 
+    Forgot Password
+</x-slot>
+
+<form method="POST" action="{{ route('password.email') }}">
+    @csrf
+
+    <div class="block">
+        <x-jet-label for="email" value="{{ __('Email') }}" />
+        <x-jet-input id="email" placeholder="Enter Email To Receive Password Reset Link" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+    </div>
+
+    <div class="flex items-center justify-end mt-4">
+        <x-jet-button class="btn bg-white text-primary btn-block">
+            {{ __('Email Password Reset Link') }}
+        </x-jet-button>
+    </div>
+</form>
+
+</x-auth-layout>
+
+{{-- <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
@@ -31,4 +53,4 @@
             </div>
         </form>
     </x-jet-authentication-card>
-</x-guest-layout>
+</x-guest-layout> --}}
