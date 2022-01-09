@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
 use App\Rules\refValidator;
+use App\Notifications\WalletCreatedSuccessfully;
 
 
 class CreateNewUser implements CreatesNewUsers
@@ -36,7 +37,6 @@ class CreateNewUser implements CreatesNewUsers
         
                
          //Validate Referral Code 
-
 
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
@@ -71,6 +71,11 @@ class CreateNewUser implements CreatesNewUsers
                 'label'=>$label, 
                 'guid'=>$guid
             ]); 
+
+            //Shot Mail
+            $user->notify(new WalletCreatedSuccessfully()); 
+
+
             
         }
 
