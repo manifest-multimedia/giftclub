@@ -10,7 +10,7 @@ use App\Models\Wallet;
 class Linkedwallets extends Component
 {
     public $walletAddress;
-    public $updateAddress=false; 
+    public $updateAddress=0; 
     public $user; 
     public $wallet; 
 
@@ -35,7 +35,7 @@ class Linkedwallets extends Component
 
     public function update(){
 
-        $this->updateAddress=true; 
+        $this->updateAddress=1; 
 
     }
     public function save(){
@@ -62,7 +62,7 @@ class Linkedwallets extends Component
                 session()->flash('message', "Wallet Updated Successfully");
         }
         
-        $this->updateAddress=false; 
+        $this->updateAddress=0; 
     }
     
 
