@@ -23,7 +23,7 @@ add('shared_files', []);
 add('shared_dirs', []);
 
 // Writable dirs by web server 
-set('writable_dirs', ['/var/www/giftclubglobal.com/app/current/bootstrap/cache']);
+//set('writable_dirs', ['/var/www/giftclubglobal.com/app/current/bootstrap/cache']);
 set('allow_anonymous_stats', false);
 
 // Hosts
