@@ -1,7 +1,7 @@
 <div>
     {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
     <div class="card-body">
-        <h3 class="card-title"> Linked Wallets:(Observer {{$updateAddress}}) </h3>  
+        <h3 class="card-title"> Linked Wallets:</h3>  
         <x-validation-errors />
         <x-success-messages />   
        <div> <span> BTC </span> 
