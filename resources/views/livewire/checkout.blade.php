@@ -11,7 +11,7 @@
                         <div class="col-lg-4 col-md-5 order-md-2 mb-4">
                             <h4 class="d-flex justify-content-between align-items-center mb-3">
                                 <span class="text-muted">Order Information</span>
-                                {{-- <span class="badge badge-primary badge-pill text-white">3</span> --}}
+                                {{-- <span class="badgephp badge-primary badge-pill text-white">3</span> --}}
                             </h4>
                             <ul class="list-group mb-3">
                                 <li class="list-group-item d-flex justify-content-between lh-condensed">
