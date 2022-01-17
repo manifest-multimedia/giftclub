@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
         @livewireStyles
-        
+
         <!-- Scripts -->
         <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
         {{-- <script src="{{ mix('js/app.js') }}" defer></script> --}}
@@ -30,10 +30,23 @@
 	<link href="{{asset('vendor/owl-carousel/owl.carousel.css')}}" rel="stylesheet">
     <link href="{{asset('css/bstyle.css')}}" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        @media only screen and (min-width: 768px){
+          [data-sidebar-style=mini][data-layout=vertical] .deznav .metismenu>li:nth-last-child(-n+1)>ul {
+            top: -55px !important;
+            }
+        }
+        @media only screen and (min-width: 768px){
+        [data-sidebar-style=mini] .deznav .metismenu li>ul {
+            position: relative;
+        }
+        }
+    </style>
 </head>
 <body>
 
-    
+
 
     <!--**********************************
         Main wrapper start
