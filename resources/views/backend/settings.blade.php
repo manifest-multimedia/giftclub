@@ -1,5 +1,7 @@
 <x-backend-layout>
+    
     <x-slot name='title'> Settings </x-slot>
+  
 
     <div class="container-fluid">
 <div class="row">
@@ -42,7 +44,7 @@
             @livewire('linkedwallets')
         </div>  
 </div></div>
-    <div class="col-xl-6"><div class="card"><div class="card-body"><h1>Preferences</h1><hr />
+    {{-- <div class="col-xl-6"><div class="card"><div class="card-body"><h1>Preferences</h1><hr />
     
     <h5> Color Preference </h5> 
     
@@ -56,7 +58,7 @@
         <label><input type="radio" name="optradio"> System/Auto </label>
     </div>
     
-    </div></div></div>
+    </div></div></div> --}}
 
 </div>
     

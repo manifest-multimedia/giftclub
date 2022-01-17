@@ -21,34 +21,38 @@ class ProductsSeeder extends Seeder
             [
 
                 [ 
-                    'name' => '$100 Plan',
-                    'cost' => '100', 
+                    'name' => 'Popular Plan $100',
+                    'cost' => '100',
+                    'description'=>'Popular Investment Plan with 100% Annual Percentage Yield.', 
                     
                 ],
 
                 [ 
-                    'name' => '$200 Plan',
+                    'name' => 'Classic Plan $200',
                     'cost' => '200', 
+                    'description' => 'Classic Investment Plan with 100% Annual Percentage Yield.', 
                     
                 ],
 
                 [ 
-                    'name' => '$300 Plan',
-                    'cost' => '300', 
+                    'name' => 'Silver Plan $500',
+                    'cost' => '500',
+                    'description' => 'Silver Investment Plan with 100% Annual Percentage Yield.', 
                     
                 ],
 
                 [ 
-                    'name' => '$500 Plan',
-                    'cost' => '500', 
-                    
-                ],
-
-                [ 
-                    'name' => '$1000 Plan',
+                    'name' => 'Gold Plan $1000',
                     'cost' => '1000', 
+                    'description' => 'Gold Investment Plan with 100% Annaul Percentage Yield.'
                     
                 ],
+
+                // [ 
+                //     'name' => '$1000 Plan',
+                //     'cost' => '1000', 
+                    
+                // ],
 
               
             ]);

@@ -1,7 +1,5 @@
-    <!-- It is not the man who has too little, but the man who craves more, 
-        that is poor. - Seneca -->
-    <!DOCTYPE html>
-    <html lang="en" class="h-100">
+<!DOCTYPE html>
+<html lang="en" class="h-100">
     
     <head>
         <meta charset="utf-8">
@@ -13,6 +11,8 @@
         <link href="{{asset('css/error-pages.css')}}" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     </head>
+    <!-- It is not the man who has too little, but the man who craves more, 
+        that is poor. - Seneca -->
     
     <body class="h-100">
         <div class="authincation h-100">
@@ -31,7 +31,7 @@
                 </div>
             </div>
         </div>
-    </body>
+    
     <!--**********************************
         Scripts
     ***********************************-->
@@ -39,5 +39,8 @@
     <script src="{{asset('vendor/global/global.min.js')}}"></script>
     <script src="{{asset('js/custom.min.js')}}"></script>
     <script src="{{asset('js/deznav-init.js')}}"></script>
-    
-    </html>
+   
+    @include('sweetalert::alert')
+
+</body>
+</html>

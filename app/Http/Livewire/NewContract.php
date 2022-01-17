@@ -29,7 +29,9 @@ class NewContract extends Component
     public function process(){
     
         if(empty($this->userPasswordConfirmation)){
-        return redirect('/404');
+        return redirect('/wrongpass');
+        
+
         } 
         
         $this->validate(['userPasswordConfirmation' => 'required']); 
@@ -44,7 +46,8 @@ class NewContract extends Component
             resetValues();
         }
         else {
-            return redirect('/404');
+            
+            return redirect('/700');
             resetValues();
         }
 

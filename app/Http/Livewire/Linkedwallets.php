@@ -15,7 +15,7 @@ class Linkedwallets extends Component
     public $wallet; 
 
     public function mount(){
-
+    
         $this->user=Auth::user(); 
 
         $this->wallet=User::find($this->user->id)->wallet; 
@@ -24,13 +24,16 @@ class Linkedwallets extends Component
             $this->walletAddress="There are no linked wallets for this account."; 
         } else {
             $this->walletAddress=$this->wallet->wallet_address;
+            
         }
         
     }
 
     public function render()
     {
+        $this->dispatchBrowserEvent('swal', ['title' => 'Feedback Saved']);
         return view('livewire.linkedwallets');
+        $this->dispatchBrowserEvent('swal', ['title' => 'Feedback Saved']);
     }
 
     public function update(){

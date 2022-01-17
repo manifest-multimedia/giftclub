@@ -3,7 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\settingsController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Livewire\Checkout; 
+use Jantinnerezo\LivewireAlert\LivewireAlert;
+use RealRashid\SweetAlert\Facades\Alert;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,7 +33,15 @@ Route::view('/', 'backend.login');
 
 Route::middleware(['auth:sanctum', 'verified' , 'referral'])->group(function(){
 
+    route::get('/wrongpass', function() {
+        
+        Alert::html('Action Failed!', 'Request could not be processed. <strong>Password confirmation failed.</strong>', 'warning')->toToast();
+        return view('errors.WrongPassword'); 
+    })->name('invalidpass');
+
     Route::get('/dashboard', function () {
+
+         
         return view('backend.dashboard');
     })->name('dashboard');
 
@@ -56,6 +68,7 @@ Route::middleware(['auth:sanctum', 'verified' , 'referral'])->group(function(){
     // })->name('pay'); 
 
     Route::get('/checkout/{product_id}', Checkout::class)->name('pay');
+    Route::post('/payment-complete', [CheckoutController::class, 'store'])->name('paycomplete');
 
     Route::get('/exchange', function(){
         return view('backend.exchange'); 

@@ -33,7 +33,7 @@ class Checkout extends Component
         Default Method = Card
         */
         
-        $this->paymentMethod='card'; 
+        $this->paymentMethod='crypto'; 
         $this->selectedProduct=Product::find($product_id); 
         $this->fiat='usd'; 
         $this->crypto='btc';

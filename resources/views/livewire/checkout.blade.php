@@ -55,8 +55,11 @@
                         </div>
                         <div class="col-lg-8 col-md-7 order-md-1">
                             <h4 class="mb-3">Make Payment</h4>
-                            <form class="needs-validation" novalidate="">
+                            <form class="needs-validation" novalidate=""
+                            
+                            action="{{url('payment-complete')}}" method="post">
                                 @csrf
+                                @method('post')
                                 <hr class="mb-4">
         
                                 {{-- Card Payments  --}}
@@ -68,11 +71,11 @@
                                 <h4 class="mb-3">Payment Method</h4>
                                 
                                 <div class="d-block my-3" >
-                                    <div class="custom-control custom-radio mb-2" wire:ignore.self >
+                                    {{-- <div class="custom-control custom-radio mb-2" wire:ignore.self >
                                         <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" required="" value='card' {{($paymentMethod==='card') ? 'checked=""':''}}
                                         @click="method=1">
                                         <label class="custom-control-label" for="credit">Pay with Card</label>
-                                    </div>
+                                    </div> --}}
                                     {{-- <div class="custom-control custom-radio mb-2">
                                         <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
                                         <label class="custom-control-label" for="debit">Debit card</label>
@@ -186,8 +189,11 @@
                                                     @php 
                                                     $response=json_decode($paymentResponse); 
                                                     echo ucfirst($response->payment_status); 
+                                                    $purchase_id=$response->purchase_id; 
                                                     @endphp 
                                                 </div>
+
+                                                <input type="hidden" name="purchase_id" value="{{$purchase_id}}">
                                     </div>
                                     {{-- Other--}}
                                     <div x-show="method===3">
