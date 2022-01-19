@@ -12,7 +12,7 @@
                         <ul aria-expanded="true">
 							<li><a href="/dashboard">Dashboard</a></li>
 							<li><a href="/wallet">Wallet</a></li>
-                            <li><a href="/exchange">Exchange</a></li>
+                            {{-- <li><a href="/exchange">Exchange</a></li> --}}
 							<li><a href="/transactions">Transactions</a></li>
 							<li><a href="/referrals">Referrals</a></li>
 							<li><a href="/settings">Settings</a></li>

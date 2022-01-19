@@ -69,6 +69,7 @@ Route::middleware(['auth:sanctum', 'verified' , 'referral'])->group(function(){
 
     Route::get('/checkout/{product_id}', Checkout::class)->name('pay');
     Route::post('/payment-complete', [CheckoutController::class, 'store'])->name('paycomplete');
+    Route::get('/payment-complete', [CheckoutController::class, 'index'])->name('paycomplete');
 
     Route::get('/exchange', function(){
         return view('backend.exchange'); 

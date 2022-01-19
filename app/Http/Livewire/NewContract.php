@@ -47,7 +47,7 @@ class NewContract extends Component
         }
         else {
             
-            return redirect('/700');
+            return redirect('/wrongpass');
             resetValues();
         }
 

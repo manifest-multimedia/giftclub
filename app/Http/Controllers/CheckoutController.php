@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Models\Transaction; 
+use Auth; 
 
 
 class CheckoutController extends Controller
@@ -16,8 +18,7 @@ class CheckoutController extends Controller
     public function index()
     {
        
-
-        return view('backend.transactions');
+      return view('backend.transactions'); 
 
     }
 
@@ -39,20 +40,66 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-        // Check Payment Status 
-        // print($request->purchase_id);
-        $paymentid=$request->purchase_id;
-        $payment_status=getPaymentStatus($paymentid); 
-        $response=json_decode($payment_status);
-        $message=$response->message;
+        
+        $productname=$request->product_name;
+        $paymentid=$request->payment_id;
+        $productid=$request->product_id;
+        $productdesc=$request->product_description; 
+        $paymentamount=$request->amount; 
 
-        //echo $response->message;
+
+        $payment_status=getPaymentStatus($paymentid);  
+        $response=json_decode($payment_status);
+        $message=$response->payment_status;
+
+        $transaction= new Transaction; 
+
+        if (!Transaction::where('payment_id', $paymentid)->exists()) {
+
+            $transaction->user_id=Auth::user()->id; 
+            $transaction->label=$productname; 
+            $transaction->product_id=$productid; 
+            $transaction->payment_id=$paymentid; 
+            $transaction->description=$productdesc; 
+            $transaction->amount=$paymentamount;
+            $transaction->save(); 
+
+        }
+
+        else{
+            return back()->with('toast_error', 'System Error. Try again!'); 
+        }
+
+        switch ($message) {
+            case 'waiting':
+                $status='toast_error'; 
+                $message='Payment not received. Status: Waiting!'; 
+                break;
+
+            case 'success': 
+               
+                $status='toast_success'; 
+                $message='Your payment was successful.'; 
+                break; 
+
+            case 'confirming': 
+                $status='toast_success'; 
+                $message='The payment satus is pending confirmation.'; 
+                break;
+
+            case 'confirmed':
+                $status='toast_success'; 
+                $message='Payment received & confirmed.'; 
+                break; 
+
+            default:
+                $status='toast_error'; 
+                $message='Payment not received. Status: Waiting!'; 
+                break;
+        }
 
         return redirect('transactions')->with('toast_error', $message);
-        // Display Output
-
-        //
-
+      
     }
 
     /**

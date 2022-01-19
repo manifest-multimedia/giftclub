@@ -6,7 +6,7 @@
                 <thead>
                     <tr>
                         <th scope="col">Date</th>
-                        <th scope="col">Amount (BTC)</th>
+                        <th scope="col">Payment Status</th>
                         <th scope="col">Amount (USD)</th>
                         
                         <th scope="col"> Action</th>
@@ -14,13 +14,23 @@
                 </thead>
                 <tbody>
                     <tr>
-                        @foreach ($transactions as $item)
+
                         
-                        <td>2021-06-25 16:12
-                        </td>
-                        <td>0.08715595 BTC</td>
-                        <td>
-                            $2,849.56</td>
+
+                        @foreach ($transactions as $item)
+                      
+                        <td>{{$item->created_at}}</td>
+
+                        @php
+                        
+                        $payment_status=getPaymentStatus($item->payment_id); 
+                        $payment_status=json_decode($payment_status); 
+                        $payment_status=$payment_status->payment_status; 
+
+                        @endphp
+
+                        <td>{{ucfirst($payment_status)}}</td>
+                        <td>${{$item->amount}} USD</td>
                         
                         <td>
                             <div class="dropdown custom-dropdown mb-0">
@@ -28,8 +38,8 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="12" cy="5" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="19" r="2"></circle></g></svg>
                                 </div>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="https://www.blockchain.com/btc/tx/c2396c27a104c4d11325314d66adf0ecc0fc70e8786adde5696b75abb0104ff6" target="_blank">Details</a>
-                                    {{-- <a class="dropdown-item text-danger" href="javascript:void(0);">Cancel</a> --}}
+                                    <a class="dropdown-item" href="{{url()->current()}}" target="_self">Refresh</a>
+                                    {{-- <a class="dropdown-item text-danger" href="">Remove</a> --}}
                                 </div>
                             </div>
                         </td>

@@ -1,6 +1,6 @@
 <div>
-    {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
     <x-backend-layout> 
+    {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
         <x-slot name='title'> Checkout </x-slot>
         <div class="container-fluid" wire:ignore.self>
         <div class="row">
@@ -169,31 +169,41 @@
                                        <h4> Crypto </h4>
                                        <p> Do not Refresh Page Until Payment you have successfully sent the payment to the address below: </p>
                                     </div>
-                                       
-                                    <div class="col-md-12" style="text-align:center !important">
-                                          <label for="payment_address"><strong> Send Payment to </strong></label> <input type="text" value="@php 
+                                    
+                                    @php 
                                        $response=json_decode($paymentResponse);
-                                       echo ucfirst($response->pay_address);
-                                       @endphp" class="form-control" style="text-align:center">
+                                       
+                                       $purchase_id=$response->purchase_id;
+
+                                       $payment_id=$response->payment_id; 
+
+                                       $order_id=$response->order_id;
+                                       
+                                       @endphp
+
+                                    <div class="col-md-12" style="text-align:center !important">
+                                          <label for="payment_address"><strong> Send Payment to </strong></label> 
+                                          <input type="text" value="{{$response->pay_address}}" class="form-control" style="text-align:center">
                                    </div>
                                     <div class="col-md-12" style="text-align:center !important; padding-top:30px" >
-                                          <label for="payment_address"><strong> Amount to Send </strong></label> <input type="text" value="@php 
-                                       $response=json_decode($paymentResponse);
-                                       echo ucfirst($response->pay_amount);
-                                       @endphp" class="form-control" style="text-align:center">
+                                          <label for="payment_address"><strong> Amount to Send </strong></label> <input type="text" 
+                                          value=" {{$response->pay_amount}}" class="form-control" style="text-align:center">
                                    </div>
                                    
                                    
                                                 <div class="col-md-12" style="padding-top:30px; text-align:center">
                                                     Payment Status:
-                                                    @php 
-                                                    $response=json_decode($paymentResponse); 
-                                                    echo ucfirst($response->payment_status); 
-                                                    $purchase_id=$response->purchase_id; 
-                                                    @endphp 
+                                                   {{ucfirst($response->payment_status)}}
                                                 </div>
 
+                                                <input type="hidden" name="product_id" value="{{$selectedProductID}}">
+                                                <input type="hidden" name="payment_id" value="{{$payment_id}}">
                                                 <input type="hidden" name="purchase_id" value="{{$purchase_id}}">
+                                                <input type="hidden" name="product_name" value="{{$selectedProduct->name}}">
+                                                <input type="hidden" name="product_description" value="{{$selectedProduct->description}}">
+                                                <input type="hidden" name="amount" value="{{$selectedProduct->cost}}">
+
+                                                
                                     </div>
                                     {{-- Other--}}
                                     <div x-show="method===3">
@@ -215,5 +225,4 @@
     
     </x-backend-layout>
     
-
 </div>

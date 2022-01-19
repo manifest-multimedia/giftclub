@@ -35,12 +35,23 @@
         @media only screen and (min-width: 768px){
           [data-sidebar-style=mini][data-layout=vertical] .deznav .metismenu>li:nth-last-child(-n+1)>ul {
             top: -55px !important;
+            
             }
         }
+
         @media only screen and (min-width: 768px){
+            
         [data-sidebar-style=mini] .deznav .metismenu li>ul {
             position: relative;
+           
         }
+        [data-sidebar-style=mini] .deznav .metismenu li>ul:hover{
+            display: block;
+           
+        }
+
+
+
         }
     </style>
 </head>

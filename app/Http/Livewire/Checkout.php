@@ -20,6 +20,7 @@ class Checkout extends Component
     public $description; 
     public $paymentResponse;
     public $paymentID; 
+    public $selectedProductID;
     
     public function mount($product_id) {
 
@@ -32,7 +33,7 @@ class Checkout extends Component
         --------------------------------------------------------
         Default Method = Card
         */
-        
+        $this->selectedProductID=$product_id;
         $this->paymentMethod='crypto'; 
         $this->selectedProduct=Product::find($product_id); 
         $this->fiat='usd'; 
@@ -41,18 +42,18 @@ class Checkout extends Component
         $this->product=$this->selectedProduct->name; 
         $this->description=$this->selectedProduct->description; 
         
-        $response=$this->paymentResponse=payNow($this->amount, 
-        $this->fiat, 
-        $this->crypto, 
-        $this->product, 
-        $this->description); 
+        if($this->paymentMethod==='crypto') {
+            $this->paymentResponse=payNow($this->amount, 
+            $this->fiat, 
+            $this->crypto, 
+            $this->product, 
+            $this->description); 
+    }
 
     }
 
     public function render()
     {
-        // $this->paymentResponse=json_encode($this->paymentResponse);
-        // $this->paymentID=$this->paymentResponse['payment_id']; 
         return view('livewire.checkout');
     }
 
