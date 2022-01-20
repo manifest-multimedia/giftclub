@@ -172,13 +172,15 @@
                                     
                                     @php 
                                        $response=json_decode($paymentResponse);
-                                       
-                                       $purchase_id=$response->purchase_id;
+                                       if(isset($response->purchase_id))
+                                       {
+                                           $purchase_id=$response->purchase_id;
 
-                                       $payment_id=$response->payment_id; 
-
-                                       $order_id=$response->order_id;
-                                       
+                                           $payment_id=$response->payment_id; 
+    
+                                           $order_id=$response->order_id;
+                                       }
+               
                                        @endphp
 
                                     <div class="col-md-12" style="text-align:center !important">

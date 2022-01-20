@@ -35,14 +35,16 @@ class Checkout extends Component
         */
         $this->selectedProductID=$product_id;
         $this->paymentMethod='crypto'; 
-        $this->selectedProduct=Product::find($product_id); 
-        $this->fiat='usd'; 
-        $this->crypto='btc';
-        $this->amount=$this->selectedProduct->cost; 
-        $this->product=$this->selectedProduct->name; 
-        $this->description=$this->selectedProduct->description; 
         
         if($this->paymentMethod==='crypto') {
+
+            $this->selectedProduct=Product::find($product_id); 
+            $this->fiat='usd'; 
+            $this->crypto='btc';
+            $this->amount=$this->selectedProduct->cost; 
+            $this->product=$this->selectedProduct->name; 
+            $this->description=$this->selectedProduct->description; 
+
             $this->paymentResponse=payNow($this->amount, 
             $this->fiat, 
             $this->crypto, 

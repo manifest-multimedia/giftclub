@@ -25,11 +25,19 @@
                         
                         $payment_status=getPaymentStatus($item->payment_id); 
                         $payment_status=json_decode($payment_status); 
-                        $payment_status=$payment_status->payment_status; 
+                        $pay_status='';
+                        if(isset($payment_status->payment_status)){
+
+                            $pay_status=$payment_status->payment_status; 
+                        }
+                        else {
+                            
+                                $pay_status=$payment_status->message;  
+                        }
 
                         @endphp
 
-                        <td>{{ucfirst($payment_status)}}</td>
+                        <td>{{ucfirst($pay_status)}}</td>
                         <td>${{$item->amount}} USD</td>
                         
                         <td>

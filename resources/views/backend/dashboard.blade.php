@@ -49,7 +49,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-4 col-xxl-6 col-lg-4 col-sm-6">
+                        {{-- <div class="col-xl-4 col-xxl-6 col-lg-4 col-sm-6">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-center">
@@ -64,6 +64,28 @@
                                         <div class="d-inline-block ml-auto position-relative donut-chart-sale">
                                             <span class="donut" data-peity='{ "fill": ["rgb(254, 99, 78)", "rgba(244, 244, 244, 1)"],   "innerRadius": 31, "radius": 10}'>{{points()}}/100</span>
                                             <small class="text-secondary">${{points()}}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
+
+                        <div class="col-xl-4 col-xxl-6 col-lg-4 col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="media align-items-center">
+                                        <span class="mr-4">
+                                            <svg width="50" height="53" viewBox="0 0 50 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="7.11688" height="52.1905" rx="3.55844" transform="matrix(-1 0 0 1 49.8184 0)" fill="#FE634E"></rect>
+                                                <rect width="7.11688" height="37.9567" rx="3.55844" transform="matrix(-1 0 0 1 35.585 14.2338)" fill="#FE634E"></rect>
+                                                <rect width="7.11688" height="16.6061" rx="3.55844" transform="matrix(-1 0 0 1 21.3516 35.5844)" fill="#FE634E"></rect>
+                                                <rect width="8.0293" height="32.1172" rx="4.01465" transform="matrix(-1 0 0 1 8.0293 20.0732)" fill="#FE634E"></rect>
+                                            </svg>
+                                        </span>
+                                        <div class="media-body ml-1">
+                                            <p class="mb-2">Referral Earnings</p>
+                                            <h3 class="mb-0 text-black font-w600" >$</h3>
+                                            <div class="hidden" id="referallearnings"> </div>
                                         </div>
                                     </div>
                                 </div>

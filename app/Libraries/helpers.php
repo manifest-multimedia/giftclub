@@ -6,6 +6,10 @@ use App\Models\Product;
 use App\Models\Placement;
 use App\Models\Address;
 use Livewire\WithPagination;
+use App\Models\PendingPayment;
+use App\Models\Transaction;
+use App\Models\UserProduct;
+
 
 if(!function_exists("getFirstName")){
     function getFirstName($name){
@@ -492,5 +496,77 @@ if (! function_exists('SMSnotify')){
             }
         }
 
+        if(!function_exists('activatePackages'))
+{
+    function activatePackages($user_id){
+        $status='default'; 
+        $PendingPayments=PendingPayment::where('user_id', $user_id)->get(); 
+
+        foreach ($PendingPayments as $item) {
+
+            $payment_status=getPaymentStatus($item->payment_id);
+            $payment_status=json_decode($payment_status);
+            $user_id=$item->user_id;
+            $product_id=$item->product_id;
+            $transaction_id=$item->transaction_id;
+
+            if(isset($payment_status->payment_status))
+            {
+                $paystatus=$payment_status->payment_status;
+                $user_id=$item->user_id; 
+                $transaction_id=$item->transaction_id; 
+                $product_id=$item->product_id; 
+
+                switch ($paystatus) {
+                    case 'finished':
+                        
+                        # code...
+                        $store=new UserProduct; 
+                        $store->timestamps=false;
+                        $store->user_id=$user_id; 
+                        $store->product_id=$product_id;
+                        $store->save(); 
+    
+                        $delete=PendingPayment::where('transaction_id', $transaction_id)->delete();
+                        
+                        $status='success'; 
+
+                        break;
+                    
+                    default:
+                        # code...
+
+                        break;
+                }
+
+            # code...
+        } else {
+
+                            // $paystatus=$payment_status->message; 
+        
+                            // if($paystatus=='Payment not found'){
+                            //     $store=new UserProduct; 
+                            //     $store->timestamps=false;
+                            //     $store->user_id=$user_id; 
+                            //     $store->product_id=$product_id;
+                            //     $store->save(); 
+            
+                            //     $delete=PendingPayment::where('transaction_id', $transaction_id)->delete();
+                                
+                            //     $status='success';
+                            // }
+
+                            $status="success";
+            // $status=$paystatus;
+        }
+
+        return $status;
+
 
     }
+}
+
+
+
+    }
+}

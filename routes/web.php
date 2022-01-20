@@ -31,7 +31,7 @@ Route::view('/', 'backend.login');
 
 // Route::view('/new', 'frontend.new');
 
-Route::middleware(['auth:sanctum', 'verified' , 'referral'])->group(function(){
+Route::middleware(['auth:sanctum', 'activateplans', 'verified' , 'referral'])->group(function(){
 
     route::get('/wrongpass', function() {
         
