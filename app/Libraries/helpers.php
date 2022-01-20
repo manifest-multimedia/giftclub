@@ -499,7 +499,7 @@ if (! function_exists('SMSnotify')){
         if(!function_exists('activatePackages'))
 {
     function activatePackages($user_id){
-        $status='default'; 
+        $status='success'; 
         $PendingPayments=PendingPayment::where('user_id', $user_id)->get(); 
 
         foreach ($PendingPayments as $item) {
@@ -536,6 +536,8 @@ if (! function_exists('SMSnotify')){
                     default:
                         # code...
 
+                        $status='success';
+
                         break;
                 }
 
@@ -559,11 +561,17 @@ if (! function_exists('SMSnotify')){
                             $status="success";
             // $status=$paystatus;
         }
+        
+ 
 
-        return $status;
+        
 
 
     }
+
+   
+
+    return $status;
 }
 
 

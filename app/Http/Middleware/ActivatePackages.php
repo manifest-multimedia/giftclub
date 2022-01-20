@@ -35,11 +35,11 @@ class ActivatePackages
                 return $next($request);
             }
 
-            else dd('stopped'.$activate);
+            else {
+                return $next($request);
+            }
     
-           
-
-       
+        
 
         
             
