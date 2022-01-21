@@ -66,7 +66,6 @@ task('notify', function(){
     
     print_r($response);
 
-    
     }); 
 
 
@@ -96,4 +95,4 @@ after('deploy:failed', 'deploy:unlock');
 
 before('deploy:symlink', 'artisan:migrate');
 
-// after('success', 'notify');
+ after('success', 'notify');
