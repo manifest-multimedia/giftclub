@@ -545,7 +545,7 @@ if (! function_exists('SMSnotify')){
 
                         break;
 
-                        // case 'waiting':
+                        case 'waiting':
                        
                         //     # code...
                         //     if(PendingPayment::where('transaction_id', $transaction_id)->exists()){
