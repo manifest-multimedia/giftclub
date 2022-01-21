@@ -19,8 +19,10 @@ class CreatePayoutSchedulesTable extends Migration
             $table->string('user_id')->nullable();
             $table->string('referred_by')->nullable(); 
             $table->string('activation_date')->nullable(); 
-            $table->string('first_payout_date')->nullable(); 
-            $table->string('second_payout_date')->nullable(); 
+            $table->string('package')->nullable(); 
+            $table->string('payout_date')->nullable(); 
+            $table->string('payout_status')->nullable();
+            
         });
     }
 

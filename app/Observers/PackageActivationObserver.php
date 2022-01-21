@@ -21,6 +21,21 @@ class PackageActivationObserver
         $user=User::find($user_id); 
         $user->notify(new PaymentSuccessful()); 
         $user->notify(new PackageActivated()); 
+
+        // Schedule Payouts
+
+        //Schedule First Payout
+        $firstPayoutDate = date('Y-m-d', strtotime("+6 months", strtotime($effectiveDate)));
+        
+        
+        //Shedule Second Payout
+        $secondPayoutDate = date('Y-m-d', strtotime("+12 months", strtotime($effectiveDate)));
+        
+
+        //Referral Earning
+        #Check referred by
+        #Add Earnings to Referral
+        
     }
 
     /**
