@@ -16,6 +16,7 @@
                         <div class="form-group">
                             <label class="text-black font-w500">Select Package</label>
                             <select class="form-control" wire:model='product' wire:ignore>
+                                <option value=""> Choose Your Preferred Plan </option>
                             @foreach ($products as $item)
                                 <option value="{{$item->id}}" id="product"> {{$item->name}} </option>
                             @endforeach

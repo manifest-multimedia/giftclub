@@ -18,7 +18,7 @@ class NewContract extends Component
     public function mount(){
         $this->userPassword=Auth::user()->password;
         $this->products=Product::all(); 
-        $this->product=1;
+        $this->product=null;
     }
 
     public function render()

@@ -1,7 +1,6 @@
 <x-b-head />
 <x-b-preloader />
-<x-b-header> 
-    
+<x-b-header>  
     <x-slot name="pagetitle"> 
         {{$title}}
     </x-slot> 
