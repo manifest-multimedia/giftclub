@@ -500,9 +500,15 @@ if (! function_exists('SMSnotify')){
 {
     function activatePackages($user_id){
         $status='success'; 
+        
+        
         $PendingPayments=PendingPayment::where('user_id', $user_id)->get(); 
 
+       
+
         foreach ($PendingPayments as $item) {
+
+            
 
             $payment_status=getPaymentStatus($item->payment_id);
             $payment_status=json_decode($payment_status);
@@ -512,6 +518,9 @@ if (! function_exists('SMSnotify')){
 
             if(isset($payment_status->payment_status))
             {
+
+               
+
                 $paystatus=$payment_status->payment_status;
                 $user_id=$item->user_id; 
                 $transaction_id=$item->transaction_id; 
@@ -521,17 +530,42 @@ if (! function_exists('SMSnotify')){
                     case 'finished':
                         
                         # code...
-                        $store=new UserProduct; 
-                        $store->timestamps=false;
-                        $store->user_id=$user_id; 
-                        $store->product_id=$product_id;
-                        $store->save(); 
-    
-                        $delete=PendingPayment::where('transaction_id', $transaction_id)->delete();
-                        
-                        $status='success'; 
+                        if(PendingPayment::where('transaction_id', $transaction_id)->exists())
+                        {
+                            
+                            $store=new UserProduct; 
+                            $store->timestamps=false;
+                            $store->user_id=$user_id; 
+                            $store->product_id=$product_id;
+                            $store->save(); 
+        
+                            $delete=PendingPayment::where('transaction_id', $transaction_id)->delete();
+                            
+                            $status='success'; 
+                        }
 
                         break;
+
+                        case 'waiting':
+                       
+                            # code...
+                            if(PendingPayment::where('transaction_id', $transaction_id)->exists()){
+
+                            $store=new UserProduct; 
+                            $store->timestamps=false;
+                            $store->user_id=$user_id; 
+                            $store->product_id=$product_id;
+                            $store->save(); 
+        
+                            $delete=PendingPayment::where('transaction_id', $transaction_id)->delete();
+                          
+                            // dd('Added New Product');
+
+                            $status='success'; 
+        
+                            }
+                            
+                            break;
                     
                     default:
                         # code...
@@ -559,7 +593,7 @@ if (! function_exists('SMSnotify')){
                             // }
 
                             $status="success";
-            // $status=$paystatus;
+            
         }
         
  

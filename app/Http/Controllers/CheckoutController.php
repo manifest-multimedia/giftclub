@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Transaction; 
+use APp\Models\PendingPayment;
 use Auth; 
 
 
@@ -53,6 +54,7 @@ class CheckoutController extends Controller
         $message=$response->payment_status;
 
         $transaction= new Transaction; 
+        $pendingpayment= new PendingPayment;
 
         if (!Transaction::where('payment_id', $paymentid)->exists()) {
 
@@ -63,6 +65,16 @@ class CheckoutController extends Controller
             $transaction->description=$productdesc; 
             $transaction->amount=$paymentamount;
             $transaction->save(); 
+            $transaction_id=$transaction->id; 
+
+            $pendingpayment->user_id=Auth::user()->id; 
+            $pendingpayment->transaction_id=$transaction_id; 
+            $pendingpayment->label=$productname; 
+            $pendingpayment->product_id=$productid; 
+            $pendingpayment->payment_id=$paymentid; 
+            $pendingpayment->description=$productdesc; 
+            $pendingpayment->amount=$paymentamount;
+            $pendingpayment->save(); 
 
         }
 
@@ -98,7 +110,8 @@ class CheckoutController extends Controller
                 break;
         }
 
-        return redirect('transactions')->with('toast_error', $message);
+        
+       return redirect('transactions')->with('toast_error', $message);
       
     }
 
