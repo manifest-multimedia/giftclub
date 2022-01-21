@@ -185,8 +185,11 @@
 
                                     <div class="col-md-12" style="text-align:center !important">
                                           <label for="payment_address"><strong> Send Payment to </strong></label> 
-                                          <input type="text" value="{{$response->pay_address}}" class="form-control" style="text-align:center">
-                                   </div>
+                                          <input type="text" value="{{$response->pay_address}}" class="form-control" style="text-align:center" id="paymentaddress">
+                                          <div style="padding-top: 20px"> 
+                                              <a class="btn btn-primary" value="copy" onclick="copyToClipboard('paymentaddress')"> Copy Payment Address </a>
+                                          </div>
+                                        </div>
                                     <div class="col-md-12" style="text-align:center !important; padding-top:30px" >
                                           <label for="payment_address"><strong> Amount to Send </strong></label> <input type="text" 
                                           value=" {{$response->pay_amount}}" class="form-control" style="text-align:center">

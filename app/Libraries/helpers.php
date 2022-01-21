@@ -532,15 +532,14 @@ if (! function_exists('SMSnotify')){
                         # code...
                         if(PendingPayment::where('transaction_id', $transaction_id)->exists())
                         {
+                            $delete=PendingPayment::where('transaction_id', $transaction_id)->delete();
                             
                             $store=new UserProduct; 
                             $store->timestamps=false;
                             $store->user_id=$user_id; 
                             $store->product_id=$product_id;
                             $store->save(); 
-        
-                            $delete=PendingPayment::where('transaction_id', $transaction_id)->delete();
-                            
+    
                             $status='success'; 
                         }
 
@@ -549,21 +548,19 @@ if (! function_exists('SMSnotify')){
                         case 'waiting':
                        
                             # code...
-                            // if(PendingPayment::where('transaction_id', $transaction_id)->exists()){
+                            if(PendingPayment::where('transaction_id', $transaction_id)->exists()){
+                                
+                            $delete=PendingPayment::where('transaction_id', $transaction_id)->delete();
+                            
+                            $store=new UserProduct; 
+                            $store->timestamps=false;
+                            $store->user_id=$user_id; 
+                            $store->product_id=$product_id;
+                            $store->save(); 
 
-                            // $store=new UserProduct; 
-                            // $store->timestamps=false;
-                            // $store->user_id=$user_id; 
-                            // $store->product_id=$product_id;
-                            // $store->save(); 
+                            $status='success'; 
         
-                            // $delete=PendingPayment::where('transaction_id', $transaction_id)->delete();
-                          
-                            // // dd('Added New Product');
-
-                            // $status='success'; 
-        
-                            // }
+                            }
                             
                             $status='success'; 
 

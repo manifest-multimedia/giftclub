@@ -89,12 +89,6 @@
             
 </div>
 
-<script>
-    function copyToClipboard(id) {
-        document.getElementById(id).select();
-        document.execCommand('copy');
-    }
 
-</script>
 
 </x-backend-layout>

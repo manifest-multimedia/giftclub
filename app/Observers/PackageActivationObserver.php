@@ -25,11 +25,11 @@ class PackageActivationObserver
         // Schedule Payouts
 
         //Schedule First Payout
-        $firstPayoutDate = date('Y-m-d', strtotime("+6 months", strtotime($effectiveDate)));
+        // $firstPayoutDate = date('Y-m-d', strtotime("+6 months", strtotime($effectiveDate)));
         
         
         //Shedule Second Payout
-        $secondPayoutDate = date('Y-m-d', strtotime("+12 months", strtotime($effectiveDate)));
+        // $secondPayoutDate = date('Y-m-d', strtotime("+12 months", strtotime($effectiveDate)));
         
 
         //Referral Earning

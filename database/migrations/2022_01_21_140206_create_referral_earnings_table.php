@@ -16,10 +16,11 @@ class CreateReferralEarningsTable extends Migration
         Schema::create('referral_earnings', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('amount'); 
-            $table->string('referral_id'); 
-            $table->string('package_id'); 
-            $table->string('date_activated');
+            $table->string('user_id')->nullable(); 
+            $table->string('amount')->nullable(); 
+            $table->string('referral_id')->nullable(); 
+            $table->string('package_id')->nullable(); 
+            $table->string('date_activated')->nullable();
         });
     }
 

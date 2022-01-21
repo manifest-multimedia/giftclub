@@ -44,6 +44,16 @@
 	<!-- Dashboard 1 -->
 	<script src="{{asset('js/dashboard/dashboard-1.js')}}" defer></script>
 	
+
+	<script>
+		function copyToClipboard(id) {
+			document.getElementById(id).select();
+			document.execCommand('copy');
+		}
+	
+	</script>
+
+
 	{{-- <script defer>
 		function carouselReview(){
 			/*  event-bx one function by = owl.carousel.js */
