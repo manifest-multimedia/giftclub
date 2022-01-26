@@ -6,6 +6,8 @@ use App\Notifications\PackageActivated;
 use App\Notifications\PaymentSuccessful; 
 use App\Models\UserProduct;
 use App\Models\User;
+use App\Models\Product; 
+use App\Models\ReferralEarning; 
 
 class PackageActivationObserver
 {
@@ -34,6 +36,27 @@ class PackageActivationObserver
 
         //Referral Earning
         #Check referred by
+        if ($referredby!='GiftClub') {
+            
+            # code...
+            $referredby = auth()->user()->referred_by;
+            $referral_id=auth()->user()->affiliate_id;
+            $userearn=User::where('affiliate_id', $referredby)->get(); 
+            $user_id=$userearn->id; 
+            $amount=find($userProduct->product_id)->get();
+            $cost=$amount->cost; 
+            $earning_amount = 0.02 * $cost; 
+
+            $store_earnings = new ReferralEarning;
+            $store_earnings->user_id=$user_id;
+            $store_earnings->amount=$earning_amount;
+            $store_earnings->referral_id=$referral_id;
+            $store_earnings->package_id=$userProduct->product_id; 
+            $store_earnings->now()->toDateTimeString('Y-m-d');
+            $store_earnings->save(); 
+            
+        }
+        
         #Add Earnings to Referral
         
     }

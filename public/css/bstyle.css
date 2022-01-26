@@ -9694,7 +9694,7 @@ a {
   position: relative;
   top: 3px;
   -webkit-transition: all 0.3s ease-in-out 0s;
-  transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 1s;
   width: 26px;
   z-index: 999; }
 
@@ -12357,7 +12357,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
     .deznav .metismenu li {
       position: relative; }
     .deznav .metismenu ul {
-      transition: all .2s ease-in-out;
+      transition: all .5s ease-in-out;
       position: relative;
       z-index: 1;
       padding: 5px 0; }

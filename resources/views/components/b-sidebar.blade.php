@@ -1,11 +1,16 @@
  <!--**********************************
             Sidebar start
         ***********************************-->
-        <div class="deznav">
+        <div class="deznav" style="display:block;">
             <div class="deznav-scroll">
-				<a href="javascript:void(0)" class="add-menu-sidebar" data-toggle="modal" data-target="#addOrderModalside" >+ New Contract </a>
+
+				<a href="javascript:void(0)" class="add-menu-sidebar" 
+				data-toggle="modal" data-target="#addOrderModalside" >+ New Contract </a>
+
 				<ul class="metismenu" id="menu">
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li>
+						<a class="has-arrow ai-icon" href="javascript:void()"
+						 aria-expanded="false">
 							<i class="flaticon-381-networking"></i>
 							<span class="nav-text">Dashboard</span>
 						</a>
