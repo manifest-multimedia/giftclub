@@ -32,8 +32,6 @@ host('3.25.130.254')
     ->user('giftclub')
     // ->identityFile('c://ssh/giftclubglobal')
     ->set('deploy_path', '/var/www/giftclubglobal.com/app');    
-   
-
     
 // Tasks
 
@@ -95,4 +93,4 @@ after('deploy:failed', 'deploy:unlock');
 
 before('deploy:symlink', 'artisan:migrate');
 
-//  after('success', 'notify');
+ after('success', 'notify');

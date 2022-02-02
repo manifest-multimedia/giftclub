@@ -47,8 +47,13 @@ class PackageActivationObserver
             
             //Find the user to be paid
             $userearn=User::where('affiliate_id', $referredby)->first(); 
+            
+            $earn_name=$userearn->name; 
+            
+            $earn_email=$userearn->email;
 
             $user_id=$userearn->id; 
+            $earning_from=$user->name;
 
             //Get Amount 
             $amount=Product::find($userProduct->product_id);
@@ -78,7 +83,8 @@ class PackageActivationObserver
 
 
                 //send out email notifications 
-                
+                Notification::route('mail', $earn_email)->notify(new EarningNotification($earn_name, $earning_amount, $earning_from));
+    
                 // Notify Referrer on New Earnings 
 
             } catch (\Throwable $th) {
