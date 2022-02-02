@@ -8,8 +8,11 @@ use App\Models\UserProduct;
 use App\Models\User;
 use App\Models\Product; 
 use App\Models\ReferralEarning; 
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\ReferralEarningNotification; 
 
 class PackageActivationObserver
+
 {
     /**
      * Handle the UserProduct "created" event.
@@ -18,6 +21,7 @@ class PackageActivationObserver
      * @return void
      */
     public function created(UserProduct $userProduct)
+
     {
         $user_id=$userProduct->user_id;
         $user=User::find($user_id); 
@@ -33,9 +37,9 @@ class PackageActivationObserver
         //Shedule Second Payout
         // $secondPayoutDate = date('Y-m-d', strtotime("+12 months", strtotime($effectiveDate)));
         
-
         //Referral Earning
         #Check referred by
+        
         $referredby = auth()->user()->referred_by;
         if ($referredby!='GiftClub') {
             
@@ -66,7 +70,6 @@ class PackageActivationObserver
             Precision Value for Minutes, Seconds and Microseconds required for now() function. 
             Covert String to Date/Time. 
             $current_date=now();  
-            
             */
 
             
@@ -81,21 +84,18 @@ class PackageActivationObserver
                 $store_earnings->date_activated=$current_date; 
                 $store_earnings->save(); 
 
-
                 //send out email notifications 
-                Notification::route('mail', $earn_email)->notify(new EarningNotification($earn_name, $earning_amount, $earning_from));
-    
+                
                 // Notify Referrer on New Earnings 
-
+                
             } catch (\Throwable $th) {
                 //throw $th;
-
+                
                 return redirect('transactions')->with('toast_error', 'There was an error.');
-
-
+                
             }
             
-            
+            Notification::route('mail', $earn_email)->notify(new ReferralEarningNotification($earn_name, $earning_amount, $earning_from));
             
         }
 

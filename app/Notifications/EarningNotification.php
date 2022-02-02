@@ -18,7 +18,7 @@ class EarningNotification extends Notification
      *
      * @return void
      */
-    public function __construct($name,$amount,$referral)
+    public function __construct()
     {
         //
     }

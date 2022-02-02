@@ -533,9 +533,7 @@ if (! function_exists('SMSnotify')){
             $transaction_id=$item->transaction_id;
 
             if(isset($payment_status->payment_status))
-            {
-
-               
+            {            
 
                 $paystatus=$payment_status->payment_status;
                 $user_id=$item->user_id; 
@@ -546,6 +544,7 @@ if (! function_exists('SMSnotify')){
                     case 'finished':
                         
                         # code...
+
                         if(PendingPayment::where('transaction_id', $transaction_id)->exists())
                         {
                             $delete=PendingPayment::where('transaction_id', $transaction_id)->delete();
@@ -557,26 +556,28 @@ if (! function_exists('SMSnotify')){
                             $store->save(); 
     
                             $status='success'; 
+
                         }
 
                         break;
 
-                        // case 'waiting':
+                        case 'waiting':
                        
-                        //     # code...
-                        //     if(PendingPayment::where('transaction_id', $transaction_id)->exists()){
-                                
-                        //     $delete=PendingPayment::where('transaction_id', $transaction_id)->delete();
+                            # code...
                             
-                        //     $store=new UserProduct; 
-                        //     $store->timestamps=false;
-                        //     $store->user_id=$user_id; 
-                        //     $store->product_id=$product_id;
-                        //     $store->save(); 
+                            // if(PendingPayment::where('transaction_id', $transaction_id)->exists()){
+                                
+                            // $delete=PendingPayment::where('transaction_id', $transaction_id)->delete();
+                            
+                            // $store=new UserProduct; 
+                            // $store->timestamps=false;
+                            // $store->user_id=$user_id; 
+                            // $store->product_id=$product_id;
+                            // $store->save(); 
 
-                        //     $status='success'; 
+                            // $status='success'; 
         
-                        //     }
+                            // }
                             
                             $status='success'; 
 

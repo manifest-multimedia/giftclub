@@ -10,15 +10,20 @@ use Illuminate\Notifications\Notification;
 class ReferralEarningNotification extends Notification
 {
     use Queueable;
-
+    
+    public $name; 
+    public $amount;
+    public $referral; 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($name,$amount,$referral)
     {
-        //
+        $this->name=$name;
+        $this->amount=$amount;
+        $this->referral=$referral; 
     }
 
     /**
@@ -41,9 +46,11 @@ class ReferralEarningNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                ->subject("Yay! You've just earned $this->amount")
+                ->greeting("Congrats $this->name,")
+                ->line("You have just earned $this->amount from your referral ($this->referral).")
+                ->action('View Earnings', url('https://app.giftclubglobal.com'))
+                ->line('Thank you!');
     }
 
     /**
