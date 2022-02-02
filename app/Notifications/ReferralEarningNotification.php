@@ -46,9 +46,9 @@ class ReferralEarningNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                ->subject("Yay! You've just earned $this->amount")
+                ->subject("Yay! You've just earned $" . "$this->amount USD")
                 ->greeting("Congrats $this->name,")
-                ->line("You have just earned $this->amount from your referral ($this->referral).")
+                ->line("You have just earned $$this->amount USD from your referral ($this->referral).")
                 ->action('View Earnings', url('https://app.giftclubglobal.com'))
                 ->line('Thank you!');
     }
