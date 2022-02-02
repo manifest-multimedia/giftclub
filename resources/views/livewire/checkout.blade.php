@@ -37,11 +37,15 @@
                                     <span class="text-white">-$5</span>
                                 </li> --}}
                                 <li class="list-group-item d-flex justify-content-between">
-                                    <span>Total (USD)</span>
+                                    <span>Total (USD)</span> <br />  
                                     <strong>
-                                        ${{$selectedProduct->cost}}USD
+                                        ${{$selectedProduct->cost +$charges}}USD
                                     </strong>
+                                   
                                 </li>
+                               <li class="list-group-item d-flex justify-content-between">
+                                   <span class="text-muted lh-condensed"> <em>Transaction Charges Included</em></span>
+                                   </li>
                             </ul>
         
                             {{-- <form>
@@ -167,10 +171,11 @@
                                     <div x-show="method===2" class="row">
                                    <div class="col-md-12">
                                        <h4> Crypto </h4>
-                                       <p> Do not Refresh Page Until Payment you have successfully sent the payment to the address below: </p>
+                                       <p> Do not Refresh the Page Until you have successfully sent the payment to the address below: </p>
                                     </div>
                                     
                                     @php 
+
                                        $response=json_decode($paymentResponse);
                                        if(isset($response->purchase_id))
                                        {
@@ -179,26 +184,45 @@
                                            $payment_id=$response->payment_id; 
     
                                            $order_id=$response->order_id;
+                                           
+                                           $pay_address=$response->pay_address; 
+
+                                           $pay_amount=$response->pay_amount;
+
+                                           $payment_status=$response->payment_status;
+                                        }
+                                        else {
+                                            $purchase_id='System Error';
+                                            
+                                            $payment_id='System Error'; 
+                                            
+                                            $order_id='System Error';
+                                            
+                                            $pay_address='System Error'; 
+                                            
+                                            $pay_amount='System Error';
+                                            
+                                            $payment_status='System Error';
                                        }
-               
+                                       
                                        @endphp
 
                                     <div class="col-md-12" style="text-align:center !important">
                                           <label for="payment_address"><strong> Send Payment to </strong></label> 
-                                          <input type="text" value="{{$response->pay_address}}" class="form-control" style="text-align:center" id="paymentaddress">
+                                          <input type="text" value="{{$pay_address}}" class="form-control" style="text-align:center" id="paymentaddress">
                                           <div style="padding-top: 20px"> 
                                               <a class="btn btn-primary" value="copy" onclick="copyToClipboard('paymentaddress')"> Copy Payment Address </a>
                                           </div>
                                         </div>
                                     <div class="col-md-12" style="text-align:center !important; padding-top:30px" >
                                           <label for="payment_address"><strong> Amount to Send </strong></label> <input type="text" 
-                                          value=" {{$response->pay_amount}}" class="form-control" style="text-align:center">
+                                          value=" {{$pay_amount}}" class="form-control" style="text-align:center">
                                    </div>
                                    
                                    
                                                 <div class="col-md-12" style="padding-top:30px; text-align:center">
                                                     Payment Status:
-                                                   {{ucfirst($response->payment_status)}}
+                                                   {{ucfirst($payment_status)}}
                                                 </div>
 
                                                 <input type="hidden" name="product_id" value="{{$selectedProductID}}">

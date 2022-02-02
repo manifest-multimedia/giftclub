@@ -38,14 +38,15 @@
                         
                         </div>
                         <ul class="navbar-nav header-right">
-							<li class="nav-item">
+
+							{{-- <li class="nav-item">
 								<div class="input-group search-area d-xl-inline-flex d-none">
 									<input type="text" class="form-control" placeholder="Search here...">
 									<div class="input-group-append">
 										<span class="input-group-text"><a href="javascript:void(0)"><i class="flaticon-381-search-2"></i></a></span>
 									</div>
 								</div>
-							</li>
+							</li> --}}
 							
 
 

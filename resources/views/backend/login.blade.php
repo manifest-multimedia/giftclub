@@ -13,12 +13,12 @@
             <input type="password" class="form-control" type="password" name="password" required autocomplete="current-password" >
         </div>
         <div class="form-row d-flex justify-content-between mt-4 mb-2">
-            <div class="form-group">
+            {{-- <div class="form-group">
                <div class="custom-control custom-checkbox ml-1 text-white">
                     <input type="checkbox" class="custom-control-input" id="remember_me" name="remember">
                     <label class="custom-control-label" for="basic_checkbox_1">Remember me</label>
                 </div>
-            </div>
+            </div> --}}
             <div class="form-group">
 
                 @if (Route::has('password.request'))
@@ -26,7 +26,6 @@
                     {{ __('Forgot your password?') }}
                 </a>
             @endif
-
                 
             </div>
         </div>

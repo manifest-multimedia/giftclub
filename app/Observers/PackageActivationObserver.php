@@ -38,24 +38,42 @@ class PackageActivationObserver
         #Check referred by
         if ($referredby!='GiftClub') {
             
-            # code...
+            // Get User ID of User to Be Paid for Referral
             $referredby = auth()->user()->referred_by;
+            
+            //Get Current User Referral ID
             $referral_id=auth()->user()->affiliate_id;
+            
+            //Find the user to be paid
             $userearn=User::where('affiliate_id', $referredby)->get(); 
+
             $user_id=$userearn->id; 
+
+            //Get Amount 
             $amount=find($userProduct->product_id)->get();
             $cost=$amount->cost; 
+
+            //Find Amount to be Paid
             $earning_amount = 0.02 * $cost; 
 
             $store_earnings = new ReferralEarning;
+            
             $store_earnings->user_id=$user_id;
+
             $store_earnings->amount=$earning_amount;
             $store_earnings->referral_id=$referral_id;
             $store_earnings->package_id=$userProduct->product_id; 
             $store_earnings->now()->toDateTimeString('Y-m-d');
             $store_earnings->save(); 
+
+            
             
         }
+
+        else {
+            //Store Information 
+        }
+
         
         #Add Earnings to Referral
         

@@ -21,6 +21,7 @@ class Checkout extends Component
     public $paymentResponse;
     public $paymentID; 
     public $selectedProductID;
+    public $charges;
     
     public function mount($product_id) {
 
@@ -41,15 +42,20 @@ class Checkout extends Component
             $this->selectedProduct=Product::find($product_id); 
             $this->fiat='usd'; 
             $this->crypto='btc';
-            $this->amount=$this->selectedProduct->cost; 
+
+            $charges=0.004 * $this->selectedProduct->cost; 
+            $this->charges=$charges; 
+
+            $this->amount=$this->selectedProduct->cost + $charges ; 
             $this->product=$this->selectedProduct->name; 
             $this->description=$this->selectedProduct->description; 
-
+            
             $this->paymentResponse=payNow($this->amount, 
             $this->fiat, 
             $this->crypto, 
             $this->product, 
             $this->description); 
+            // dd($this->paymentResponse);
     }
 
     }

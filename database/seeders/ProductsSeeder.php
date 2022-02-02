@@ -16,7 +16,7 @@ class ProductsSeeder extends Seeder
     {
         //
 
-        DB::table('products')->insert(
+        DB::table('products')->insertOrignore(
 
             [
 
@@ -44,17 +44,25 @@ class ProductsSeeder extends Seeder
                 [ 
                     'name' => 'Gold Plan $1000',
                     'cost' => '1000', 
-                    'description' => 'Gold Investment Plan with 100% Annaul Percentage Yield.'
+                    'description' => 'Gold Investment Plan with 100% Annual Percentage Yield.'
+                    
+                ],
+                
+                [ 
+                    'name' => 'Platinum Plan $2000-$5000',
+                    'cost' => '0',
+                    'description' => 'Platinum Investman Plan with 100% Annual Percentage Yield.' 
+                    
+                ],
+                
+
+                [ 
+                    'name' => '$12 Test Plan',
+                    'cost' => '12', 
+                    'description' => 'Test Plan for testing purposes.'
                     
                 ],
 
-                // [ 
-                //     'name' => '$1000 Plan',
-                //     'cost' => '1000', 
-                    
-                // ],
-
-              
             ]);
 
         #END
