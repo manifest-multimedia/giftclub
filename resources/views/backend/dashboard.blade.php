@@ -84,7 +84,7 @@
                                         </span>
                                         <div class="media-body ml-1">
                                             <p class="mb-2">Referral Earnings</p>
-                                            <h3 class="mb-0 text-black font-w600" >$0</h3>
+                                            <h3 class="mb-0 text-black font-w600" >${{referrals('earnings')}}</h3>
                                             <div class="hidden" id="referallearnings"> </div>
                                         </div>
                                     </div>

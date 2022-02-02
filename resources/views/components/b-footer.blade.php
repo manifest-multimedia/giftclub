@@ -38,23 +38,86 @@
 	<!-- Chart piety plugin files -->
     <script src="{{asset('vendor/peity/jquery.peity.min.js')}}" defer></script>
 	
+	@if(!Route::is(['transactions']))
 	<!-- Apex Chart -->
 	<script src="{{asset('vendor/apexchart/apexchart.js')}}" defer></script>
+	<script defer> 
+		var chartBar = function(){
+			if(jQuery('#chart_widget_2').length > 0 ){
+		
+				const chart_widget_2 = document.getElementById("chart_widget_2").getContext('2d');
+				//generate gradient
+				const chart_widget_2gradientStroke = chart_widget_2.createLinearGradient(250, 0, 0, 0);
+				chart_widget_2gradientStroke.addColorStop(1, "#EA7A9A");
+				chart_widget_2gradientStroke.addColorStop(0, "#FAC7B6");
 	
-	<!-- Dashboard 1 -->
-	<script src="{{asset('js/dashboard/dashboard-1.js')}}" defer></script>
+				// chart_widget_2.attr('height', '100');
 	
-
-	<script>
-		function copyToClipboard(id) {
-			document.getElementById(id).select();
-			document.execCommand('copy');
+				var referrals=document.getElementById('referrals'); 
+				var referralsdata=referrals.textContent;
+	
+				console.log(referralsdata); 
+	
+				new Chart(chart_widget_2, {
+					type: 'bar',
+					data: {
+						defaultFontFamily: 'Poppins',
+						labels: ["Referrals"],
+						datasets: [
+							{
+								label: "My Referrals",
+								data:[referralsdata] ,
+								//borderColor: 'rgba(254, 99, 78, 1)',
+								borderColor: 'green',
+								borderWidth: "0",
+								//backgroundColor: 'rgba(254, 99, 78, 1)', 
+								//hoverBackgroundColor: 'rgba(254, 99, 78, 1)'
+								backgroundColor: 'green',
+								hoverBackgroundColor: 'green'
+							}
+						]
+					},
+					options: {
+						legend: false,
+						responsive: true, 
+						maintainAspectRatio: false,  
+						scales: {
+							yAxes: [{
+								display: false, 
+								ticks: {
+									beginAtZero: true, 
+									display: false, 
+									max: 10, 
+									min: 0, 
+									stepSize: 10
+								}, 
+								gridLines: {
+									display: false, 
+									drawBorder: false
+								}
+							}],
+							xAxes: [{
+								display: false, 
+								barPercentage: 0.4, 
+								gridLines: {
+									display: false, 
+									drawBorder: false
+								}, 
+								ticks: {
+									display: false
+								}
+							}]
+						}
+					}
+				});
+	
+			}
+			
+			
 		}
-	
-	</script>
-
-
-	{{-- <script defer>
+		</script> 
+			
+{{-- <script defer>
 		function carouselReview(){
 			/*  event-bx one function by = owl.carousel.js */
 			jQuery('.event-bx').owlCarousel({
@@ -98,83 +161,26 @@
 		});
 	</script> --}}
 
-	
-<script defer> 
-	var chartBar = function(){
-		if(jQuery('#chart_widget_2').length > 0 ){
-	
-			const chart_widget_2 = document.getElementById("chart_widget_2").getContext('2d');
-			//generate gradient
-			const chart_widget_2gradientStroke = chart_widget_2.createLinearGradient(250, 0, 0, 0);
-			chart_widget_2gradientStroke.addColorStop(1, "#EA7A9A");
-			chart_widget_2gradientStroke.addColorStop(0, "#FAC7B6");
+	@endif
 
-			// chart_widget_2.attr('height', '100');
+	@if(Route::is(['dashboard']))
+	<!-- Dashboard 1 -->
+	<script src="{{asset('js/dashboard/dashboard-1.js')}}" defer></script>
+	@endif
 
-			var referrals=document.getElementById('referrals'); 
-			var referralsdata=referrals.textContent;
-
-			console.log(referralsdata); 
-
-			new Chart(chart_widget_2, {
-				type: 'bar',
-				data: {
-					defaultFontFamily: 'Poppins',
-					labels: ["Referrals"],
-					datasets: [
-						{
-							label: "My Referrals",
-							data:[referralsdata] ,
-							//borderColor: 'rgba(254, 99, 78, 1)',
-							borderColor: 'green',
-							borderWidth: "0",
-							//backgroundColor: 'rgba(254, 99, 78, 1)', 
-							//hoverBackgroundColor: 'rgba(254, 99, 78, 1)'
-							backgroundColor: 'green',
-							hoverBackgroundColor: 'green'
-						}
-					]
-				},
-				options: {
-					legend: false,
-					responsive: true, 
-					maintainAspectRatio: false,  
-					scales: {
-						yAxes: [{
-							display: false, 
-							ticks: {
-								beginAtZero: true, 
-								display: false, 
-								max: 10, 
-								min: 0, 
-								stepSize: 10
-							}, 
-							gridLines: {
-								display: false, 
-								drawBorder: false
-							}
-						}],
-						xAxes: [{
-							display: false, 
-							barPercentage: 0.4, 
-							gridLines: {
-								display: false, 
-								drawBorder: false
-							}, 
-							ticks: {
-								display: false
-							}
-						}]
-					}
-				}
-			});
-
+	<script>
+		function copyToClipboard(id) {
+			document.getElementById(id).select();
+			document.execCommand('copy');
 		}
-		
-		
-	}
-	</script> 
-		
+	
+	</script>
+
+
+	
+
+	
+
 	
 
 @stack('modals')

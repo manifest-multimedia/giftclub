@@ -9,7 +9,7 @@ use Livewire\WithPagination;
 use App\Models\PendingPayment;
 use App\Models\Transaction;
 use App\Models\UserProduct;
-
+use App\Models\ReferralEarning;
 
 if(!function_exists("getFirstName")){
     function getFirstName($name){
@@ -183,6 +183,24 @@ if(!function_exists('referrals')){
                 return $count; 
 
                 break; 
+
+            case 'earnings':
+
+                $user_id=Auth::user()->id; 
+                
+                //find earnings for this user
+                
+                if($earnings=ReferralEarning::where('user_id', $user_id)->sum('amount')) 
+                    {
+
+                        return $earnings; 
+                    }
+                    else {
+                        return '0'; 
+                    }
+
+
+
             
             default:
                 # code...
@@ -548,19 +566,19 @@ if (! function_exists('SMSnotify')){
                         case 'waiting':
                        
                             # code...
-                            // if(PendingPayment::where('transaction_id', $transaction_id)->exists()){
+                            if(PendingPayment::where('transaction_id', $transaction_id)->exists()){
                                 
-                            // $delete=PendingPayment::where('transaction_id', $transaction_id)->delete();
+                            $delete=PendingPayment::where('transaction_id', $transaction_id)->delete();
                             
-                            // $store=new UserProduct; 
-                            // $store->timestamps=false;
-                            // $store->user_id=$user_id; 
-                            // $store->product_id=$product_id;
-                            // $store->save(); 
+                            $store=new UserProduct; 
+                            $store->timestamps=false;
+                            $store->user_id=$user_id; 
+                            $store->product_id=$product_id;
+                            $store->save(); 
 
-                            // $status='success'; 
+                            $status='success'; 
         
-                            // }
+                            }
                             
                             $status='success'; 
 

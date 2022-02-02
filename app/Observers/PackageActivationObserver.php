@@ -36,36 +36,59 @@ class PackageActivationObserver
 
         //Referral Earning
         #Check referred by
+        $referredby = auth()->user()->referred_by;
         if ($referredby!='GiftClub') {
             
             // Get User ID of User to Be Paid for Referral
-            $referredby = auth()->user()->referred_by;
+            // $referredby = auth()->user()->referred_by;
             
             //Get Current User Referral ID
             $referral_id=auth()->user()->affiliate_id;
             
             //Find the user to be paid
-            $userearn=User::where('affiliate_id', $referredby)->get(); 
+            $userearn=User::where('affiliate_id', $referredby)->first(); 
 
             $user_id=$userearn->id; 
 
             //Get Amount 
-            $amount=find($userProduct->product_id)->get();
+            $amount=Product::find($userProduct->product_id);
             $cost=$amount->cost; 
-
             //Find Amount to be Paid
             $earning_amount = 0.02 * $cost; 
-
-            $store_earnings = new ReferralEarning;
+            // dd($earning_amount);
             
-            $store_earnings->user_id=$user_id;
+            /* 
+            Precision Value for Minutes, Seconds and Microseconds required for now() function. 
+            Covert String to Date/Time. 
+            $current_date=now();  
+            
+            */
 
-            $store_earnings->amount=$earning_amount;
-            $store_earnings->referral_id=$referral_id;
-            $store_earnings->package_id=$userProduct->product_id; 
-            $store_earnings->now()->toDateTimeString('Y-m-d');
-            $store_earnings->save(); 
+            
+            try {
+                //code...
+                $current_date=date("Y-m-d"); 
+                $store_earnings = new ReferralEarning;
+                $store_earnings->user_id=$user_id;
+                $store_earnings->amount=$earning_amount;
+                $store_earnings->referral_id=$referral_id;
+                $store_earnings->package_id=$userProduct->product_id; 
+                $store_earnings->date_activated=$current_date; 
+                $store_earnings->save(); 
 
+
+                //send out email notifications 
+                
+                // Notify Referrer on New Earnings 
+
+            } catch (\Throwable $th) {
+                //throw $th;
+
+                return redirect('transactions')->with('toast_error', 'There was an error.');
+
+
+            }
+            
             
             
         }
