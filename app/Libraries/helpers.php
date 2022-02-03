@@ -24,39 +24,51 @@ if(!function_exists("createNewBlockchainWallet")){
             $api_code="123";
             $secret="key"; 
             $label="GiftClub"; 
-            $email=$email;             
-            
-            $url = "http://127.0.0.1:3000/api/v2/create?password=$password&api_code=$api_code&email=$email&label=$label";
-
-            $curl = curl_init($url);
-            curl_setopt($curl, CURLOPT_URL, $url);
-            curl_setopt($curl, CURLOPT_POST, true);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-            $headers = array(
-            "Content-Type: application/json",
-            "Content-Length: 0",
-            );
-            curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-            //for debug only!
-            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-
-            $resp = curl_exec($curl);
-            curl_close($curl);
-           
-            return $resp;
-                // $curl_handle=curl_init(); 
-                // curl_setopt($curl_handle, CURLOPT_URL, "http://127.0.0.1:3000/api/v2/create?password=$password&api_code=$api_code&email=$email&label=$label"); 
-                // // curl_setopt($curl_handle, CURL_CONNECTTIMEOUT, 2); 
-                // curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1); 
-                // curl_setopt($curl_handle, CURLOPT_USERAGENT, 'GiftClub'); 
-                // $query=curl_exec($curl_handle); 
-                // curl_close($curl_handle); 
-
-                // // dd($query); 
-                // return $query;
+            $email=$email;     
+            $resp='';         
+            try {
                 
+                $url = "http://127.0.0.1:3000/api/v2/create?password=$password&api_code=$api_code&email=$email&label=$label";
+
+                $curl = curl_init($url);
+                curl_setopt($curl, CURLOPT_URL, $url);
+                curl_setopt($curl, CURLOPT_POST, true);
+                curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    
+                $headers = array(
+                "Content-Type: application/json",
+                "Content-Length: 0",
+                );
+                curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+                //for debug only!
+                curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+                curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+    
+                $resp = curl_exec($curl);
+                curl_close($curl);
+               
+                return $resp;
+
+            } catch (\Throwable $th) {
+                //throw $th;
+                return $resp = 'There was an error'; 
+            }
+
+            switch ($resp) {
+                case '':
+                    $resp='There was an error'; 
+                    return $resp; 
+                case 'There was an error'; 
+                
+                return $resp; 
+
+                    break;
+                
+                default:
+                    return $resp; 
+                    break;
+            }
+           
            
             // $request = "http://127.0.0.1:3000/api/v2/create?password=$password&api_code=$api_code&email=$email&label=$label"; 
             // $response = file_get_contents($request); 

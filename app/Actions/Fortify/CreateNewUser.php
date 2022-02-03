@@ -10,7 +10,7 @@ use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
 use App\Rules\refValidator;
 use App\Notifications\WalletCreatedSuccessfully;
-
+use App\Notifications\WalletCreationFailed; 
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -62,27 +62,41 @@ class CreateNewUser implements CreatesNewUsers
                 $email=$input['email']; 
                 $password=$input['password']; 
                 // dd($password);
-                $wallet=createNewBlockchainWallet($email, $password); 
-                $wallet=json_decode($wallet);
-                $guid=$wallet->guid; 
-                $address=$wallet->address; 
-                $label=$wallet->label; 
+                if($wallet=createNewBlockchainWallet($email, $password)!='There was an error') {
+
+                    $wallet=json_decode($wallet);
+                    $guid=$wallet->guid; 
+                    $address=$wallet->address; 
+                    $label=$wallet->label; 
+                    //Store Wallet Data in DB
+                    $store = Wallet::create([
+                        'user_id'=>$user->id,  
+                        'wallet_address'=>$address,
+                        'label'=>$label, 
+                        'guid'=>$guid
+                    ]); 
+
+                    //Shot Mail
+                    $user->notify(new WalletCreatedSuccessfully()); 
+                } 
+                else {
+                    $wallet='Wallet Generation Failed';
+                    $guid='Invalid'; 
+                    $address='Wallet Address Generation Failed'; 
+                    $label='N/A'; 
+                    //Store Wallet Data in DB
+                    $store = Wallet::create([
+                        'user_id'=>$user->id,  
+                        'wallet_address'=>$address,
+                        'label'=>$label, 
+                        'guid'=>$guid]); 
+                    $user->notify(new WalletCreationFailed()); 
+                }
                 
-                //Store Wallet Data in DB
-                $store = Wallet::create([
-                    'user_id'=>$user->id,  
-                    'wallet_address'=>$address,
-                    'label'=>$label, 
-                    'guid'=>$guid
-                ]); 
             } catch (\Throwable $th) {
-                throw $th;
+                // throw $th;
             }
-
-           
-
-            //Shot Mail
-            $user->notify(new WalletCreatedSuccessfully()); 
+         
 
         }
 
