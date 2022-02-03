@@ -39,11 +39,12 @@ class PackageActivationObserver
         
         //Referral Earning
         #Check referred by
-        
+
         $referredby = auth()->user()->referred_by;
         if ($referredby!='GiftClub') {
             
             // Get User ID of User to Be Paid for Referral
+            
             // $referredby = auth()->user()->referred_by;
             
             //Get Current User Referral ID

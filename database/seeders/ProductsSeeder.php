@@ -55,7 +55,6 @@ class ProductsSeeder extends Seeder
                     
                 ],
                 
-
                 [ 
                     'name' => '$12 Test Plan',
                     'cost' => '12', 

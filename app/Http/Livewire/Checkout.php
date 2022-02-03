@@ -43,7 +43,7 @@ class Checkout extends Component
             $this->fiat='usd'; 
             $this->crypto='btc';
 
-            $charges=0.04 * $this->selectedProduct->cost; 
+            $charges=0.004 * $this->selectedProduct->cost; 
             $this->charges=$charges; 
 
             $this->amount=$this->selectedProduct->cost + $charges ; 

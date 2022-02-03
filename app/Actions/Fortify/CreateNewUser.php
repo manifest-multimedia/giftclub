@@ -56,27 +56,34 @@ class CreateNewUser implements CreatesNewUsers
         //Create New Wallet 
 
         if($input['wallet']=='no') {
-            $email=$input['email']; 
-            $password=$input['password']; 
-            $wallet=createNewBlockchainWallet($email, $password); 
-            $wallet=json_decode($wallet);
-            $guid=$wallet->guid; 
-            $address=$wallet->address; 
-            $label=$wallet->label; 
-            
-            //Store Wallet Data in DB
-            $store = Wallet::create([
-                'user_id'=>$user->id,  
-                'wallet_address'=>$address,
-                'label'=>$label, 
-                'guid'=>$guid
-            ]); 
+            //Create a New Wallet if User Doesn't have! 
+            try {
+                //code...
+                $email=$input['email']; 
+                $password=$input['password']; 
+                // dd($password);
+                $wallet=createNewBlockchainWallet($email, $password); 
+                $wallet=json_decode($wallet);
+                $guid=$wallet->guid; 
+                $address=$wallet->address; 
+                $label=$wallet->label; 
+                
+                //Store Wallet Data in DB
+                $store = Wallet::create([
+                    'user_id'=>$user->id,  
+                    'wallet_address'=>$address,
+                    'label'=>$label, 
+                    'guid'=>$guid
+                ]); 
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+
+           
 
             //Shot Mail
             $user->notify(new WalletCreatedSuccessfully()); 
 
-
-            
         }
 
         return $user; 
