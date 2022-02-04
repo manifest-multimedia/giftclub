@@ -76,6 +76,7 @@ class CheckPaymentStatus extends Command
                                 $store->save(); 
         
                                 $status='success'; 
+                                echo 'Successfully Activated Package'; 
 
                             }
 
@@ -83,21 +84,20 @@ class CheckPaymentStatus extends Command
 
                             case 'waiting':
                         
-                                
-                                if(PendingPayment::where('transaction_id', $transaction_id)->exists()){
+                                // if(PendingPayment::where('transaction_id', $transaction_id)->exists()){
                                     
-                                $delete=PendingPayment::where('transaction_id', $transaction_id)->delete();
+                                // $delete=PendingPayment::where('transaction_id', $transaction_id)->delete();
                                 
-                                $store=new UserProduct; 
-                                $store->timestamps=false;
-                                $store->user_id=$user_id; 
-                                $store->product_id=$product_id;
-                                $store->save(); 
+                                // $store=new UserProduct; 
+                                // $store->timestamps=false;
+                                // $store->user_id=$user_id; 
+                                // $store->product_id=$product_id;
+                                // $store->save(); 
 
-                                $status='success'; 
-                                echo 'Successfully Activated Package'; 
+                                // $status='success'; 
+                                // echo 'Successfully Activated Package'; 
             
-                                }
+                                // }
                                 
                                 $status='success'; 
                                 break;
