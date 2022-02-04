@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Models\ReferralEarning; 
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\ReferralEarningNotification; 
+use Auth;
 
 class PackageActivationObserver
 
@@ -39,8 +40,11 @@ class PackageActivationObserver
         
         //Referral Earning
         #Check referred by
+        $referredby=''; 
 
-        $referredby = auth()->user()->referred_by;
+        $get_user_info=User::where('id', $user_id)->first(); 
+        $referredby=$get_user_info->referred_by; 
+
         if ($referredby!='GiftClub') {
             
             // Get User ID of User to Be Paid for Referral
@@ -48,8 +52,8 @@ class PackageActivationObserver
             // $referredby = auth()->user()->referred_by;
             
             //Get Current User Referral ID
-            $referral_id=auth()->user()->affiliate_id;
-            
+            // $referral_id=auth()->user()->affiliate_id;
+            $referral_id=$get_user_info->affiliate_id; 
             //Find the user to be paid
             $userearn=User::where('affiliate_id', $referredby)->first(); 
             
