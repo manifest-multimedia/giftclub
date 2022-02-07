@@ -63,9 +63,9 @@ class CreateNewUser implements CreatesNewUsers
                 $password=$input['password']; 
                 // dd($password);
                 if($wallet=createNewBlockchainWallet($email, $password)!='There was an error') {
-
                     $wallet=json_decode($wallet);
                     $guid=$wallet->guid; 
+                    dd($guid);
                     $address=$wallet->address; 
                     $label=$wallet->label; 
                     //Store Wallet Data in DB
@@ -80,6 +80,7 @@ class CreateNewUser implements CreatesNewUsers
                     $user->notify(new WalletCreatedSuccessfully()); 
                 } 
                 else {
+                    dd('Failed');
                     $wallet='Wallet Generation Failed';
                     $guid='Invalid'; 
                     $address='Wallet Address Generation Failed'; 

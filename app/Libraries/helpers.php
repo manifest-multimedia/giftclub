@@ -68,8 +68,7 @@ if(!function_exists("createNewBlockchainWallet")){
                     return $resp; 
                     break;
             }
-           
-           
+        
             // $request = "http://127.0.0.1:3000/api/v2/create?password=$password&api_code=$api_code&email=$email&label=$label"; 
             // $response = file_get_contents($request); 
                 // return $query;    
