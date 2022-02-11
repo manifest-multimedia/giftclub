@@ -49,9 +49,16 @@ class ProductsSeeder extends Seeder
                 ],
                 
                 [ 
-                    'name' => 'Platinum Plan $2000-$5000',
-                    'cost' => '0',
-                    'description' => 'Platinum Investman Plan with 100% Annual Percentage Yield.' 
+                    'name' => 'Diamond Plan $2000',
+                    'cost' => '2000',
+                    'description' => 'Diamond Investment Plan with 100% Annual Percentage Yield.' 
+                    
+                ],
+
+                [ 
+                    'name' => 'Platinum Plan $5000',
+                    'cost' => '5000',
+                    'description' => 'Platinum Investment Plan with 100% Annual Percentage Yield.' 
                     
                 ],
                 
