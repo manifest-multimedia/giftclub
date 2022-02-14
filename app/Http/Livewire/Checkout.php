@@ -71,7 +71,7 @@ period. This is to protect your funds and for ease of transfer.
 Should you be unable to complete your payment in the allotted 
 time, you would have to restart the process to prevent any loss 
 of funds. By proceeding, you agree to the <a style='color:red' href='https://giftclubglobal.com/terms-and-conditions/'>terms & conditions</a> governing our operations.<br />
-Thanks for your cooperation. <br /><a href='/dashboard' class='swal2-confirm swal2-styled swal2-default-outline' style='display: inline-block; background-color: red;'> I Disagree, Cancel </a> ",'warning')->persistent(true)->showConfirmButton('I Agree, Proceed', '#3085d6');
+Thanks for your cooperation.",'warning')->persistent(true)->showConfirmButton('I Agree, Proceed', '#3085d6');
 
 
 
