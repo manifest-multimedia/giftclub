@@ -30,7 +30,7 @@
                             <input type="password" name="password" class="form-control" wire:ignore>
                         </div>
                         <div class="form-group">
-                            Selected product {{$product}}
+                        
                         </div>
                         <div class="form-group">
                             {{-- <a href="" type="submit" class="btn btn-primary">Add Contract</a> --}}
