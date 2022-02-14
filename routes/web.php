@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\settingsController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\NewContractController;
 use App\Http\Livewire\Checkout; 
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -19,19 +20,20 @@ use RealRashid\SweetAlert\Facades\Alert;
 |
 */
 
-// Route::get('/', function () {
-//     return view('frontend.home');
-// });
 
-Route::view('/', 'backend.login');
-// Route::view('/about', 'frontend.about');
-// Route::view('/services', 'frontend.services');
 
-// Route::view('/terms', 'frontend.policy.terms');
+// Route::view('/', 'backend.login');
 
-// Route::view('/new', 'frontend.new');
+    // Route::view('/about', 'frontend.about');
+    // Route::view('/services', 'frontend.services');
+    // Route::view('/terms', 'frontend.policy.terms');
+    // Route::view('/new', 'frontend.new');
 
 Route::middleware(['auth:sanctum', 'activateplans', 'verified' , 'referral'])->group(function(){
+
+    Route::get('/', function () {
+        return view('backend.dashboard');
+    });
 
     route::get('/wrongpass', function() {
         
@@ -62,6 +64,8 @@ Route::middleware(['auth:sanctum', 'activateplans', 'verified' , 'referral'])->g
     Route::get('/profile', function () {
         return view('backend.profile');
     })->name('profile');
+
+    Route::post('newcontract', [NewContractController::class, 'newcontract']);
 
     // Route::get('/checkout/{product_id}', function($product_id){
     //     return  view('backend.checkout');
