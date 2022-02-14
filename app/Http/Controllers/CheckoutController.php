@@ -9,6 +9,8 @@ use APp\Models\PendingPayment;
 use Auth; 
 
 
+
+
 class CheckoutController extends Controller
 {
     /**
@@ -19,6 +21,7 @@ class CheckoutController extends Controller
     public function index()
     {
        
+
       return view('backend.transactions'); 
 
     }

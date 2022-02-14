@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use \Illuminate\Session\SessionManager;
 use App\Models\Product; 
+use RealRashid\SweetAlert\Facades\Alert;
 
 class Checkout extends Component
 {
@@ -62,6 +63,22 @@ class Checkout extends Component
 
     public function render()
     {
+        alert()->html('<i>WARNING</i>',"
+        Dear Valued Member, <br />
+There is a limited time allocation of 12 hours to complete this 
+payment as the generated BTC address will expire after this 
+period. This is to protect your funds and for ease of transfer. 
+Should you be unable to complete your payment in the allotted 
+time, you would have to restart the process to prevent any loss 
+of funds. By proceeding, you agree to the <a style='color:red' href='https://giftclubglobal.com/terms-and-conditions/'>terms & conditions</a> governing our operations.<br />
+Thanks for your cooperation. <br /><a href='/dashboard' class='swal2-confirm swal2-styled swal2-default-outline' style='display: inline-block; background-color: red;'> I Disagree, Cancel </a> ",'warning')->persistent(true)->showConfirmButton('I Agree, Proceed', '#3085d6');
+
+
+
+// You are about to make a payment to an address which is set to expire in 12 hours, you payment must have been completed within this time for your package to be activated.
+//         <b>failure</b> to complete payment within the stipulated time could lead to a loss in your funds. By Proceeding, you agree to the <a style='color:red' href='https://giftclubglobal.com/terms-and-conditions/'>terms & conditions</a> governing our operations.
+
+
         return view('livewire.checkout');
     }
 
