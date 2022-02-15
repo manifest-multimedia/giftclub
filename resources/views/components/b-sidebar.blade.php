@@ -28,8 +28,18 @@
 							
 						</ul>
                     </li>
+
+					<li>
+						<a class="has-arrow ai-icon" href="https://www.giftclubglobal.com" aria-expanded="false">
+							<i class="flaticon-381-home"></i>
+							<span class="nav-text">Homepage</span>
+						</a>
+					</li>
                    
                 </ul>
+
+				
+
 				<div class="copyright">
 					<p><strong>The Gift Club</strong> © 2021 All Rights Reserved</p>
 					{{-- <p>Made with <span class="heart"></span> by Manifest Multimedia</p> --}}
