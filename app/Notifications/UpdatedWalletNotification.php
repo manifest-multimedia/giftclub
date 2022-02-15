@@ -16,9 +16,14 @@ class UpdatedWalletNotification extends Notification
      *
      * @return void
      */
-    public function __construct()
+
+     public $user; 
+     public $wallet; 
+
+    public function __construct($user, $walletaddress)
     {
-        //
+        $this->user=$user; 
+        $this->wallet=$walletaddress; 
     }
 
     /**
@@ -41,7 +46,8 @@ class UpdatedWalletNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('Wallet Successfully Updaged')
+                    ->subject('Wallet Address Changed Successfully!')
+                    ->greeting('Dear '.$this->user->name)
                     ->line('You have succesfully linked a new wallet address to your Gift Club Account.')
                     ->line('Thank you!');
     }

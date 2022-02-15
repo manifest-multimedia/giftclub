@@ -6,6 +6,10 @@ use Livewire\Component;
 use Auth;
 use App\Models\User; 
 use App\Models\Wallet; 
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\UpdatedWalletNotification; 
+
+
 
 class Linkedwallets extends Component
 {
@@ -62,7 +66,9 @@ class Linkedwallets extends Component
                 ->update([
                     'wallet_address' => $this->walletAddress
                 ]);
+
                 session()->flash('message', "Wallet Updated Successfully");
+                Notification::route('mail', $this->user->email)->notify(new UpdatedWalletNotification($this->user, $this->walletAddress));
         }
         
         $this->updateAddress=0; 
