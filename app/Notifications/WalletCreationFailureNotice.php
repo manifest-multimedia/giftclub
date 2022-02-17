@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class WalletCreationFailed extends Notification
+class WalletCreationFailureNotice extends Notification
 {
     use Queueable;
 
@@ -41,11 +41,9 @@ class WalletCreationFailed extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('Wallet Creation Failed')
-                    ->Greeting('We are sorry '.getFirstName($notifiable->name).'!')
-                    ->line('We encountered problems automatically setting up your wallet. The wallet creation either failed or completed with errors. Kindly create a new wallet and link your wallet to your account manually.')
-                    ->action('Link Existing Wallet', url("/app.giftclubglobal.com/wallet"))
-                    ->line('Feel Free to reach us at support@giftclubglobal.com for assistance. Thanks!');
+                    ->line('The introduction to the notification.')
+                    ->action('Notification Action', url('/'))
+                    ->line('Thank you for using our application!');
     }
 
     /**

@@ -21,32 +21,54 @@ if(!function_exists("getFirstName")){
 if(!function_exists("createNewBlockchainWallet")){
     function createNewBlockchainWallet($email, $password) {
             $password=$password; 
-            $api_code="123";
+            $api_code="564a8e0f-2638-4326-b401-d649284f4f59";
             $secret="key"; 
             $label="GiftClub"; 
             $email=$email;     
             $resp='';         
             try {
-                
-                $url = "http://127.0.0.1:3000/api/v2/create?password=$password&api_code=$api_code&email=$email&label=$label";
 
-                $curl = curl_init($url);
-                curl_setopt($curl, CURLOPT_URL, $url);
-                curl_setopt($curl, CURLOPT_POST, true);
-                curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            $request = "http://127.0.0.1:3000/api/v2/create?password=$password&api_code=$api_code&email=$email&label=$label&hd=true"; 
+            $resp = file_get_contents($request); 
+                
+                // $url = "http://127.0.0.1:3000/api/v2/create?password=$password&api_code=$api_code&email=$email&label=$label";
+
+                // $curl = curl_init($url);
+                // curl_setopt($curl, CURLOPT_URL, $url);
+                // curl_setopt($curl, CURLOPT_POST, true);
+                // curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     
-                $headers = array(
-                "Content-Type: application/json",
-                "Content-Length: 0",
-                );
-                curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-                //for debug only!
-                curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-                curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+                // $headers = array(
+                // "Content-Type: application/json",
+                // "Content-Length: 0",
+                // );
+                // curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+                // //for debug only!
+                // curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+                // curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
     
-                $resp = curl_exec($curl);
-                curl_close($curl);
+                // $resp = curl_exec($curl);
+                // curl_close($curl);
                
+
+                // dd($resp);
+
+                switch ($resp) {
+                    case '':
+                        $resp='There was an error'; 
+                        return $resp; 
+                    case 'There was an error'; 
+                    
+                    return $resp; 
+    
+                        break;
+                    
+                    default:
+                        return $resp; 
+                        break;
+                }
+            
+
                 return $resp;
 
             } catch (\Throwable $th) {
@@ -54,21 +76,7 @@ if(!function_exists("createNewBlockchainWallet")){
                 return $resp = 'There was an error'; 
             }
 
-            switch ($resp) {
-                case '':
-                    $resp='There was an error'; 
-                    return $resp; 
-                case 'There was an error'; 
-                
-                return $resp; 
-
-                    break;
-                
-                default:
-                    return $resp; 
-                    break;
-            }
-        
+            
             // $request = "http://127.0.0.1:3000/api/v2/create?password=$password&api_code=$api_code&email=$email&label=$label"; 
             // $response = file_get_contents($request); 
                 // return $query;    

@@ -86,6 +86,9 @@
                                             <p class="mb-2">Referral Earnings</p>
                                             <h3 class="mb-0 text-black font-w600" >${{referrals('earnings')}}</h3>
                                             <div class="hidden" id="referallearnings"> </div>
+                                            <div style="float:right;">
+                                                <a class="btn btn-primary" href="/bonus-withdrawal"> Withdraw </a>
+                                            </div> 
                                         </div>
                                     </div>
                                 </div>

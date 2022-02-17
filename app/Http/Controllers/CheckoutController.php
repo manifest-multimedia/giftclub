@@ -45,45 +45,45 @@ class CheckoutController extends Controller
     public function store(Request $request)
     {
         
-        $productname=$request->product_name;
+        // $productname=$request->product_name;
         $paymentid=$request->payment_id;
-        $productid=$request->product_id;
-        $productdesc=$request->product_description; 
-        $paymentamount=$request->amount; 
+        // $productid=$request->product_id;
+        // $productdesc=$request->product_description; 
+        // $paymentamount=$request->amount; 
 
 
         $payment_status=getPaymentStatus($paymentid);  
         $response=json_decode($payment_status);
         $message=$response->payment_status;
 
-        $transaction= new Transaction; 
-        $pendingpayment= new PendingPayment;
+        // $transaction= new Transaction; 
+        // $pendingpayment= new PendingPayment;
 
-        if (!Transaction::where('payment_id', $paymentid)->exists()) {
+        // if (!Transaction::where('payment_id', $paymentid)->exists()) {
 
-            $transaction->user_id=Auth::user()->id; 
-            $transaction->label=$productname; 
-            $transaction->product_id=$productid; 
-            $transaction->payment_id=$paymentid; 
-            $transaction->description=$productdesc; 
-            $transaction->amount=$paymentamount;
-            $transaction->save(); 
-            $transaction_id=$transaction->id; 
+        //     $transaction->user_id=Auth::user()->id; 
+        //     $transaction->label=$productname; 
+        //     $transaction->product_id=$productid; 
+        //     $transaction->payment_id=$paymentid; 
+        //     $transaction->description=$productdesc; 
+        //     $transaction->amount=$paymentamount;
+        //     $transaction->save(); 
+        //     $transaction_id=$transaction->id; 
 
-            $pendingpayment->user_id=Auth::user()->id; 
-            $pendingpayment->transaction_id=$transaction_id; 
-            $pendingpayment->label=$productname; 
-            $pendingpayment->product_id=$productid; 
-            $pendingpayment->payment_id=$paymentid; 
-            $pendingpayment->description=$productdesc; 
-            $pendingpayment->amount=$paymentamount;
-            $pendingpayment->save(); 
+        //     $pendingpayment->user_id=Auth::user()->id; 
+        //     $pendingpayment->transaction_id=$transaction_id; 
+        //     $pendingpayment->label=$productname; 
+        //     $pendingpayment->product_id=$productid; 
+        //     $pendingpayment->payment_id=$paymentid; 
+        //     $pendingpayment->description=$productdesc; 
+        //     $pendingpayment->amount=$paymentamount;
+        //     $pendingpayment->save(); 
 
-        }
+        // }
 
-        else{
-            return back()->with('toast_error', 'System Error. Try again!'); 
-        }
+        // else{
+        //     return back()->with('toast_error', 'System Error. Try again!'); 
+        // }
 
         switch ($message) {
             case 'waiting':
@@ -113,7 +113,6 @@ class CheckoutController extends Controller
                 break;
         }
 
-        
        return redirect('transactions')->with('toast_error', $message);
       
     }

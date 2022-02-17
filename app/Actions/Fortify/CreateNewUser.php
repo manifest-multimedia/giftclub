@@ -62,10 +62,14 @@ class CreateNewUser implements CreatesNewUsers
                 $email=$input['email']; 
                 $password=$input['password']; 
                 // dd($password);
-                if($wallet=createNewBlockchainWallet($email, $password)!='There was an error') {
+                $wallet=createNewBlockchainWallet($email, $password);
+                if($wallet!='There was an error' && $wallet !='') {
+
+                    dd($wallet);
+
                     $wallet=json_decode($wallet);
                     $guid=$wallet->guid; 
-                    dd($guid);
+                    
                     $address=$wallet->address; 
                     $label=$wallet->label; 
                     //Store Wallet Data in DB
@@ -80,10 +84,10 @@ class CreateNewUser implements CreatesNewUsers
                     $user->notify(new WalletCreatedSuccessfully()); 
                 } 
                 else {
-                    dd('Failed');
+                    
                     $wallet='Wallet Generation Failed';
                     $guid='Invalid'; 
-                    $address='Wallet Address Generation Failed'; 
+                    $address='Auto Wallet Address Generation Failed'; 
                     $label='N/A'; 
                     //Store Wallet Data in DB
                     $store = Wallet::create([
@@ -92,10 +96,13 @@ class CreateNewUser implements CreatesNewUsers
                         'label'=>$label, 
                         'guid'=>$guid]); 
                     $user->notify(new WalletCreationFailed()); 
+                    
+                    Notification::route('mail', 'support@manifestghana.com')->notify(new WalletCreationFailureNotice());
+
                 }
                 
             } catch (\Throwable $th) {
-                // throw $th;
+                //  throw $th;
             }
          
 
