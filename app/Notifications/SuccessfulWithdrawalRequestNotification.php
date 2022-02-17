@@ -16,9 +16,16 @@ class SuccessfulWithdrawalRequestNotification extends Notification
      *
      * @return void
      */
-    public function __construct()
+
+     public $name;
+     public $walletaddress;
+     public $amount;
+
+    public function __construct($name, $walletaddress, $amount)
     {
-        //
+        $this->name=$name;
+        $this->walletaddress=$walletaddress;
+        $this->amount=$amount;
     }
 
     /**
@@ -41,9 +48,10 @@ class SuccessfulWithdrawalRequestNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->greeting('Congratulations '.$this->name.',')
+                    ->line('You have successfully requested a withdrawal of $'.$this->amount.'USD from your referral earnings.')
+                    ->line("Your request is processing and you'd soon receive the funds in the wallet linked to your account (".$this->walletaddress.").")
+                    ->line("Thank you!");
     }
 
     /**

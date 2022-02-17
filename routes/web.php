@@ -10,6 +10,7 @@ use App\Http\Controllers\WithdrawalRequestController;
 use App\Http\Livewire\Checkout; 
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use RealRashid\SweetAlert\Facades\Alert;
+// use Auth;
 
 
 /*
@@ -87,16 +88,22 @@ Route::middleware(['auth:sanctum', 'activateplans', 'verified' , 'referral'])->g
     });
 
     Route::get('/bonus-withdrawal', function(){
-        alert()->html('<style> .swal2-confirm {display:none !important}</style><span><strong>AUTHORIZE ACTION</strong></span>',"
- This action requires authorization",
+
+        $userpassword=Auth::user()->password;
+
+        alert()->html('
+<style> .swal2-confirm {display:none !important}</style>
+<span><strong>AUTHORIZE ACTION</strong></span>',
+"This action requires authorization",
 'toast')->footer('
 <form method="post" action="/authorize-withdrawal/"> 
- <label>Enter Withdrawal Amount </label><br />
- <input type="text" class="form-control" 
- placeholder="Enter Amount (Min. = 50)" name="amount">  
+ <label>Enter Amount to Withdraw </label><br />
+ <input type="number" class="form-control" 
+ placeholder="(Min. = 50)" name="amount">  
  <label>Password Confirmation</label><br />
  <input type="password" class="form-control" placeholder="Confirm Password" name="password_confrimation"> 
- 
+ <input type="hidden" name="userpassword" value="'.$userpassword.'">
+ <input type="hidden" name="userpassword" value="'.$userpassword.'">
 <input type="hidden" name="_token" value="'.csrf_token().'"> 
 <div style="padding-bottom:10px; padding-top:10px"> 
 <button type="submit" class="swal2-confirm2 btn btn-primary swal2-styled swal2-default-outline" style="color:white;display: inline-block;">Authorize Withdrawal</button>

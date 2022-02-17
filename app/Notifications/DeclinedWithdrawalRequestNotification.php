@@ -16,9 +16,14 @@ class DeclinedWithdrawalRequestNotification extends Notification
      *
      * @return void
      */
-    public function __construct()
+
+     public $name; 
+     public $reason;
+
+    public function __construct($name,$reason)
     {
-        //
+        $this->name=$name;
+        $this->reason=$reason;
     }
 
     /**
@@ -42,9 +47,11 @@ class DeclinedWithdrawalRequestNotification extends Notification
     {
         return (new MailMessage)
                     ->subject('Sorry, withdrawal failed!')
-                    ->line('You can only process withdrawals where bonus earnings have reached $50 & above.')
+                    ->greeting('Dear '.$this->name)
+                    ->line('Your withdrawal request failed '.$this->reason)
+                    ->line("You can only make withdrawals when you have enough funds in your referral earnings ($50 and above).")
                     ->action('View Earnings', url('https://app.giftclubglobal.com/'))
-                    ->line('Thank you for using GiftClub.');
+                    ->line('Feel free to contact support if you require any assistance. Thank you!');
     }
 
     /**

@@ -30,25 +30,41 @@ class NewContract extends Component
     
         if(empty($this->userPasswordConfirmation)){
         return redirect('/wrongpass');
-        
 
         } 
         
         $this->validate(['userPasswordConfirmation' => 'required']); 
     
-        $check=Hash::check($this->userPasswordConfirmation, $this->userPassword); 
-        
         $product=$this->product; 
+        // $check=Hash::check($this->userPasswordConfirmation, $this->userPassword); 
+        
     
-        if($check===true) {
-            return redirect("/checkout/$product"); 
-            //Code .. 
-            resetValues();
-        }
-        else {
+        // if($check===true) {
+        //     return redirect("/checkout/$product"); 
+        //     //Code .. 
+        //     resetValues();
+        // }
+        // else {
             
-            return redirect('/wrongpass');
-            resetValues();
+        //     return redirect('/wrongpass');
+        //     resetValues();
+        // }
+
+
+        $check=verfypass($this->userPasswordConfirmation, $this->userPassword); 
+        switch ($check) {
+            case 'success':
+                return redirect("/checkout/$product"); 
+                resetValues();
+                
+                break;
+            case 'failed':
+                return redirect('/wrongpass');
+                resetValues();
+            default:
+            // return redirect('/wrongpass');
+            // resetValues();
+                break;
         }
 
     }

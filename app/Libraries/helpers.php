@@ -10,6 +10,9 @@ use App\Models\PendingPayment;
 use App\Models\Transaction;
 use App\Models\UserProduct;
 use App\Models\ReferralEarning;
+use App\Models\Wallet;
+use Illuminate\Support\Facades\Hash;
+
 
 if(!function_exists("getFirstName")){
     function getFirstName($name){
@@ -17,6 +20,27 @@ if(!function_exists("getFirstName")){
         return $firstname; 
     }
 }
+
+
+if (!function_exists("verifypass")){
+    function verifypass($password, $userPassword) {
+        try {
+            $check=Hash::check($password, $userPassword); 
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+        
+        if($check===true) {
+            return "success"; 
+        }
+        else {
+            
+            return "failed";
+        }
+        
+    }
+}
+
 
 if(!function_exists("createNewBlockchainWallet")){
     function createNewBlockchainWallet($email, $password) {
@@ -251,7 +275,50 @@ if(!function_exists('referrals')){
                         return '0'; 
                     }
 
+                    break; 
+            
+            case 'walletaddress': 
+                $user_id=Auth::user()->id; 
 
+                try {
+                    $wallet=Wallet::find($user_id);
+
+                    if($wallet->wallet_address)
+                    {
+                        $walletaddress="valid";
+                    }
+                    else {
+                        $walletaddress=''; 
+                    }
+                } catch (\Throwable $th) {
+                    //throw $th;
+                    $walletaddress=''; 
+                }
+                
+                switch ($walletaddress) {
+                    case '':
+                        return 'invalid'; 
+
+                        break;
+                    case 'valid':
+
+                        return $wallet; 
+
+                        break; 
+                    default:
+                        # code...
+                        break;
+                }  
+
+                // if(!is_null($walletaddress || !empty($walletaddress))){
+                //     return $walletaddress;
+                // }
+                // else 
+                // {
+                //     return 'failed'; 
+                // }
+
+                
 
             
             default:
