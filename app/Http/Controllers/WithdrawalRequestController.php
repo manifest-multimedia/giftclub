@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Notification;
 use App\Notifications\DeclinedWithdrawalRequestNotification;
 use App\Notifications\SuccessfulWithdrawalRequestNotification;
 use App\Notifications\WithdrawalRequestNotification;
-
+use Auth;
 
 
 class WithdrawalRequestController extends Controller
@@ -20,12 +20,20 @@ class WithdrawalRequestController extends Controller
         $amount=$request->amount;
 
         $wallet=referrals('walletaddress'); 
-
-        $walletaddress=$wallet->wallet_address; 
-        $user_id=$wallet->user_id; 
-        $user=User::find($user_id); 
-        $name=getFirstName($user->name);
-        $email=$user->email; 
+        
+        if($wallet!="invalid"){
+                                $walletaddress=$wallet->wallet_address; 
+                                $user_id=$wallet->user_id; 
+                                $user=User::find($user_id);   
+                                $name=getFirstName($user->name);
+                                $email=$user->email; 
+        } else {
+            $reason = "because there was no valid wallet linked to your account."; 
+            $email=Auth::user()->email;
+            $name=getFirstName(Auth::user()->name);
+            Notification::route('mail',  $email)->notify(new DeclinedWithdrawalRequestNotification($name, $reason));
+            return redirect('dashboard')->with('toast_error', 'You do not have a linked wallet in your account!'); 
+        }
 
         $earnings=referrals('earnings');
 
@@ -66,12 +74,13 @@ class WithdrawalRequestController extends Controller
 
                    
 
-                    //Dispatch Notification to User
-                    Notification::route('mail',  $email)->notify(new SuccessfulWithdrawalRequestNotification($name, $walletaddress, $amount));
-            
-                    //Dispatch Notification to Admin
-                    Notification::route('mail',  'withdrawal@giftclubglobal.com')->notify(new WithdrawalRequestNotification($name, $walletaddress, $amount, $email));
-            
+                        //Dispatch Notification to User
+                        Notification::route('mail',  $email)->notify(new SuccessfulWithdrawalRequestNotification($name, $walletaddress, $amount));
+                
+                        //Dispatch Notification to Admin
+                        Notification::route('mail',  'withdrawal@giftclubglobal.com')->notify(new WithdrawalRequestNotification($name, $walletaddress, $amount, $email));
+                    }
+
                     /* 
                     
                     Dispatch Notification to Admin 
@@ -96,11 +105,12 @@ class WithdrawalRequestController extends Controller
                     */ 
 
                     return redirect('dashboard')->with('success', "Withdrawal Request was Successful"); 
-                 }
+                 
                  
                 break;
 
             case 'failed':
+
                 return redirect('dashboard')->with('toast_error', "Sorry, Password Confirmation Failed!"); 
                 # code...
                 break;

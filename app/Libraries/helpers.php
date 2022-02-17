@@ -301,23 +301,25 @@ if(!function_exists('referrals')){
 
                         break;
                     case 'valid':
+                        // dd($wallet->wallet_address);
+                        if($wallet->wallet_address!='Auto Wallet Address Generation Failed'){
+                            return $wallet; 
 
-                        return $wallet; 
+                            // dd($wallet->address);
+
+                        } else {
+                            return 'invalid'; 
+                        }
 
                         break; 
                     default:
-                        # code...
+                        
+                        return 'invalid'; 
+
                         break;
                 }  
 
-                // if(!is_null($walletaddress || !empty($walletaddress))){
-                //     return $walletaddress;
-                // }
-                // else 
-                // {
-                //     return 'failed'; 
-                // }
-
+               
                 
 
             

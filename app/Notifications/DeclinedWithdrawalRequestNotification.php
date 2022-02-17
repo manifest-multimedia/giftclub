@@ -47,7 +47,7 @@ class DeclinedWithdrawalRequestNotification extends Notification
     {
         return (new MailMessage)
                     ->subject('Sorry, withdrawal failed!')
-                    ->greeting('Dear '.$this->name)
+                    ->greeting('Dear '.$this->name.',')
                     ->line('Your withdrawal request failed '.$this->reason)
                     ->line("You can only make withdrawals when you have enough funds in your referral earnings ($50 and above).")
                     ->action('View Earnings', url('https://app.giftclubglobal.com/'))
