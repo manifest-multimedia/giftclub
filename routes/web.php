@@ -111,7 +111,7 @@ Route::middleware(['auth:sanctum', 'activateplans', 'verified' , 'referral'])->g
 </form>')->persistent(false,false);
 
         return view('backend.dashboard');
-    })->name('dashboard');
+    })->name('bonus-withdrawal');
 
     Route::post('/authorize-withdrawal', [WithdrawalRequestController::class, 'WithdrawalRequest']);
 
