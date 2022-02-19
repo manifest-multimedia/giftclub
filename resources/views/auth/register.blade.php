@@ -1,5 +1,5 @@
 <x-auth-layout> 
-<x-slot name='pagetitle'> Sing Up for Your Account</x-slot>
+<x-slot name='pagetitle'> Sign Up for Your Account</x-slot>
 <form method="POST" action="{{ route('register') }}">
                                         
     @csrf
@@ -25,7 +25,8 @@
     <!-- Wallet --> 
     <div class="form-group"> 
         <label class="mb-1 text-white" for="wallet"> 
-            <strong> Do you have a Bitcoin Wallet? A new wallet would be created for you if you do not have an existing wallet. Read more <a href="#"> here </a> </strong></label>
+             Do you have a Bitcoin Wallet? A new wallet would be created for you if you do not have an existing wallet. 
+                Read more <a href="https://giftclubglobal.com/terms-and-conditions/"> here.</a> </label>
         <select class="form-control" name="wallet"> 
             <option value="yes"> Yes </option> 
             <option value="no"> No </option> 
