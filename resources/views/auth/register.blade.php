@@ -32,6 +32,8 @@
             <option value="no"> No </option> 
         </select>
     </div> --}}
+
+    <input type="hidden" name="wallet" value="yes">
     
     <div class="form-group">
         <label class="mb-1 text-white" for="password"><strong>Password</strong></label>
