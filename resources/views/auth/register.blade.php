@@ -22,7 +22,7 @@
         name="referred_by" 
         required />
     </div>
-    <!-- Wallet --> 
+    {{-- <!-- Wallet --> 
     <div class="form-group"> 
         <label class="mb-1 text-white" for="wallet"> 
              Do you have a Bitcoin Wallet? A new wallet would be created for you if you do not have an existing wallet. 
@@ -31,7 +31,7 @@
             <option value="yes"> Yes </option> 
             <option value="no"> No </option> 
         </select>
-    </div>
+    </div> --}}
     
     <div class="form-group">
         <label class="mb-1 text-white" for="password"><strong>Password</strong></label>
