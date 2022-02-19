@@ -76,7 +76,7 @@ Route::middleware(['auth:sanctum', 'activateplans', 'verified' , 'referral'])->g
     // })->name('pay'); 
 
     Route::get('/checkout/{product_id}', Checkout::class)->name('pay');
-    Route::post('/payment-complete', [CheckoutController::class, 'store'])->name('paycomplete');
+    Route::post('/payment-complete', [CheckoutController::class, 'store'])->name('completepayment');
     Route::get('/payment-complete', [CheckoutController::class, 'index'])->name('paycomplete');
     
     Route::get('/payment-cancelled', [SignedPaymentController::class, 'index']); 
