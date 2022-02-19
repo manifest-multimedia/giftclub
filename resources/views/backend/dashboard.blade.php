@@ -8,13 +8,25 @@
 			<div class="container-fluid">
                 
                 <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="media align-items-center">
+                                
+                                <div class="media-body ml-1 align-items-center">
+                                    <p class="mb-2 text-center">Welcome back {{getFirstName(Auth::user()->name)}}</p>
+                                    <h3 class="mb-0 text-black font-w600 text-center">${{earnings(Auth::user()->id)}} <br /> <span style="font-size:15px"> <em> Total Earned </em></span></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="row">	
 
-                        <div class="col-xl-4 col-xxl-6 col-lg-4 col-sm-6">
+                        <div class="col-lg-4 col-sm-6">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex align-items-end">
-                                        <div>
+                                        <div class="media-body ml-1">
                                             <p class="fs-14 mb-1"><a href="/referrals">Referrals</a></p>
                                             <span class="fs-35 text-black font-w600">{{referrals('count')}}
                                                 <div class="hidden" id="referrals">{{referrals('count')}}</div>
@@ -22,14 +34,72 @@
                                                     <path d="M2.00401 11.1924C0.222201 11.1924 -0.670134 9.0381 0.589795 7.77817L7.78218 0.585786C8.56323 -0.195262 9.82956 -0.195262 10.6106 0.585786L17.803 7.77817C19.0629 9.0381 18.1706 11.1924 16.3888 11.1924H2.00401Z" fill="#33C25B"/>
                                                 </svg>
                                             </span>
+                                            <hr>
+                                            <div style="items-align-center">
+                                                <a class="btn btn-primary" href="/referrals"> Referrals </a>
+                                            </div> 
                                         </div>
                                         <canvas class="lineChart" id="chart_widget_2" height="85"></canvas>
+                                      
                                     </div>
                                 </div>
                             </div>										
                         </div>
 
-                        {{-- <div class="col-xl-4 col-xxl-6 col-lg-4 col-sm-6">
+                    
+
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="media align-items-center">
+                                        <span class="mr-4">
+                                            <svg width="50" height="53" viewBox="0 0 50 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="7.11688" height="52.1905" rx="3.55844" transform="matrix(-1 0 0 1 49.8184 0)" fill="#FE634E"></rect>
+                                                <rect width="7.11688" height="37.9567" rx="3.55844" transform="matrix(-1 0 0 1 35.585 14.2338)" fill="#FE634E"></rect>
+                                                <rect width="7.11688" height="16.6061" rx="3.55844" transform="matrix(-1 0 0 1 21.3516 35.5844)" fill="#FE634E"></rect>
+                                                <rect width="8.0293" height="32.1172" rx="4.01465" transform="matrix(-1 0 0 1 8.0293 20.0732)" fill="#FE634E"></rect>
+                                            </svg>
+                                        </span>
+                                        <div class="media-body ml-1">
+                                            <p class="mb-2">Referral Earnings</p>
+                                            <h3 class="mb-0 text-black font-w600" >${{referrals('earnings')}}</h3>
+                                            <div class="hidden" id="referallearnings"> </div>
+                                            <hr>
+                                            <div style="items-align-center">
+                                                <a class="btn btn-primary" href="/bonus-withdrawal"> Withdraw </a>
+                                            </div> 
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="media align-items-center">
+                                        <span class="mr-4">
+                                            <svg width="50" height="53" viewBox="0 0 50 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="7.11688" height="52.1905" rx="3.55844" transform="matrix(-1 0 0 1 49.8184 0)" fill="#FE634E"></rect>
+                                                <rect width="7.11688" height="37.9567" rx="3.55844" transform="matrix(-1 0 0 1 35.585 14.2338)" fill="#FE634E"></rect>
+                                                <rect width="7.11688" height="16.6061" rx="3.55844" transform="matrix(-1 0 0 1 21.3516 35.5844)" fill="#FE634E"></rect>
+                                                <rect width="8.0293" height="32.1172" rx="4.01465" transform="matrix(-1 0 0 1 8.0293 20.0732)" fill="#FE634E"></rect>
+                                            </svg>
+                                        </span>
+                                        <div class="media-body ml-1">
+                                            <p class="mb-2"><a href="/transactions">Total Invested</a></p>
+                                            <h3 class="mb-0 text-black font-w600">${{totalinvested(Auth::user()->id)}}</h3>
+                                            <hr>
+                                            <div style="items-align-center">
+                                                <a class="btn btn-primary" href="/transactions"> Transactions </a>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            {{-- <div class="col-xl-4 col-xxl-6 col-lg-4 col-sm-6">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-center">
@@ -70,31 +140,7 @@
                             </div>
                         </div> --}}
 
-                        <div class="col-xl-4 col-xxl-6 col-lg-4 col-sm-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="media align-items-center">
-                                        <span class="mr-4">
-                                            <svg width="50" height="53" viewBox="0 0 50 53" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect width="7.11688" height="52.1905" rx="3.55844" transform="matrix(-1 0 0 1 49.8184 0)" fill="#FE634E"></rect>
-                                                <rect width="7.11688" height="37.9567" rx="3.55844" transform="matrix(-1 0 0 1 35.585 14.2338)" fill="#FE634E"></rect>
-                                                <rect width="7.11688" height="16.6061" rx="3.55844" transform="matrix(-1 0 0 1 21.3516 35.5844)" fill="#FE634E"></rect>
-                                                <rect width="8.0293" height="32.1172" rx="4.01465" transform="matrix(-1 0 0 1 8.0293 20.0732)" fill="#FE634E"></rect>
-                                            </svg>
-                                        </span>
-                                        <div class="media-body ml-1">
-                                            <p class="mb-2">Referral Earnings</p>
-                                            <h3 class="mb-0 text-black font-w600" >${{referrals('earnings')}}</h3>
-                                            <div class="hidden" id="referallearnings"> </div>
-                                            <div style="float:right;">
-                                                <a class="btn btn-primary" href="/bonus-withdrawal"> Withdraw </a>
-                                            </div> 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-xxl-6 col-lg-4 col-sm-6">
+                        {{-- <div class="col-xl-4 col-xxl-6 col-lg-4 col-sm-6">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="media align-items-center">
@@ -114,7 +160,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         {{-- <div class="col-xl-4 col-xxl-6 col-lg-4 col-sm-6">
                             <div class="card">
@@ -137,26 +183,7 @@
                             </div>
                         </div> --}}
 
-                        <div class="col-xl-4 col-xxl-6 col-lg-4 col-sm-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="media align-items-center">
-                                        <span class="mr-4">
-                                            <svg width="50" height="53" viewBox="0 0 50 53" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect width="7.11688" height="52.1905" rx="3.55844" transform="matrix(-1 0 0 1 49.8184 0)" fill="#FE634E"></rect>
-                                                <rect width="7.11688" height="37.9567" rx="3.55844" transform="matrix(-1 0 0 1 35.585 14.2338)" fill="#FE634E"></rect>
-                                                <rect width="7.11688" height="16.6061" rx="3.55844" transform="matrix(-1 0 0 1 21.3516 35.5844)" fill="#FE634E"></rect>
-                                                <rect width="8.0293" height="32.1172" rx="4.01465" transform="matrix(-1 0 0 1 8.0293 20.0732)" fill="#FE634E"></rect>
-                                            </svg>
-                                        </span>
-                                        <div class="media-body ml-1">
-                                            <p class="mb-2"><a href="/transactions">Total Invested</a></p>
-                                            <h3 class="mb-0 text-black font-w600">${{totalinvested(Auth::user()->id)}}</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                       
                         {{-- <div class="col-xl-4 col-lg-12 col-xxl-4 col-sm-12">
                             <div class="card">
                                 <div class="card-body text-center ai-icon  text-primary">

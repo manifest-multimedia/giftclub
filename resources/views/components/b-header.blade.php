@@ -32,7 +32,8 @@
                         <div class="header-left">
                             <div class="dashboard_bar">
                               <a href="{{Route::current()->uri() }}"
-                             style="color:022D4D;" class="text-gray-700 hover:text-gray-700">  {{$pagetitle}} </a> <span> Welcome back {{ auth()->user()->name}} </span> 
+                             style="color:022D4D;" class="text-gray-700 hover:text-gray-700">  {{$pagetitle}} </a>
+                              {{-- <span> Welcome back {{ auth()->user()->name}} </span>  --}}
                                </div>
                             
                         

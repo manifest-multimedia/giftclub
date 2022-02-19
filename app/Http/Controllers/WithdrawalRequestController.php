@@ -72,8 +72,6 @@ class WithdrawalRequestController extends Controller
 
                  if($amount<=$earnings && $earnings>=50) {
 
-                   
-
                         //Dispatch Notification to User
                         Notification::route('mail',  $email)->notify(new SuccessfulWithdrawalRequestNotification($name, $walletaddress, $amount));
                 
