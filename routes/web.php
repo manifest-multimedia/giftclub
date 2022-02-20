@@ -121,7 +121,8 @@ Route::middleware(['auth:sanctum', 'activateplans', 'verified' , 'referral'])->g
 
         $first_payout=date('Y-m-d', strtotime($date. '+ 6 months')); 
         $second_payout=date('Y-m-d', strtotime($date. '+ 12 months'));
-        return $first_payout.$second_payout; 
+        // return $first_payout.$second_payout; 
+        return view("errors.419"); 
 
     }); 
 

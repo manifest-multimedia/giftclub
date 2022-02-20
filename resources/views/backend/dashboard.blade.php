@@ -8,13 +8,17 @@
 			<div class="container-fluid">
                 
                 <div class="col-12">
-                    <div class="card">
+                    <div class="card" style="background:#022D4D">
                         <div class="card-body">
                             <div class="media align-items-center">
                                 
                                 <div class="media-body ml-1 align-items-center">
-                                    <p class="mb-2 text-center">Welcome back {{getFirstName(Auth::user()->name)}}</p>
-                                    <h3 class="mb-0 text-black font-w600 text-center">${{earnings(Auth::user()->id)}} <br /> <span style="font-size:15px"> <em> Total Earned </em></span></h3>
+                                    <p class="mb-2 text-center text-white">Welcome back {{getFirstName(Auth::user()->name)}}</p>
+                                    <h3 class="mb-0 text-white font-w600 text-center"> 
+                                        <span style="font-size:40px"> 
+                                        ${{totalinvested(Auth::user()->id)}} 
+                                        </span>
+                                        <br /> <span style="font-size:15px"> <em> Total Invested </em></span></h3>
                                 </div>
                             </div>
                         </div>
@@ -88,8 +92,8 @@
                                             </svg>
                                         </span>
                                         <div class="media-body ml-1">
-                                            <p class="mb-2"><a href="/transactions">Total Invested</a></p>
-                                            <h3 class="mb-0 text-black font-w600">${{totalinvested(Auth::user()->id)}}</h3>
+                                            <p class="mb-2"><a href="/transactions">Earnings</a></p>
+                                            <h3 class="mb-0 text-black font-w600">${{earnings(Auth::user()->id)}}</h3>
                                             <hr>
                                             <div style="items-align-center">
                                                 <a class="btn btn-primary" href="/transactions"> Transactions </a>

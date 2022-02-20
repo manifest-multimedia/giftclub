@@ -86,6 +86,12 @@ task('notify', function(){
     }); 
 */
 
+
+task('phprestart', function(){
+    run('sudo service php7.4-fpm reload');
+    
+});
+
 // [Optional] if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
 
@@ -93,4 +99,6 @@ after('deploy:failed', 'deploy:unlock');
 
 before('deploy:symlink', 'artisan:migrate');
 
- after('success', 'notify');
+
+after('success', 'phprestart');
+//  after('success', 'notify');
