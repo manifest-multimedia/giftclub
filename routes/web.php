@@ -115,15 +115,23 @@ Route::middleware(['auth:sanctum', 'activateplans', 'verified' , 'referral'])->g
 
     Route::post('/authorize-withdrawal', [WithdrawalRequestController::class, 'WithdrawalRequest']);
 
-    route::get('/test', function(){
-
-        $date='2022-01-01'; 
-
-        $first_payout=date('Y-m-d', strtotime($date. '+ 6 months')); 
-        $second_payout=date('Y-m-d', strtotime($date. '+ 12 months'));
-        // return $first_payout.$second_payout; 
-        return view("errors.419"); 
-
+    Route::get('payouts', function() {
+        return view('backend.payouts');
     }); 
+
+    Route::get('admin', function() {
+        return view('backend.admin');
+    }); 
+
+    // route::get('/test', function(){
+
+    //     $date='2022-01-01'; 
+
+    //     $first_payout=date('Y-m-d', strtotime($date. '+ 6 months')); 
+    //     $second_payout=date('Y-m-d', strtotime($date. '+ 12 months'));
+    //     // return $first_payout.$second_payout; 
+    //     return view("errors.419"); 
+
+    // }); 
 
 });

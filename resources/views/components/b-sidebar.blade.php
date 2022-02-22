@@ -16,6 +16,15 @@
 						</a>
 					</li>					
 
+				
+					@can('isAdmin')
+					<li>
+						<a class="ai-icon" href="/admin"> 
+							<i class="flaticon-381-settings"></i>
+							Admin Area </a> 
+					</li>
+					@endcan
+
                     <li>
 						<a class="has-arrow ai-icon" href="javascript:void()"
 						 aria-expanded="true">
@@ -28,8 +37,8 @@
 							<li><a href="#" data-toggle="modal" data-target="#addOrderModalside">New Contract</a></li>
 							
 							<li><a href="/wallet">Wallet</a></li>
-
-                            {{-- <li><a href="/exchange">Exchange</a></li> --}}
+						
+                            <li><a href="/payouts">Payouts</a></li>
 							<li><a href="/transactions">Transactions</a></li>
 							<li><a href="/referrals">Referrals</a></li>
 							<li><a href="/settings">Settings</a></li>
