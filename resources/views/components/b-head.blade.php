@@ -42,7 +42,7 @@
         @media only screen and (min-width: 768px){
             
         [data-sidebar-style=mini] .deznav .metismenu li>ul {
-            position: block;
+            position: absolute;
            
         }
         [data-sidebar-style=mini] .deznav .metismenu li>ul:hover{
