@@ -100,5 +100,5 @@ after('deploy:failed', 'deploy:unlock');
 before('deploy:symlink', 'artisan:migrate');
 
 
-after('success', 'phprestart');
-//  after('success', 'notify');
+// after('success', 'phprestart');
+ after('success', 'notify');

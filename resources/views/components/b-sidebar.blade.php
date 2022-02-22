@@ -18,7 +18,7 @@
 
                     <li>
 						<a class="has-arrow ai-icon" href="javascript:void()"
-						 aria-expanded="false">
+						 aria-expanded="true">
 							<i class="flaticon-381-networking"></i>
 							<span class="nav-text">Dashboard</span>
 						</a>
