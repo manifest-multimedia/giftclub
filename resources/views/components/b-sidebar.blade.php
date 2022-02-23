@@ -21,7 +21,7 @@
 					<li>
 						<a class="ai-icon" href="/admin"> 
 							<i class="flaticon-381-settings"></i>
-							Admin Area </a> 
+							<span class="nav-text">Admin Area</span></a> 
 					</li>
 					@endcan
 
