@@ -135,7 +135,9 @@ Route::middleware(['auth:sanctum', 'activateplans', 'verified' , 'referral'])->g
         return view('backend.admin', compact('chart'));
     }); 
 
-    
+    Route::get('/users', function(){
+        return view('backend.users');
+    });
 
     // route::get('/test', function(){
 

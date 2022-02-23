@@ -8,9 +8,7 @@
                     <tr>
                         <th scope="col">Date</th>
                         <th scope="col">Amount (USD)</th>
-                        <th scope="col">Wallet</th>
-                        <th scope="col">Status</th>
-                        
+                        <th scope="col">Wallet</th>                        
                         <th scope="col"> Action</th>
                     </tr>
                 </thead>

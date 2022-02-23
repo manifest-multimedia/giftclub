@@ -1,5 +1,5 @@
 <x-backend-layout>
-    <x-slot name='title'> Dashboard </x-slot>
+    <x-slot name='title'> Admin Area </x-slot>
 
     <!--**********************************
             Content body start
@@ -29,16 +29,21 @@
                         <div class="card-header">
                             <h4 class="card-title">Users</h4>
                         </div>
-                        <div class="card-body">
-                            <div class="chart-point">
-                                {{ $chart->options['chart_title'] }}
+                        <div class="card-body row">
+                            <div class="chart-point col-md-4">
+                                {{-- {{ $chart->options['chart_title'] }} --}}
                                 {!! $chart->renderHtml() !!}
                              
                                 
                             </div>
+                            <div class="col-md-8"> 
                             <ul class="chart-point-list">
-                                <a href="#"> View Users </a></li>
+                                <li>Total Registered Users: </li>
+                                <li>Active Users: </li>
+                                <hr> 
+                                <a href="/users"> View Users </a></li>
                                 </ul>
+                            </div>
                         </div>
                     </div>
 
@@ -53,7 +58,7 @@
                     
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Pending Payouts</h4>
+                            <h4 class="card-title">Pending Withdrawals</h4>
                         </div>          
                         <div class="card-body">      
                             @livewire('pending-withdrawals')                   
