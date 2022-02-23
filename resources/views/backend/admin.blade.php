@@ -31,34 +31,42 @@
                         </div>
                         <div class="card-body">
                             <div class="chart-point">
-                                <div class="check-point-area">
-                                    <div class="chartjs-size-monitor">
-                                        <div class="chartjs-size-monitor-expand"><div class=""></div></div>
-                                        <div class="chartjs-size-monitor-shrink"><div class=""></div></div>
-                                    </div>
-                                    <canvas id="doughnut_chart" width="100" height="100" style="display: block; width: 100px; height: 100px;" 
-                                    class="chartjs-render-monitor">
-                                </canvas>
-                                </div>
-                                <ul class="chart-point-list">
-                                    <li><i class="fa fa-circle text-primary mr-1"></i> Registered | <a href="#"> View Users </a></li>
-                                    <li><i class="fa fa-circle text-success mr-1"></i> Active Plans</li>
-                                    {{-- <li><i class="fa fa-circle text-warning mr-1"></i> Total</li> --}}
-                                </ul>
+                                {{ $chart->options['chart_title'] }}
+                                {!! $chart->renderHtml() !!}
+                             
+                                
                             </div>
+                            <ul class="chart-point-list">
+                                <a href="#"> View Users </a></li>
+                                </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Pending Payouts</h4>
+                        </div>
+                        <div class="card-body">
+                            @livewire('pending-payouts')  
                         </div>
                     </div>
                     
-                    @livewire('pending-payouts')                   
-                    {{-- @livewire('pending-withdrawals')                    --}}
-                        
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Pending Payouts</h4>
+                        </div>          
+                        <div class="card-body">      
+                            @livewire('pending-withdrawals')                   
+                        </div>
+                    </div>
                     </div>
                 </div>
 
         </div>
 
         
-
+   {!! $chart->renderChartJsLibrary() !!}
+{!! $chart->renderJs() !!}
 
 <!--**********************************
 Content body end

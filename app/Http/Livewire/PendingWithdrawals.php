@@ -8,6 +8,7 @@ class PendingWithdrawals extends Component
 {
     public function render()
     {
-        return view('livewire.pending-withdrawals');
+        $withdrawals=[];
+        return view('livewire.pending-withdrawals', compact('withdrawals'));
     }
 }

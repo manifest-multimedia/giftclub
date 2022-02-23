@@ -3,11 +3,18 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use LaravelDaily\LaravelCharts\Classes\LaravelChart;
+
 
 class PendingPayouts extends Component
 {
+    
     public function render()
     {
-        return view('livewire.pending-payouts');
+        $payouts=[];
+
+       
+
+        return view('livewire.pending-payouts', compact('payouts'));
     }
 }

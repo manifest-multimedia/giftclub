@@ -10,6 +10,8 @@ use App\Http\Controllers\WithdrawalRequestController;
 use App\Http\Livewire\Checkout; 
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use RealRashid\SweetAlert\Facades\Alert;
+use LaravelDaily\LaravelCharts\Classes\LaravelChart;
+
 // use Auth;
 
 
@@ -120,8 +122,20 @@ Route::middleware(['auth:sanctum', 'activateplans', 'verified' , 'referral'])->g
     }); 
 
     Route::get('admin', function() {
-        return view('backend.admin');
+        $chart_options =[
+            'chart_title' => 'Users by months', 
+            'report_type' => 'group_by_date', 
+            'model' => 'App\Models\User', 
+            'group_by_field' => 'created_at', 
+            'group_by_period' => 'month', 
+            'chart_type' => 'pie',
+        ];
+
+        $chart = new LaravelChart($chart_options); 
+        return view('backend.admin', compact('chart'));
     }); 
+
+    
 
     // route::get('/test', function(){
 

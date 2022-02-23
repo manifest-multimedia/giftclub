@@ -101,4 +101,4 @@ before('deploy:symlink', 'artisan:migrate');
 
 
 // after('success', 'phprestart');
-//  after('success', 'notify');
+ after('success', 'notify');

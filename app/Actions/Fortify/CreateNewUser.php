@@ -51,6 +51,7 @@ class CreateNewUser implements CreatesNewUsers
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
             'referred_by'=> $input['referred_by'],
+            'role'=>'user', 
         ]);
 
         //Create New Wallet 
