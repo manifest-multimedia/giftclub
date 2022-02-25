@@ -38,8 +38,8 @@
                             </div>
                             <div class="col-md-8"> 
                             <ul class="chart-point-list">
-                                <li>Total Registered Users: </li>
-                                <li>Active Users: </li>
+                                <li>Total Registered Users: {{$registered}}</li>
+                                <li>Active Users: {{$active}}</li>
                                 <hr> 
                                 <a href="/users"> View Users </a></li>
                                 </ul>

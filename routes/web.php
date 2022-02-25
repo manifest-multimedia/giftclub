@@ -130,9 +130,10 @@ Route::middleware(['auth:sanctum', 'activateplans', 'verified' , 'referral'])->g
             'group_by_period' => 'month', 
             'chart_type' => 'pie',
         ];
-
+        $registered=User::count();
+        $active=User::has('userProducts')->count();
         $chart = new LaravelChart($chart_options); 
-        return view('backend.admin', compact('chart'));
+        return view('backend.admin', compact('chart', 'registered', 'active'));
     }); 
 
     Route::get('/users', function(){

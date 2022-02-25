@@ -13,6 +13,21 @@ use App\Models\ReferralEarning;
 use App\Models\Wallet;
 use Illuminate\Support\Facades\Hash;
 
+if(!function_exists("getWallet")){
+    function getWallet($user_id){
+        
+        $address=Wallet::where('user_id', $user_id)->first();
+
+        if($address){
+
+            $wallet=$address->wallet_address;
+            return $wallet;
+        }
+        else {
+            return 'No Linked Wallet';
+        }
+    }
+}
 
 if(!function_exists("getFirstName")){
     function getFirstName($name){
