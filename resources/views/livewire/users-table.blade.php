@@ -43,7 +43,7 @@
                                     <a href="#">
                                         <div class="media d-flex align-items-center">
                                             <div class="avatar avatar-xl mr-2">
-                                                <div class=""><img class="rounded-circle img-fluid" src="./images/avatar/5.png" width="30" alt="">
+                                                <div class=""><img class="rounded-circle img-fluid" src="/storage/{{$item->profile_photo_path}}" width="30" alt="">
                                                 </div>
                                             </div>
                                             <div class="media-body">
