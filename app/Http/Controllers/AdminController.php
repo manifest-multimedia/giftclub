@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use LaravelDaily\LaravelCharts\Classes\LaravelChart;
+use Illuminate\Support\Facades\Gate;
+
 
 
 class AdminController extends Controller
@@ -25,10 +27,19 @@ class AdminController extends Controller
                 'group_by_period' => 'month', 
                 'chart_type' => 'pie',
             ];
+
             $registered=User::count();
             $active=User::has('userProducts')->count();
             $chart = new LaravelChart($chart_options); 
-            return view('backend.admin', compact('chart', 'registered', 'active'));
+            
+            if (Gate::allows(['isAdmin'])) {
+                // The user has Admin Privileges
+                return view('backend.admin', compact('chart', 'registered', 'active'));
+            }
+            else {
+                abort(404);
+            }       
         
+            
     }
 }

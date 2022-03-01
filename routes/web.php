@@ -13,6 +13,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Livewire\Checkout; 
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Gate;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +48,12 @@ Route::middleware(['auth:sanctum', 'activateplans', 'verified' , 'referral'])->g
     Route::post('/authorize-withdrawal', [WithdrawalRequestController::class, 'WithdrawalRequest']);
     Route::get('payouts', function() { return view('backend.payouts');}); 
     Route::get('admin', AdminController::class); 
-    Route::get('/users', function(){ return view('backend.users');});
+    Route::get('/users', function(){ 
+        if (Gate::allows(['isAdmin'])) {
+        return view('backend.users');
+        } else {
+            abort(404);
+        }
+    });
 
 });
