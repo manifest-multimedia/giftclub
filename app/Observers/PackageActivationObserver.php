@@ -8,6 +8,7 @@ use App\Models\UserProduct;
 use App\Models\User;
 use App\Models\Product; 
 use App\Models\ReferralEarning; 
+use App\Models\PayoutSchedule;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\ReferralEarningNotification; 
 use Auth;
@@ -28,22 +29,43 @@ class PackageActivationObserver
         $user=User::find($user_id); 
         $user->notify(new PaymentSuccessful()); 
         $user->notify(new PackageActivated()); 
-
+        $product_id=$userProduct->product_id;
         // Schedule Payouts
-
-        //Schedule First Payout
-        // $firstPayoutDate = date('Y-m-d', strtotime("+6 months", strtotime($effectiveDate)));
         
-        
-        //Shedule Second Payout
-        // $secondPayoutDate = date('Y-m-d', strtotime("+12 months", strtotime($effectiveDate)));
-        
+       
         //Referral Earning
         #Check referred by
         $referredby=''; 
 
         $get_user_info=User::where('id', $user_id)->first(); 
         $referredby=$get_user_info->referred_by; 
+
+         //Schedule First Payout
+         $current_date=date('Y-m-d');
+         $first_payout_date = date('Y-m-d', strtotime("+6 months", strtotime($current_date)));
+         $second_payout_date = date('Y-m-d', strtotime("+6 months", strtotime($first_payout_date)));
+      
+         // Save Record
+ 
+         $store_schedule = new PayoutSchedule;
+         $store_schedule->user_id=$user_id;
+         $store_schedule->referred_by=$referredby;
+         $store_schedule->activation_date=$current_date; 
+         $store_schedule->package=$product_id;
+         $store_schedule->payout_status='pending';
+         $store_schedule->payout_date=$first_payout_date; 
+         $store_schedule->save(); 
+ 
+        //Save Second Payout
+        
+        $store_schedule = new PayoutSchedule;
+        $store_schedule->user_id=$user_id;
+        $store_schedule->referred_by=$referredby;
+        $store_schedule->activation_date=$current_date; 
+        $store_schedule->package=$product_id;
+        $store_schedule->payout_status='pending';
+        $store_schedule->payout_date=$second_payout_date; 
+        $store_schedule->save(); 
 
         if ($referredby!='GiftClub') {
             

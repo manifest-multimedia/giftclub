@@ -11,14 +11,14 @@ class SchedulePayouts extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'schedule:payouts';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Schedule Payouts for Investments';
 
     /**
      * Create a new command instance.
@@ -49,8 +49,10 @@ class SchedulePayouts extends Command
 
     // }); 
 
-
-
+    $current_date=date('Y-m-d');
+    $first_payout_date = date('Y-m-d', strtotime("+6 months", strtotime($current_date)));
+    $second_payout_date = date('Y-m-d', strtotime("+6 months", strtotime($first_payout_date)));
+ 
 
         return 0;
     }
