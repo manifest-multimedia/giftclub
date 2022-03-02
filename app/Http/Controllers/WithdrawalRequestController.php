@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User; 
 use App\Models\Withdrawal;
+use App\Models\ReferralEarning; 
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\DeclinedWithdrawalRequestNotification;
 use App\Notifications\SuccessfulWithdrawalRequestNotification;
@@ -88,6 +89,13 @@ class WithdrawalRequestController extends Controller
                         $withdrawal->wallet_address=$walletaddress;
                         $withdrawal->status='pending'; 
                         $withdrawal->save();  
+
+                        // Deduct from Referral Earnings
+                        $deduct= new ReferralEarning; 
+                        $deduct->user_id=$user_id; 
+                        $deduct->date_activated=$withdrawal_date;
+                        $deduct->amount=$amount*-1;
+                        $deduct->save(); 
 
                         //Dispatch Notification to User
                         Notification::route('mail',  $email)->notify(new SuccessfulWithdrawalRequestNotification($name, $walletaddress, $amount));
