@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User; 
+use App\Models\Withdrawal;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\DeclinedWithdrawalRequestNotification;
 use App\Notifications\SuccessfulWithdrawalRequestNotification;
@@ -71,6 +72,22 @@ class WithdrawalRequestController extends Controller
                  }
 
                  if($amount<=$earnings && $earnings>=50) {
+
+                        //Store Request 
+
+                        // $user_id;
+                        // $amount;
+                        // $walletaddress;
+                        
+                        $withdrawal_date=date('Y-m-d'); 
+
+                        $withdrawal= new Withdrawal;
+                        $withdrawal->user_id=$user_id;
+                        $withdrawal->date=$withdrawal_date; 
+                        $withdrawal->amount=$amount;
+                        $withdrawal->wallet_address=$walletaddress;
+                        $withdrawal->status='pending'; 
+                        $withdrawal->save();  
 
                         //Dispatch Notification to User
                         Notification::route('mail',  $email)->notify(new SuccessfulWithdrawalRequestNotification($name, $walletaddress, $amount));

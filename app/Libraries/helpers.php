@@ -13,6 +13,25 @@ use App\Models\ReferralEarning;
 use App\Models\Wallet;
 use Illuminate\Support\Facades\Hash;
 
+
+if(!function_exists('getPayoutAmount')){
+    function getPayoutAmount($product_id){
+
+        
+        $rate=1; 
+        $times=1; 
+        $principal=Product::find($product_id)->cost; 
+         
+        $apy=(1+$rate/$times)^$times-1; 
+
+        $amount=$principal*$apy/2; 
+
+        
+        return $amount; 
+    }
+}
+
+
 if(!function_exists("getWallet")){
     function getWallet($user_id){
         

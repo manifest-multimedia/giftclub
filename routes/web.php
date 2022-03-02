@@ -56,4 +56,7 @@ Route::middleware(['auth:sanctum', 'activateplans', 'verified' , 'referral'])->g
         }
     });
 
+
+    
+
 });

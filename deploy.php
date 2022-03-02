@@ -46,11 +46,11 @@ task('notify', function(){
     
     //SEND SMS
 
-    $destination="233244558822"; 
-    $message="Dear Asare, app deployment completed successfully for app.giftclubglobal.com. Thank you."; 
-    $sender=get('INFOBIP_SENDER');
-    $authorization=get('INFOBIP_AUTHORIZATION');
-    $response= SMSnotify($destination, $message, $sender, $authorization); 
+    // $destination="233244558822"; 
+    // $message="Dear Asare, app deployment completed successfully for app.giftclubglobal.com. Thank you."; 
+    // $sender=get('INFOBIP_SENDER');
+    // $authorization=get('INFOBIP_AUTHORIZATION');
+    // $response= SMSnotify($destination, $message, $sender, $authorization); 
 
     $destination="233204179139"; 
     $message="Deployment was successful for app.giftclubglobal.com"; 
