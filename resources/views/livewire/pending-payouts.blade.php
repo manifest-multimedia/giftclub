@@ -44,5 +44,7 @@
             </table>
         </div>
     </div>
- 
+    <div class="card-footer">
+        {{$payouts->links()}}
+    </div>
 </div>

@@ -42,6 +42,8 @@
             </table>
         </div>
     </div>
-
+    <div class="card-footer">
+        {{$withdrawals->links()}}
+    </div>
 
 </div>

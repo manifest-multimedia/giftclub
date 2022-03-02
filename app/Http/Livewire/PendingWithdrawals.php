@@ -9,7 +9,7 @@ class PendingWithdrawals extends Component
 {
     public function render()
     {
-        $withdrawals=Withdrawal::where('status', 'pending')->get();
+        $withdrawals=Withdrawal::where('status', 'pending')->paginate(5);
         return view('livewire.pending-withdrawals', compact('withdrawals'));
     }
 }
