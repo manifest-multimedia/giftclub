@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Transaction; 
-use APp\Models\PendingPayment;
+use App\Models\PendingPayment;
+use App\Models\Withdrawal;
 use Auth; 
 
 class SignedPaymentController extends Controller
@@ -23,5 +24,22 @@ class SignedPaymentController extends Controller
         $delete=Transaction::find($transaction_id)->delete(); 
 
         return redirect('dashboard')->with('toast_error', 'Transaction Cancelled'); 
+    }
+    public function process_withdrawal(request $request){
+        $withdrawal_id=$request->id; 
+
+        
+        $user=Auth::user()->name; 
+
+        $update=Withdrawal::where('id', $withdrawal_id)->update(
+
+            [ 
+                'status' => 'paid', 
+                'by' => $user
+                ]
+            
+        );
+        
+        return redirect()->back()->with('success', 'Withdrawal Successful Maked As Paid');
     }
 }

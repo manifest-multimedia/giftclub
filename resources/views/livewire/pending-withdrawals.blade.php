@@ -24,6 +24,8 @@
 
                         <td>{{ucfirst($item->status)}}</td>
                         
+                       <input type="hidden" name="withdrawal_id" value="withdrawal_id">
+                        
                         <td>
                             <div class="dropdown custom-dropdown mb-0">
                                 <div class="btn sharp btn-primary tp-btn" data-toggle="dropdown">
@@ -31,7 +33,12 @@
                                 </div>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     {{-- <a class="dropdown-item" href="{{url()->current()}}" target="_self">Refresh</a> --}}
-                                    <a class="dropdown-item text-danger" href="">Mark As Paid</a>
+                                    <form action="/processwithdrawal/{{$item->id}}" method="post">
+                                    @csrf
+                                    @method('post')
+                                        <button class="dropdown-item text-danger">Mark As Paid</button>
+                                    </form>
+
                                 </div>
                             </div>
                         </td>

@@ -54,9 +54,10 @@ Route::middleware(['auth:sanctum', 'activateplans', 'verified' , 'referral'])->g
         } else {
             abort(404);
         }
+
     });
 
-
+    Route::post('/processwithdrawal/{id}', [SignedPaymentController::class, 'process_withdrawal']);
     
 
 });
