@@ -33,7 +33,11 @@
                                 </div>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     {{-- <a class="dropdown-item" href="{{url()->current()}}" target="_self">Refresh</a> --}}
-                                    <a class="dropdown-item text-danger" href="">Mark as Paid</a>
+                                    <form action="/process_payout/{{$item->id}}" method="post">
+                                    @csrf
+                                    @method('post')
+                                    <button type="submit" class="dropdown-item text-danger" href="#">Mark as Paid</a>
+                                    </form>
                                 </div>
                             </div>
                         </td>

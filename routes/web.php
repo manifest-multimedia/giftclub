@@ -58,6 +58,7 @@ Route::middleware(['auth:sanctum', 'activateplans', 'verified' , 'referral'])->g
     });
 
     Route::post('/processwithdrawal/{id}', [SignedPaymentController::class, 'process_withdrawal']);
+    Route::post('/process_payout/{id}', [SignedPaymentController::class, 'process_payout']);
     
 
 });

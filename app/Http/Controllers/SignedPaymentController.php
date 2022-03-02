@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Transaction; 
 use App\Models\PendingPayment;
 use App\Models\Withdrawal;
+use App\Models\PayoutSchedule;
 use Auth; 
 
 class SignedPaymentController extends Controller
@@ -40,6 +41,21 @@ class SignedPaymentController extends Controller
             
         );
         
-        return redirect()->back()->with('success', 'Withdrawal Successful Maked As Paid');
+        return redirect()->back()->with('success', 'Withdrawal Successfully Maked As Paid');
+    }
+
+    public function process_payout(request $request){
+        $payout_id=$request->id; 
+
+        $user=Auth::user()->name; 
+
+        $update=PayoutSchedule::where('id', $payout_id)->update([
+            'payout_status' => 'paid', 
+            'by' => $user, 
+        ]);
+
+        return redirect()->back()->with('success', 'Payout Successfully Maked As Paid');
+
+
     }
 }
