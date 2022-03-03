@@ -40,7 +40,7 @@ task('build', function () {
 });
 
 set('INFOBIP_SENDER', 'ManifestGH');
-set('INFOBIP_AUTHORIZATION', 'App db184ed638df3de1d2d608ab8eac7ab2-81ea90e5-399f-4e23-84c5-242e959520a6');
+set('INFOBIP_AUTHORIZATION', 'App 06110a86450f846024081f35d866106d-e48dffa7-fe26-44e4-a2fb-ad992d673c32');
 
 task('notify', function(){
     
@@ -67,24 +67,24 @@ task('notify', function(){
     }); 
 
 
-/*
-task('notify', function(){
-    
-    // SEND SMS
-    $destination="233244558822"; 
-    $message="Dear Asare, your app has been successfully deployed to app.giftclubglobal.com!"; 
-    $response= SMSnotify($destination, $message); 
 
-    $destination="233204179139"; 
-    $message="Hello Johnson, a System Update has been successfully deployed to giftclubglobal.com."; 
-    $response= SMSnotify($destination, $message); 
+// task('notify', function(){
+    
+//     SEND SMS
+//     $destination="233244558822"; 
+//     $message="Dear Asare, your app has been successfully deployed to app.giftclubglobal.com!"; 
+//     $response= SMSnotify($destination, $message); 
 
-    write('Sending SMS Notification');
+//     $destination="233204179139"; 
+//     $message="Hello Johnson, a System Update has been successfully deployed to giftclubglobal.com."; 
+//     $response= SMSnotify($destination, $message); 
+
+//     write('Sending SMS Notification');
     
-    print_r($response);
+//     print_r($response);
     
-    }); 
-*/
+//     }); 
+
 
 
 task('phprestart', function(){
