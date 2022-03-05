@@ -49,8 +49,7 @@ class SchedulePayouts extends Command
 
     // }); 
 
-    // $current_date=date('Y-m-d');
-    $current_date='2022-02-28';
+    $current_date=date('Y-m-d');
     $first_payout_date = date('Y-m-d', strtotime("+6 months", strtotime($current_date)));
     $second_payout_date = date('Y-m-d', strtotime("+6 months", strtotime($first_payout_date)));
     
