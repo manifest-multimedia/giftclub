@@ -7,7 +7,7 @@ use \Illuminate\Session\SessionManager;
 use App\Models\Product; 
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Transaction; 
-use APp\Models\PendingPayment;
+use App\Models\PendingPayment;
 use Auth; 
 
 class Checkout extends Component
@@ -26,6 +26,9 @@ class Checkout extends Component
     public $paymentID; 
     public $selectedProductID;
     public $charges;
+
+    public $transaction_id; 
+    public $pendingpayment_id; 
     
     public function mount($product_id) {
 
@@ -96,7 +99,7 @@ class Checkout extends Component
             $transaction->amount=$paymentamount;
             $transaction->save(); 
             $transaction_id=$transaction->id; 
-
+            $this->transaction_id=$transaction_id; 
             $pendingpayment->user_id=Auth::user()->id; 
             $pendingpayment->transaction_id=$transaction_id; 
             $pendingpayment->label=$productname; 
@@ -106,11 +109,13 @@ class Checkout extends Component
             $pendingpayment->amount=$paymentamount;
             $pendingpayment->save(); 
             $pendingpayment_id=$pendingpayment->id;
+            $this->pendingpayment_id=$pendingpayment_id;
 
         }
 
         // else{
-        //     return back()->with('toast_error', 'System Error. Try again!'); 
+        //     // return back()->with('toast_error', 'System Error. Try again!'); 
+            
         // }
 
         switch ($message) {
@@ -154,8 +159,8 @@ class Checkout extends Component
         of funds. By proceeding, you agree to the <a style='color:red' href='https://giftclubglobal.com/terms-and-conditions/'>terms & conditions</a> governing our operations.<br />
         Thanks for your cooperation. <input type='hidden' name='payment_id' value=".$getid->payment_id."> ",'toast')->persistent(false,false)->showConfirmButton('I Agree, Proceed ')->footer('
         <form method="post" action="/payment-cancelled/'.$getid->payment_id.'"> 
-        <input type="hidden" name="transaction_id" value="'.$transaction_id.'" >
-        <input type="hidden" name="pending_payment_id" value="'.$pendingpayment_id.'" >
+        <input type="hidden" name="transaction_id" value="'.$this->transaction_id.'" >
+        <input type="hidden" name="pending_payment_id" value="'.$this->pendingpayment_id.'" >
         <input type="hidden" name="_token" value="'.csrf_token().'"> 
         
         <button type="submit" class="swal2-confirm swal2-styled swal2-default-outline" style="display: inline-block; background-color:red">I Disagree, Cancel</button>
@@ -164,6 +169,6 @@ class Checkout extends Component
         return view('livewire.checkout');
     }
 
-    
+   
     
 }

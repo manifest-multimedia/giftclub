@@ -208,10 +208,18 @@
                                        @endphp
 
                                     <div class="col-md-12" style="text-align:center !important">
-                                          <label for="payment_address"><strong> Send Payment to </strong></label> 
+                                        <label for="payment_address"><strong> Send Payment to </strong></label> 
+                                        <div 
+                                        x-data="{show:false}"
+                                        x-show.transition.opacity.out.duration.1500ms="show"
+                                        x-init="@this.on('copied', ()=>{show=true; setTimeout(()=>{show=false}, 2000) })"
+                                        style="display:none; text-align:center"
+                                        class="alert alert-success"
+                                        > 
+                                            Payment Address Copied Successfully  </div> 
                                           <input type="text" value="{{$pay_address}}" class="form-control" style="text-align:center" id="paymentaddress">
                                           <div style="padding-top: 20px"> 
-                                              <a class="btn btn-primary" value="copy" onclick="copyToClipboard('paymentaddress')"> Copy Payment Address </a>
+                                              <a class="btn btn-primary" value="copy" onclick="copyToClipboard('paymentaddress')" wire:click="$emit('copied')"> Copy Payment Address </a>
                                           </div>
                                         </div>
                                     <div class="col-md-12" style="text-align:center !important; padding-top:30px" >
