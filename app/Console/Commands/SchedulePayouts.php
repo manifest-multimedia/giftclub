@@ -3,6 +3,8 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\Models\User; 
+use App\Models\PayoutSchedule;
 
 class SchedulePayouts extends Command
 {
@@ -38,22 +40,19 @@ class SchedulePayouts extends Command
     public function handle()
     {
 
-         // route::get('/test', function(){
-
-    //     $date='2022-01-01'; 
-
-    //     $first_payout=date('Y-m-d', strtotime($date. '+ 6 months')); 
-    //     $second_payout=date('Y-m-d', strtotime($date. '+ 12 months'));
-    //     // return $first_payout.$second_payout; 
-    //     return view("errors.419"); 
-
-    // }); 
-
-    $current_date=date('Y-m-d');
-    $first_payout_date = date('Y-m-d', strtotime("+6 months", strtotime($current_date)));
-    $second_payout_date = date('Y-m-d', strtotime("+6 months", strtotime($first_payout_date)));
+    // $current_date=date('Y-m-d');
+    // $first_payout_date = date('Y-m-d', strtotime("+6 months", strtotime($current_date)));
+    // $second_payout_date = date('Y-m-d', strtotime("+6 months", strtotime($first_payout_date)));
     
-    echo $second_payout_date;
+    // echo $second_payout_date;
+
+        // Update All Payout Schedules to Due where Payout Date is Equal to Current Date 
+
+        $current_date=date('Y-m-d'); 
+        $update=PayoutSchedule::where('payout_date', $current_date)
+        ->update([
+            'payout_status'=>'due'
+         ]);
 
         return 0;
     }

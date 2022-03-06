@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\CheckPaymentStatus::class, 
+        Commands\SchedulePayouts::class, 
     ];
 
     /**
@@ -24,8 +25,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('check:paymentstatus')
-        ->everyMinute();
+        $schedule->command('check:paymentstatus')->everyMinute();
+        $schedule->command('schedule:payouts')->daily();
+
+
     }
 
     /**

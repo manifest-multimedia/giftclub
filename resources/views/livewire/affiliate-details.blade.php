@@ -2,13 +2,10 @@
     {{-- Care about people's approval and you will be their prisoner. --}}
     <div class="card-body">
         <h3 class="card-title"> Referral Link: </h3>
-       {{-- @php
-           $user = auth()->user();
-       @endphp  --}}
+  
+        <a href="{{ $user->getReferralLink() }}" class="text-gray-700 hover:text-gray-400"> {{ $user->getReferralLink() }} </a> 
 
-       <a href="{{ $user->getReferralLink() }}" class="text-gray-700 hover:text-gray-400"> {{ $user->getReferralLink() }} </a> 
-
-       <h3 class="card-title mt-3"> Referral Code:</h3>
+        <h3 class="card-title mt-3"> Referral Code:</h3>
        
        <div 
        x-data="{show:false}"

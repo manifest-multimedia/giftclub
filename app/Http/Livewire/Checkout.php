@@ -146,8 +146,6 @@ class Checkout extends Component
                 break;
         }
 
-
-
         alert()->html('
         <span style="color:red"><strong>WARNING</strong></span>',"
         Dear Valued Member, <br />
@@ -168,7 +166,5 @@ class Checkout extends Component
 
         return view('livewire.checkout');
     }
-
-   
     
 }

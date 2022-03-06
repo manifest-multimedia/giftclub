@@ -41,7 +41,7 @@ class CheckPaymentStatus extends Command
     public function handle()
     {
 
-        //Check All PEnding Payments 
+        //Check All Pending Payments 
         $pending_payment=PendingPayment::all(); 
 
         foreach ($pending_payment as $item) {
