@@ -17,6 +17,7 @@ class LocationInformation extends Component
     public $address_city;
     public $address_country; 
     public $address_zip; 
+    public $user_id; 
 
     public function mount(){
 
@@ -27,7 +28,7 @@ class LocationInformation extends Component
     public function render()
     {
         $user_id=Auth::user()->id; 
-
+        $this->user_id=$user_id; 
         $address=Address::where('user_id',$user_id)->first();
         if($address) {
             $this->address=$address;
@@ -50,7 +51,38 @@ class LocationInformation extends Component
     }
 
     public function save(){
+
+       if(is_null($this->address)){
+
+        // New Address 
+        $save=new Address; 
+        $save->user_id=$this->user_id; 
+        $save->Address_Line_One=$this->address_line_one;
+        $save->Address_Line_Two=$this->address_line_two; 
+        $save->city=$this->address_city; 
+        $save->country=$this->address_country; 
+        $save->zip=$this->address_zip; 
+        $save->save(); 
+        session()->flash('message', "New Record Saved Successfully");
+
+
+       }
+        else {
+        //Existing Address 
+        $update=Address::where('user_id', $this->user_id); 
+        $update->update([
+            'Address_Line_One'=>$this->address_line_one, 
+            'Address_Line_Two'=>$this->address_line_two, 
+            'city'=>$this->address_city, 
+            'country'=>$this->address_country, 
+            'zip'=>$this->address_zip
+        ]); 
+
+        session()->flash('message', "Record Updated Successfully");
+
         
+        }
+
         $this->update=0; 
 
     //     $this->validate([

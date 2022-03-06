@@ -5,7 +5,10 @@
 
     <div class="container-fluid">
 <div class="row">
+    <div class="col-xl-6"><div class="card">
     @livewire('location-information')
+</div></div>
+
     <div class="col-xl-6"><div class="card">
         <div class="card-body"><h1>Finance</h1><hr />
             @livewire('linkedwallets')
