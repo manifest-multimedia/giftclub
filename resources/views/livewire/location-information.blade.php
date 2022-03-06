@@ -33,21 +33,21 @@
         <span>Address</span>
     <div class="form-row pt-3">
         <div class="form-group col-md-6">
-            <input type="text" class="form-control" placeholder="Address Line 1" value="@if(!is_null($address)){{$address->Address_Line_One}}@endif">
+            <input type="text" class="form-control" placeholder="{{$address!=null ? '':'Address Line 1'}}" value="@if(!is_null($address)){{$address->Address_Line_One}}@endif" disabled>
         </div>
         <div class="form-group col-md-6">
-            <input type="text" class="form-control" placeholder="Address Line 2" value="@if(!is_null($address)){{$address->Address_Line_Two}}@endif">
+            <input type="text" class="form-control" placeholder="{{$address!=null ? '':'Address Line 2'}}" value="@if(!is_null($address)){{$address->Address_Line_Two}}@endif" disabled>
         </div>
         <div class="form-group col-md-6">
-            <input type="text" class="form-control" placeholder="City" value="@if(!is_null($address)){{$address->city}}@endif">
+            <input type="text" class="form-control" placeholder="{{$address!=null ? '':'City'}}" value="@if(!is_null($address)){{$address->city}}@endif" disabled>
         </div>
         <div class="form-group col-md-6">
-            <input type="text" class="form-control" placeholder="Country" value="@if(!is_null($address)){{$address->country}}@endif">
+            <input type="text" class="form-control" placeholder="{{$address!=null ? '':'Country'}}" value="@if(!is_null($address)){{$address->country}}@endif"disabled>
         </div>
     </div>
 <div class="form-row">
     <div class="form-group col-md-4">
-        <input type="text" class="form-control" placeholder="ZIP/Postal" value="@if(!is_null($address)){{$address->zip}}@endif">
+        <input type="text" class="form-control" placeholder="{{$address!=null ? '':'ZIP/Postal'}}" value="@if(!is_null($address)){{$address->zip}}@endif" disabled>
     </div>
 </div>
 

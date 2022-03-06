@@ -176,7 +176,11 @@
 	
 	</script>
 
-
+	<script> 
+    function logout() {
+        document.getElementById('logout').submit(); 
+    }
+    </script> 
 	
 
 	

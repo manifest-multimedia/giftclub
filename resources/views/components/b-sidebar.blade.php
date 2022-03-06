@@ -15,7 +15,7 @@
 							<span class="nav-text">Homepage</span>
 						</a>
 					</li>					
-
+				
 				
 					@can('isAdmin')
 					<li>
@@ -41,19 +41,26 @@
                             <li><a href="/payouts">Payouts</a></li>
 							<li><a href="/transactions">Transactions</a></li>
 							<li><a href="/referrals">Referrals</a></li>
-							<li><a href="/settings">Settings</a></li>
+							{{-- <li><a href="/settings">Settings</a></li> --}}
 							
 						</ul>
-						<li>
-							<form method="POST" action="{{ route('logout') }}" style="padding:0; margin:0;">
+					<li>
+						<a class="ai-icon" href="/settings" aria-expanded="false">
+							<i class="flaticon-381-settings"></i>
+							<span class="nav-text">Settings</span>
+						</a>
+					</li>					
+	
+					<li>
+						<a class="ai-icon" href="{{ route('logout') }}" aria-expanded="false" onclick="event.preventDefault();logout()">
+							<i class="flaticon-381-exit"></i>
+							<span class="nav-text">Log Out</span>
+						</a>
+							<form method="POST" action="{{ route('logout') }}" id="logout">
 								@csrf
-								<a class="ai-icon" href="{{ route('logout') }}" aria-expanded="false" onclick="event.preventDefault();this.closest('form').submit();">
-									<i class="flaticon-381-exit"></i>
-									<span class="nav-text">Log Out</span>
-								</a>
 							</form> 
-						</li>
-                    </li>
+					</li>
+                    
 					
 					
 					
