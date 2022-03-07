@@ -13,6 +13,8 @@ use Auth;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\AdminSuccessfulPayoutNotification; 
 use App\Notifications\UserSuccessfulPayoutNotification; 
+use App\Notifications\PayoutNotification; 
+use App\Notifications\AdminWithdrawalNotice; 
 
 
 class SignedPaymentController extends Controller
@@ -34,9 +36,12 @@ class SignedPaymentController extends Controller
     }
     public function process_withdrawal(request $request){
         $withdrawal_id=$request->id; 
-
-        
-        $user=Auth::user()->name; 
+        $withdrawal_details=Withdrawal::where('id',$withdrawal_id)->first();
+        $withdrawal_amount=$withdrawal_details->amount;
+        $user_details=User::where('id', $withdrawal_details->user_id)->first(); 
+        $user_email=$user_details->email;
+        $user_name=getFirstName($user_details->name); 
+        $user=getFirstName(Auth::user()->name); 
 
         $update=Withdrawal::where('id', $withdrawal_id)->update(
 
@@ -48,8 +53,10 @@ class SignedPaymentController extends Controller
         );
 
         //Send Notification to User
+        Notification::route('mail', $user_email)->notify(new PayoutNotification($user_name, $withdrawal_amount));
 
         //Send Notification to Admin
+        Notification::route('mail', 'withdrawal@giftclubglobal.com')->notify(new AdminWithdrawalNotice($user, $user_name, $withdrawal_amount));
         
         return redirect()->back()->with('success', 'Withdrawal Successfully Maked As Paid');
     }
@@ -65,7 +72,7 @@ class SignedPaymentController extends Controller
         $payout_user_email=$payout_user_details->email;
         $payout_user_name=getFirstName($payout_user_details->name);
 
-        $user=Auth::user()->name; 
+        $user=getFirstName(Auth::user()->name); 
 
         $update=PayoutSchedule::where('id', $payout_id)->update([
             'payout_status' => 'paid', 

@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class PayoutNotification extends Notification
+class AdminWithdrawalNotice extends Notification
 {
     use Queueable;
 
@@ -16,13 +16,11 @@ class PayoutNotification extends Notification
      *
      * @return void
      */
-    public $name;
-    public $amount; 
-
-    public function __construct($name, $amount)
+    public function __construct($admin, $user, $amount)
     {
-        $this->name=$name; 
-        $this->amount=$amount;
+        $this->admin=$admin; 
+        $this->user=$user; 
+        $this->amount=$amount; 
     }
 
     /**
@@ -45,10 +43,11 @@ class PayoutNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->greeting("Congratulations $this->name!")
-                    ->line("Your withdrawal request for $$this->amount USD has been successfully processed!.")
-                    ->action('View Earnings', url('https://app.giftclubglobal.com'))
-                    ->line('Thank you for investing with Gift Club!');
+                    ->subject("Withdrawal Completed for $this->user")
+                    ->greeting("Dear $this->admin,")
+                    ->line("You have successfully completed the withdrawal payment of $$this->amount USD for $this->user.")
+                    ->action('Viewing Pending Withdrawals', url('https://app.giftclubglobal.com/admin'))
+                    ->line('Thank you!');
     }
 
     /**
