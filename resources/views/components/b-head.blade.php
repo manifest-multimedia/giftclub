@@ -42,12 +42,11 @@
        
             
         [data-sidebar-style=mini] .deznav .metismenu li>ul {
-            position: absolute;
+            position: absolute !important;
            
         }
         [data-sidebar-style=mini] .deznav .metismenu li>ul:hover{
-            display: block;
-           
+            display: block !important;
         }
 
         

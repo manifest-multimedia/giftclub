@@ -50,9 +50,12 @@ class SchedulePayouts extends Command
 
         $current_date=date('Y-m-d'); 
         $update=PayoutSchedule::where('payout_date', $current_date)
+        ->where('payout_status', 'pending')
         ->update([
             'payout_status'=>'due'
          ]);
+
+         echo $current_date; 
 
         return 0;
     }
