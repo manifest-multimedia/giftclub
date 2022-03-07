@@ -52,7 +52,7 @@ class AdminSuccessfulPayoutNotification extends Notification
         return (new MailMessage)
                     ->subject($this->user.' Successfully Paid!')
                     ->greeting("Dear $this->admin,")
-                    ->line("You have successfully made a payment of $this->amount to $this->user for his investment plan ($this->package).")
+                    ->line("You have successfully made a payment of $$this->amount USD to $this->user for his investment plan ($this->package).")
                     ->action('View Pending Payouts for Users', url('https://app.giftclubglobal.com/admin'))
                     ->line('Thank you!');
     }

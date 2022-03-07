@@ -46,11 +46,11 @@ task('notify', function(){
     
     //SEND SMS
 
-    // $destination="233244558822"; 
-    // $message="Dear Asare, app deployment completed successfully for app.giftclubglobal.com. Thank you."; 
-    // $sender=get('INFOBIP_SENDER');
-    // $authorization=get('INFOBIP_AUTHORIZATION');
-    // $response= SMSnotify($destination, $message, $sender, $authorization); 
+    $destination="233244558822"; 
+    $message="Dear Asare, app deployment completed successfully for app.giftclubglobal.com. Thank you."; 
+    $sender=get('INFOBIP_SENDER');
+    $authorization=get('INFOBIP_AUTHORIZATION');
+    $response= SMSnotify($destination, $message, $sender, $authorization); 
 
     $destination="233204179139"; 
     $message="Deployment was successful for app.giftclubglobal.com"; 
@@ -65,26 +65,6 @@ task('notify', function(){
     print_r($response);
 
     }); 
-
-
-
-// task('notify', function(){
-    
-//     SEND SMS
-//     $destination="233244558822"; 
-//     $message="Dear Asare, your app has been successfully deployed to app.giftclubglobal.com!"; 
-//     $response= SMSnotify($destination, $message); 
-
-//     $destination="233204179139"; 
-//     $message="Hello Johnson, a System Update has been successfully deployed to giftclubglobal.com."; 
-//     $response= SMSnotify($destination, $message); 
-
-//     write('Sending SMS Notification');
-    
-//     print_r($response);
-    
-//     }); 
-
 
 
 task('phprestart', function(){
