@@ -672,14 +672,11 @@ if (! function_exists('SMSnotify')){
     function activatePackages($user_id){
         $status='success'; 
         
-        
         $PendingPayments=PendingPayment::where('user_id', $user_id)->get(); 
-
-       
 
         foreach ($PendingPayments as $item) {
 
-            
+            $getPaymentID=$item->payment_id; 
 
             $payment_status=getPaymentStatus($item->payment_id);
             $payment_status=json_decode($payment_status);
@@ -697,7 +694,7 @@ if (! function_exists('SMSnotify')){
 
                 switch ($paystatus) {
                     case 'finished':
-                        
+                    
                         # code...
 
                         if(PendingPayment::where('transaction_id', $transaction_id)->exists())
@@ -717,7 +714,7 @@ if (! function_exists('SMSnotify')){
                         break;
 
                         case 'waiting':
-                       
+                           
                             # code...
                             
                             // if(PendingPayment::where('transaction_id', $transaction_id)->exists()){
@@ -737,10 +734,28 @@ if (! function_exists('SMSnotify')){
                             $status='success'; 
 
                             break;
-                    
+
+                        case'partially_paid':
+                                
+                            if($transaction_id==39) {
+                                
+                                if(PendingPayment::where('transaction_id', $transaction_id)->exists()){
+                                    
+                                    $delete=PendingPayment::where('transaction_id', $transaction_id)->delete();
+                                    
+                                    $store=new UserProduct; 
+                                    $store->timestamps=false;
+                                    $store->user_id=$user_id; 
+                                    $store->product_id=$product_id;
+                                    $store->save(); 
+
+                                    $status='success'; 
+                                }
+
+                            }
+
                     default:
                         # code...
-
                         $status='success';
 
                         break;
@@ -751,7 +766,8 @@ if (! function_exists('SMSnotify')){
 
                             // $paystatus=$payment_status->message; 
         
-                            // if($paystatus=='Payment not found'){
+                            // if($paystatus=='Payment not found' && $transaction_id==6){
+                            //     dd('Not Found oo '.$getPaymentID);
                             //     $store=new UserProduct; 
                             //     $store->timestamps=false;
                             //     $store->user_id=$user_id; 
@@ -779,7 +795,6 @@ if (! function_exists('SMSnotify')){
     return $status;
 }
 
-
-
     }
+
 }
