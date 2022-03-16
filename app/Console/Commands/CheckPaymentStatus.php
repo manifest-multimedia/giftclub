@@ -101,6 +101,27 @@ class CheckPaymentStatus extends Command
                                 
                                 $status='success'; 
                                 break;
+                                
+                            case'partially_paid':
+                            
+                                if($transaction_id==39) {
+                                    
+                                    if(PendingPayment::where('transaction_id', $transaction_id)->exists()){
+                                        
+                                        $delete=PendingPayment::where('transaction_id', $transaction_id)->delete();
+                                        
+                                        $store=new UserProduct; 
+                                        $store->timestamps=false;
+                                        $store->user_id=$user_id; 
+                                        $store->product_id=$product_id;
+                                        $store->save(); 
+    
+                                        $status='success'; 
+                                    }
+    
+                                }
+    
+                            break; 
                         
                         default:
                             # code...

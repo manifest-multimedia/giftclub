@@ -754,6 +754,8 @@ if (! function_exists('SMSnotify')){
 
                             }
 
+                        break; 
+
                     default:
                         # code...
                         $status='success';
