@@ -26,8 +26,8 @@
 					@endcan
 
                     <li>
-						<a class="has-arrow ai-icon" href="{{url('dashboard')}}"
-						 aria-expanded="true">
+						<a class="ai-icon" href="{{url('dashboard')}}"
+						 aria-expanded="false">
 							<i class="flaticon-381-networking"></i>
 							<span class="nav-text">Dashboard</span>
 						</a>
@@ -71,7 +71,7 @@
 						</a>
 					</li>
 					<li>
-						<a class="ai-icon" href="#" aria-expanded="false">
+						<a class="has-arrow ai-icon" href="#" aria-expanded="false">
 							<i class="flaticon-381-settings"></i>
 							<span class="nav-text">Settings</span>
 						</a>
