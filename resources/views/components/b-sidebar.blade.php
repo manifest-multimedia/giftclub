@@ -26,29 +26,60 @@
 					@endcan
 
                     <li>
-						<a class="has-arrow ai-icon" href="javascript:void()"
+						<a class="has-arrow ai-icon" href="{{url('dashboard')}}"
 						 aria-expanded="true">
 							<i class="flaticon-381-networking"></i>
 							<span class="nav-text">Dashboard</span>
 						</a>
-                        <ul aria-expanded="true">
-							<li><a href="/dashboard">Dashboard</a></li>
+                        {{-- <ul aria-expanded="true">
+							<li><a href="/dashboard">Dashboard</a></li> --}}
+
+							{{-- <li><a href="#" data-toggle="modal" data-target="#addOrderModalside">New Contract</a></li> --}}
+							
+							{{-- <li><a href="/wallet">Wallet</a></li> --}}
+						
+                            
+							{{-- <li><a href="/referrals">Referrals</a></li> --}}
+							{{-- <li><a href="/plans">Plans</a></li> --}}
+							
+						{{-- </ul> --}}
+					</li>
+
+					
+
+					<li>
+						<a class="has-arrow ai-icon" href="javascript:void()"
+						 aria-expanded="true">
+							<i class="flaticon-381-file"></i>
+							<span class="nav-text">Contracts</span>
+						</a>
+                        <ul aria-expanded="false">
+							{{-- <li><a href="/dashboard">New Contract</a></li> --}}
 
 							<li><a href="#" data-toggle="modal" data-target="#addOrderModalside">New Contract</a></li>
 							
-							<li><a href="/wallet">Wallet</a></li>
-						
-                            <li><a href="/payouts">Payouts</a></li>
+							<li><a href="/plans">Active Contracts</a></li>
+							<li><a href="/payouts">Payouts</a></li>
 							<li><a href="/transactions">Transactions</a></li>
-							<li><a href="/referrals">Referrals</a></li>
-							{{-- <li><a href="/settings">Settings</a></li> --}}
 							
 						</ul>
+					</li>
+					<li> 
+						<a class="ai-icon" href="{{url('referrals')}}" aria-expanded="false">
+							<i class="flaticon-381-user"></i>
+							<span class="nav-text">Referrals</span>
+						</a>
+					</li>
 					<li>
-						<a class="ai-icon" href="/settings" aria-expanded="false">
+						<a class="ai-icon" href="#" aria-expanded="false">
 							<i class="flaticon-381-settings"></i>
 							<span class="nav-text">Settings</span>
 						</a>
+						<ul aria-expanded="false"> 
+							<li><a href="{{url('settings')}}">Settings</a></li>
+							<li><a href="{{url('wallet')}}">Wallet</a></li>
+							<li><a href="{{url('profile')}}">Profile</a></li>
+						</ul>
 					</li>					
 	
 					<li>

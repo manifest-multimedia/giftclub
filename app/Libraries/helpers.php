@@ -14,6 +14,46 @@ use App\Models\Wallet;
 use Illuminate\Support\Facades\Hash;
 
 
+if(!function_exists('getProductDetails')){
+    
+    function getProductDetails($product_id, $type) 
+    {
+
+        switch ($type) {
+
+            case 'name':
+                $name=Product::find($product_id)->name; 
+                if($name) {
+                    return $name; 
+                }
+
+                break;
+            
+            case 'cost': 
+
+                $cost=Product::find($product_id)->cost; 
+                if($cost){
+                    return $cost; 
+                }
+
+                break;
+            
+            case 'description':
+
+                $description=Product::find($product_id)->description; 
+                if($description){
+                    return $description; 
+                }
+            
+            default:
+                # code...
+                break;
+        }
+
+        
+    }
+}
+
 if(!function_exists('getPayoutAmount')){
     function getPayoutAmount($product_id){
 

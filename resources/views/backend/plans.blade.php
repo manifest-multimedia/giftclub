@@ -1,5 +1,5 @@
 <x-backend-layout>
-    <x-slot name='title'> Active Plans </x-slot>
+    <x-slot name='title'> Active Contracts </x-slot>
 
    <div class="container-fluid">
                 
@@ -9,10 +9,10 @@
                 <div class="media align-items-center">
                     
                     <div class="media-body ml-1 align-items-center">
-                        <p class="mb-2 text-center text-white">Howdy, {{getFirstName(Auth::user()->name)}}!</p>
+                        <p class="mb-2 text-center text-white">Howdy, {{getFirstName(Auth::user()->name)}}! Here is an overview of your active investment plans.</p>
                         <h5 class="mb-0 text-white font-w600 text-center"> 
                             <span style="font-size:30px"> 
-                            Your Active Plans
+                            Active Contracts
                             </span>
                         </h5>
                     </div>
@@ -20,9 +20,10 @@
             </div>
         </div>
 
+        @livewire('active-plans')
+
     </div> 
 
-    
 
 </div>
 </x-backend-layout>
