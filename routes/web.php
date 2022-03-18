@@ -48,17 +48,12 @@ Route::middleware(['auth:sanctum', 'activateplans', 'verified' , 'referral'])->g
     Route::post('/authorize-withdrawal', [WithdrawalRequestController::class, 'WithdrawalRequest']);
     Route::get('payouts', function() { return view('backend.payouts');}); 
     Route::get('admin', AdminController::class); 
-    Route::get('/users', function(){ 
-        if (Gate::allows(['isAdmin'])) {
-        return view('backend.users');
-        } else {
-            abort(404);
-        }
 
-    });
+    Route::get('/users', [AdminController::class, 'users']);
 
     Route::post('/processwithdrawal/{id}', [SignedPaymentController::class, 'process_withdrawal']);
     Route::post('/process_payout/{id}', [SignedPaymentController::class, 'process_payout']);
     
+    Route::get('/plans', function(){ return view('backend.plans');});
 
 });

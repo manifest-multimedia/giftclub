@@ -15,8 +15,6 @@
                 <tbody>
                     <tr>
 
-                        
-
                         @foreach ($transactions as $item)
                       
                         <td>{{$item->created_at}}</td>

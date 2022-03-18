@@ -42,4 +42,14 @@ class AdminController extends Controller
         
             
     }
+
+    public function users(){
+        
+            if (Gate::allows(['isAdmin'])) {
+            return view('backend.users');
+            } else {
+                abort(404);
+            }
+    
+        }
 }
