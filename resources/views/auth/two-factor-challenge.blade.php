@@ -12,6 +12,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/logo.png')}}">
     <link href="{{asset('css/bstyle.css')}}" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <livewire:styles />
+
+    <script src="//unpkg.com/alpinejs" defer></script>
+
 </head>
 
 <body class="h-100">
@@ -79,3 +83,14 @@
             </form>
         </div>
 
+<!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="{{asset('vendor/global/global.min.js')}}"></script>
+    <script src="{{asset('js/custom.min.js')}}"></script>
+    <script src="{{asset('js/deznav-init.js')}}"></script>
+    <livewire:scripts />
+</body>
+
+</html>

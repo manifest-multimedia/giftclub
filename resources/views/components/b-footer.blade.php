@@ -163,7 +163,7 @@
 
 	@endif
 
-	@if(Route::is(['dashboard']))
+	@if(!Route::is(['dashboard']))
 	<!-- Dashboard 1 -->
 	<script src="{{asset('js/dashboard/dashboard-1.js')}}" defer></script>
 	@endif

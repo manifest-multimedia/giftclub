@@ -67,3 +67,12 @@
     </div>
 </form>
 </x-auth-layout>
+{{-- 
+fmrizTNMgo-8ScyJtd58K
+NGHHRcEJVA-Q54987SRfw
+6SITSh0aig-DLfMztN217
+GZASWGjBAP-sRvBxIuRph
+ghmvK8Day7-aV9GZ31LOy
+IFr67HXSxe-sp5qMiOAec
+hNI5hcLnos-6JELK8uBMw
+ZomHpS0PLc-ZHDJTdiMKm --}}
