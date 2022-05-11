@@ -355,7 +355,7 @@ if(!function_exists('referrals')){
                 $user_id=Auth::user()->id; 
 
                 try {
-                    $wallet=Wallet::find($user_id);
+                    $wallet=Wallet::where('user_id',$user_id)->first();
 
                     if($wallet->wallet_address)
                     {
@@ -374,18 +374,20 @@ if(!function_exists('referrals')){
                         return 'invalid'; 
 
                         break;
+
                     case 'valid':
-                        // dd($wallet->wallet_address);
+                      
                         if($wallet->wallet_address!='Auto Wallet Address Generation Failed'){
                             return $wallet; 
 
-                            // dd($wallet->address);
+                        
 
                         } else {
                             return 'invalid'; 
                         }
 
                         break; 
+                        
                     default:
                         
                         return 'invalid'; 

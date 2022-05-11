@@ -34,7 +34,7 @@ class WithdrawalRequestController extends Controller
             $email=Auth::user()->email;
             $name=getFirstName(Auth::user()->name);
             Notification::route('mail',  $email)->notify(new DeclinedWithdrawalRequestNotification($name, $reason));
-            return redirect('dashboard')->with('toast_error', 'You do not have a linked/valid wallet in your account!'); 
+            return redirect('dashboard')->with('toast_error', 'You do not have a linked/valid wallet in your account! '.$email); 
         }
 
         $earnings=referrals('earnings');
